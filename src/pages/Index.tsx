@@ -169,7 +169,7 @@ const Portfolio = () => {
             <div className="relative animate-slide-in-right">
               <div className="relative">
                 <img 
-                  src="https://iili.io/FgzMbHJ.jpg" 
+                  src="https://res.cloudinary.com/dwiodhkeg/image/upload/v1696648072/Golam-Faruk-3D-Machinery-Design-Engineer_kqnstd.webp" 
                   alt="Golam Faruk - Senior 3D Machinery Designer" 
                   className="relative z-10 w-full h-auto rounded-2xl shadow-2xl object-cover" 
                 />
