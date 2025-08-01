@@ -306,25 +306,25 @@ const Portfolio = () => {
                   period: '2019 – Present',
                   title: 'Design Engineer – John Deere',
                   description: 'Contributing to innovative 3D designs across a range of machinery.',
-                  logo: 'https://i0.wp.com/golamfaruk.com/wp-content/uploads/2023/09/deere-logo-agriculture.png'
+                  logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025406/rsz_john-deere-logo_1_hq5svg.png'
                 },
                 {
                   period: '2018 – 2019',
                   title: 'Design Engineer – Komatsu America Corp.',
                   description: 'Helped shape design strategies and machinery innovations.',
-                  logo: 'https://i0.wp.com/golamfaruk.com/wp-content/uploads/2023/10/Komatsu-America-Corp.png'
+                  logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_komatsu-logo_1_i6redl.png'
                 },
                 {
                   period: '2012 – 2013',
                   title: 'Project Engineer – Caterpillar Inc.',
                   description: 'Led engineering projects, driving technological advancements.',
-                  logo: 'https://i0.wp.com/golamfaruk.com/wp-content/uploads/2023/10/Caterpillar-Inc.png'
+                  logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png'
                 },
                 {
                   period: '2008 – 2012',
                   title: 'Design Engineer – Caterpillar Inc.',
                   description: 'Developed robust machinery design solutions.',
-                  logo: 'https://i0.wp.com/golamfaruk.com/wp-content/uploads/2023/10/Caterpillar-Inc.png'
+                  logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png'
                 }
               ].map((job, index) => (
                 <Card key={index} className="p-6 bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-in" style={{animationDelay: `${index * 0.1}s`}}>
@@ -357,12 +357,12 @@ const Portfolio = () => {
                 {
                   period: '2006 – 2009',
                   degree: 'MASc in Mechanical Engineering – University of Windsor',
-                  logo: 'https://iili.io/FgugwG9.png'
+                  logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png'
                 },
                 {
                   period: '2003 – 2006',
                   degree: 'BASc in Mechanical Engineering – University of Windsor',
-                  logo: 'https://iili.io/FgugwG9.png'
+                  logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png'
                 }
               ].map((edu, index) => (
                 <Card key={index} className="p-6 bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-in-right" style={{animationDelay: `${index * 0.1}s`}}>
@@ -522,32 +522,33 @@ const Portfolio = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: "Sarah Johnson",
-                position: "CEO, TechStart",
-                image: "https://images.unsplash.com/photo-1494790108755-2616b169a2a9?w=150&h=150&fit=crop&crop=face",
-                review: "EnglishPR.com helped us get featured on major news sites within 48 hours. The quality of writing was exceptional and the results exceeded our expectations.",
-                rating: 5,
-                videoThumbnail: "/lovable-uploads/d90ab59b-4658-4c47-875e-d79fa96e1f34.png",
-                videoUrl: "https://youtu.be/dQw4w9WgXcQ"
-              },
-              {
-                name: "Michael Chen",
-                position: "Founder, EcoSolutions",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-                review: "Professional service from start to finish. Our press release was published on Yahoo News and MarketWatch, bringing us incredible exposure.",
-                rating: 5,
-                videoThumbnail: "/lovable-uploads/d90ab59b-4658-4c47-875e-d79fa96e1f34.png",
-                videoUrl: "https://youtu.be/dQw4w9WgXcQ"
-              },
-              {
-                name: "Emily Rodriguez",
-                position: "Marketing Director, HealthPlus",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-                review: "The team at EnglishPR delivered exactly what they promised. Our story reached millions of readers and generated quality leads for our business.",
-                rating: 5,
-                videoThumbnail: "/lovable-uploads/d90ab59b-4658-4c47-875e-d79fa96e1f34.png",
-                videoUrl: "https://youtu.be/dQw4w9WgXcQ"
-              }
+                  name: "David McAllister",
+                  position: "Senior Product Manager, John Deere",
+                  image: "https://iili.io/FgRZ8ut.jpg", // Placeholder image, replace with real client photo if available
+                  review: "Working with Golam has been a game-changer for our engineering team. His precision in 3D modeling and deep understanding of machinery functionality helped us accelerate our product development pipeline significantly.",
+                  rating: 5,
+                  videoThumbnail: "https://iili.io/FgRZ8ut.jpg", // optional
+                  videoUrl: "https://youtu.be/dQw4w9WgXcQ"
+                },
+                {
+                  name: "Linda Carver",
+                  position: "R&D Lead Engineer, Komatsu America",
+                  image: "https://iili.io/FgRmNWX.webp",
+                  review: "Golam's design consultation brought fresh insights to our electric loader project. From initial sketches to final CAD drafts, every step reflected his passion and technical mastery.",
+                  rating: 5,
+                  videoThumbnail: "https://iili.io/FgRmNWX.webp",
+                  videoUrl: "https://youtu.be/dQw4w9WgXcQ"
+                },
+                {
+                  name: "Carlos Mendes",
+                  position: "Operations Director, BuildTech Machinery",
+                  image: "https://iili.io/Fg595Ol.jpg",
+                  review: "What sets Golam apart is his ability to turn complex machinery concepts into accurate and functional 3D models. His custom design solutions have made a real impact on our prototyping speed and investor demos.",
+                  rating: 5,
+                  videoThumbnail: "https://iili.io/Fg595Ol.jpg",
+                  videoUrl: "https://youtu.be/dQw4w9WgXcQ"
+                }
+
             ].map((testimonial, index) => (
               <Card key={index} className="p-6 bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-up" style={{animationDelay: `${index * 0.1}s`}}>
                 <div className="flex items-center gap-4 mb-4">
@@ -611,17 +612,17 @@ const Portfolio = () => {
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Trusted by Industry Leaders</h2>
           <div className="flex flex-wrap justify-center items-center gap-12">
             <img 
-              src="https://i0.wp.com/golamfaruk.com/wp-content/uploads/2023/09/deere-logo-agriculture.png" 
+              src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025406/rsz_john-deere-logo_1_hq5svg.png" 
               alt="John Deere" 
               className="h-12 hover:scale-110 transition-all duration-300"
             />
             <img 
-              src="https://i0.wp.com/golamfaruk.com/wp-content/uploads/2023/10/Komatsu-America-Corp.png" 
+              src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_komatsu-logo_1_i6redl.png" 
               alt="Komatsu America Corp" 
               className="h-12 hover:scale-110 transition-all duration-300"
             />
             <img 
-              src="https://i0.wp.com/golamfaruk.com/wp-content/uploads/2023/10/Caterpillar-Inc.png" 
+              src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png" 
               alt="Caterpillar Inc" 
               className="h-12 hover:scale-110 transition-all duration-300"
             />
@@ -641,7 +642,7 @@ const Portfolio = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="bg-white border-gray-200 animate-slide-in">
+            <Card className="bg-[#E8EAF6] border border-gray-200 rounded-xl shadow-lg animate-slide-in">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 text-gray-900">Send a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
