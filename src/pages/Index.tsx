@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -124,7 +123,7 @@ const Portfolio = () => {
         )}
       </nav>
 
-      {/* Hero Section - Redesigned */}
+      {/* Hero Section - 100vh */}
       <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -184,9 +183,9 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* About Section - 100vh */}
+      <section id="about" className="min-h-screen flex items-center bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">About Me</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -236,9 +235,12 @@ const Portfolio = () => {
                     </div>
                   </div>
                   <div className="pt-4 border-t border-gray-200">
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed mb-4">
                       Passionate about transforming complex engineering concepts into innovative 3D designs. 
                       Specialized in creating precision machinery models that bridge the gap between concept and reality.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed">
+                      My expertise spans across AutoCAD, SketchUp, Solid Edge, and technical drafting, enabling me to deliver comprehensive design solutions from initial concept through to production-ready models.
                     </p>
                   </div>
                 </div>
@@ -281,9 +283,9 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Experience Section - 100vh */}
+      <section id="experience" className="min-h-screen flex items-center bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">My Experience</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -328,7 +330,7 @@ const Portfolio = () => {
                 <Card key={index} className="p-6 bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-in" style={{animationDelay: `${index * 0.1}s`}}>
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4">
-                      <img src={job.logo} alt="Company Logo" className="w-16 h-16 object-contain" />
+                      <img src={job.logo} alt="Company Logo" className="w-20 h-20 object-contain" />
                       <Badge className="bg-blue-100 text-blue-600 hover:bg-blue-200">
                         {job.period}
                       </Badge>
@@ -366,7 +368,7 @@ const Portfolio = () => {
                 <Card key={index} className="p-6 bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-in-right" style={{animationDelay: `${index * 0.1}s`}}>
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4">
-                      <img src={edu.logo} alt="University Logo" className="w-12 h-12 object-contain" />
+                      <img src={edu.logo} alt="University Logo" className="w-20 h-20 object-contain" />
                       <Badge className="bg-green-100 text-gray-900 hover:bg-green-200">
                         {edu.period}
                       </Badge>
@@ -627,9 +629,9 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Contact Section - 100vh */}
+      <section id="contact" className="min-h-screen flex items-center bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Connect</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -639,9 +641,9 @@ const Portfolio = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="bg-white/10 backdrop-blur-sm border-gray-700 animate-slide-in">
+            <Card className="bg-white border-gray-200 animate-slide-in">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900">Send a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <Input 
                     name="fullName"
@@ -649,14 +651,14 @@ const Portfolio = () => {
                     onChange={handleInputChange}
                     placeholder="Full Name *" 
                     required
-                    className="bg-white/5 border-gray-600 text-white placeholder-gray-300" 
+                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500" 
                   />
                   <Input 
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
                     placeholder="Company" 
-                    className="bg-white/5 border-gray-600 text-white placeholder-gray-300" 
+                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500" 
                   />
                   <Input 
                     name="email"
@@ -665,7 +667,7 @@ const Portfolio = () => {
                     type="email" 
                     placeholder="Email Address *" 
                     required
-                    className="bg-white/5 border-gray-600 text-white placeholder-gray-300" 
+                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500" 
                   />
                   <Input 
                     name="phone"
@@ -673,7 +675,7 @@ const Portfolio = () => {
                     onChange={handleInputChange}
                     type="tel" 
                     placeholder="Phone Number" 
-                    className="bg-white/5 border-gray-600 text-white placeholder-gray-300" 
+                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500" 
                   />
                   <Textarea 
                     name="message"
@@ -682,7 +684,7 @@ const Portfolio = () => {
                     placeholder="Tell me about your project..." 
                     rows={6} 
                     required
-                    className="bg-white/5 border-gray-600 text-white placeholder-gray-300" 
+                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500" 
                   />
                   <Button 
                     type="submit"
@@ -699,31 +701,31 @@ const Portfolio = () => {
             <div className="space-y-8 animate-slide-in-right">
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
               
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div className="flex items-start space-x-4">
                   <Mail className="w-6 h-6 text-blue-400 mt-1" />
                   <div>
-                    <div className="font-semibold text-lg">Email</div>
-                    <div className="text-gray-300">hello@golamfaruk.com</div>
-                    <div className="text-sm text-gray-400 mt-1">Professional inquiries and project discussions</div>
+                    <div className="font-semibold text-lg mb-1">Email</div>
+                    <div className="text-gray-300 text-lg mb-2">hello@golamfaruk.com</div>
+                    <div className="text-sm text-gray-400">Professional inquiries and project discussions. I typically respond within 24 hours.</div>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
                   <Phone className="w-6 h-6 text-blue-400 mt-1" />
                   <div>
-                    <div className="font-semibold text-lg">Phone</div>
-                    <div className="text-gray-300">+1 022 444 55 55</div>
-                    <div className="text-sm text-gray-400 mt-1">Available Mon-Fri, 9AM-6PM CST</div>
+                    <div className="font-semibold text-lg mb-1">Phone</div>
+                    <div className="text-gray-300 text-lg mb-2">+1 022 444 55 55</div>
+                    <div className="text-sm text-gray-400">Available Mon-Fri, 9AM-6PM CST. For urgent project consultations and direct communication.</div>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
                   <MapPin className="w-6 h-6 text-blue-400 mt-1" />
                   <div>
-                    <div className="font-semibold text-lg">Address</div>
-                    <div className="text-gray-300">123 Cinnamon Lane<br />Waterloo, Iowa</div>
-                    <div className="text-sm text-gray-400 mt-1">Open to remote collaboration worldwide</div>
+                    <div className="font-semibold text-lg mb-1">Address</div>
+                    <div className="text-gray-300 text-lg mb-2">123 Cinnamon Lane<br />Waterloo, Iowa</div>
+                    <div className="text-sm text-gray-400">Open to remote collaboration worldwide. Local meetings available for major projects.</div>
                   </div>
                 </div>
               </div>
@@ -732,14 +734,14 @@ const Portfolio = () => {
                 <h4 className="font-semibold text-lg mb-4">Follow Me</h4>
                 <div className="flex space-x-4">
                   <Button 
-                    className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
+                    className="bg-[#0077B5] hover:bg-[#005885] text-white transition-all duration-300"
                     onClick={() => window.open('https://linkedin.com', '_blank')}
                   >
                     <Linkedin className="w-5 h-5 mr-2" />
                     LinkedIn
                   </Button>
                   <Button 
-                    className="bg-blue-800 hover:bg-blue-900 text-white transition-all duration-300"
+                    className="bg-[#1877F2] hover:bg-[#166FE5] text-white transition-all duration-300"
                     onClick={() => window.open('https://facebook.com', '_blank')}
                   >
                     <Facebook className="w-5 h-5 mr-2" />
