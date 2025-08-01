@@ -168,7 +168,7 @@ const Portfolio = () => {
             <div className="relative">
               <div className="relative">
                 <img 
-                  src="https://res.cloudinary.com/dwiodhkeg/image/upload/v1696648072/Golam-Faruk-3D-Machinery-Design-Engineer_kqnstd.webp" 
+                  src="/golam-faruk.png" 
                   alt="Golam Faruk - Senior 3D Machinery Designer" 
                   className="relative z-10 w-full h-auto rounded-2xl object-cover"/>
                 <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 shadow-xl border border-[#e5e7eb]">
