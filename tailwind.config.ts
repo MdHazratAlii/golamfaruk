@@ -66,15 +66,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				emerald: {
-					50: '#ecfdf5',
-					500: '#10b981',
-					600: '#059669',
-				},
-				blue: {
-					500: '#3b82f6',
-					600: '#2563eb',
-				}
+				// Golam Faruk Color Palette
+				'charcoal': '#1E1E1E',
+				'silver': '#C4C4C4',
+				'electric-blue': '#007CFF',
+				'light-ash': '#F4F4F4',
+				'pure-white': '#FFFFFF',
+				'neon-lime': '#4CFF00',
+				'soft-gray': '#777777'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -128,6 +127,26 @@ export default {
 						transform: 'translateX(0)'
 					}
 				},
+				'slide-in-right': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateX(30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'scale-up': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.9)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1)'
+					}
+				},
 				'typewriter': {
 					'0%': { width: '0' },
 					'100%': { width: '100%' }
@@ -137,6 +156,14 @@ export default {
 					'10%': { opacity: '1' },
 					'90%': { opacity: '1' },
 					'100%': { opacity: '0' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-20px)' }
+				},
+				'rotate-3d': {
+					'0%': { transform: 'rotateY(0deg)' },
+					'100%': { transform: 'rotateY(360deg)' }
 				}
 			},
 			animation: {
@@ -145,12 +172,18 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'fade-up': 'fade-up 0.8s ease-out',
 				'slide-in': 'slide-in 0.6s ease-out',
+				'slide-in-right': 'slide-in-right 0.6s ease-out',
+				'scale-up': 'scale-up 0.5s ease-out',
 				'typewriter': 'typewriter 2s steps(40, end)',
-				'text-fade': 'text-fade 3s ease-in-out infinite'
+				'text-fade': 'text-fade 3s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'rotate-3d': 'rotate-3d 10s linear infinite'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'grid-pattern': 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+				'hero-gradient': 'linear-gradient(135deg, #F4F4F4 0%, #E0E0E0 100%)',
+				'card-gradient': 'linear-gradient(135deg, #FFFFFF 0%, #F8F8F8 100%)'
 			}
 		}
 	},
