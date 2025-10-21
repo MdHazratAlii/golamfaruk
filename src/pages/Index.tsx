@@ -330,7 +330,7 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
               title: 'Engineer Design',
               company: 'Arctic Cat (Thief River Falls, MN, USA)',
               description: 'Designed and developed ATV engine components such as cylinders, pistons, connecting rods, oil pans, and PTO covers. Supported prototype builds, validation testing, and cost optimization.',
-              logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_komatsu-logo_1_i6redl.png'
+              logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1761054561/articcat.png'
             }, {
               period: '2012 – 2013',
               title: 'Project Engineer',
@@ -627,7 +627,7 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Trusted by Industry Leaders</h2>
           <div className="flex flex-wrap justify-center items-center gap-12">
             <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025406/rsz_john-deere-logo_1_hq5svg.png" alt="John Deere" className="h-12 hover:scale-110 transition-all duration-300" />
-            <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_komatsu-logo_1_i6redl.png" alt="Komatsu America Corp" className="h-12 hover:scale-110 transition-all duration-300" />
+            <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1761054561/articcat.png" alt="Komatsu America Corp" className="h-12 hover:scale-110 transition-all duration-300" />
             <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png" alt="Caterpillar Inc" className="h-12 hover:scale-110 transition-all duration-300" />
           </div>
         </div>
