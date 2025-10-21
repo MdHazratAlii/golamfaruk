@@ -131,8 +131,8 @@ const Portfolio = () => {
                 <h2 className="text-2xl font-medium text-[#4b5563] md:text-xl">Mechanical & 3D Design Engineer</h2>
               </div>
               
-              <p className="text-lg text-[#4b5563] leading-relaxed max-w-lg font-normal md:text-base">With over a decade of hands-on experience in Solid Modeling, Sheet Metal, Casting, and Engine Component Design, I specialize in creating precision-driven CAD solutions using Creo, SolidWorks, CATIA V5, and NX.
-Currently contributing to advanced diesel engine and air system designs at John Deere Power Systems (Iowa, USA) — turning complex engineering ideas into reliable mechanical solutions.</p>
+              <p className="text-lg text-[#4b5563] leading-relaxed max-w-lg font-normal md:text-base">Over 10 years of experience in 3D Mechanical Design, specializing in Solid Modeling, Sheet Metal, and Engine Components using Creo, SolidWorks, CATIA, and NX.
+Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA).</p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
                 <Button onClick={() => scrollToSection('projects')} className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white px-8 py-6 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300">
