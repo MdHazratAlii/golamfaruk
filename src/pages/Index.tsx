@@ -5,8 +5,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin, Linkedin, Facebook, ChevronRight, Menu, X, Play, FileText, Building, Calendar, GraduationCap, Award, CheckCircle, Clock, Users, Box, Wrench, Database, Target, User, Briefcase } from 'lucide-react';
+import { Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin, Linkedin, Facebook, ChevronRight, Menu, X, Play, FileText, Building, Calendar, GraduationCap, Award, CheckCircle, Clock, Users, Box, Wrench, Database, Target, User, Briefcase, Package, Cog } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import exhaustManifold from "@/assets/exhaust-manifold.jpg";
+import cylinderPiston from "@/assets/cylinder-piston.jpg";
+import sheetMetalBracket from "@/assets/sheet-metal-bracket.jpg";
+import tubesHoses from "@/assets/tubes-hoses.jpg";
+import controlPanelBox from "@/assets/control-panel-box.jpg";
+import coolingSystem from "@/assets/cooling-system.jpg";
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -88,7 +94,7 @@ const Portfolio = () => {
             <div className="hidden md:flex space-x-8">
               <button onClick={() => scrollToSection('home')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">Home</button>
               <button onClick={() => scrollToSection('about')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">About</button>
-              <button onClick={() => scrollToSection('experience')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">WebSite Under Development</button>
+              <button onClick={() => scrollToSection('experience')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">Experience</button>
               <button onClick={() => scrollToSection('services')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">Services</button>
               <button onClick={() => scrollToSection('projects')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">Projects</button>
               <button onClick={() => scrollToSection('contact')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">Contact</button>
@@ -148,7 +154,7 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
             {/* Hero Image */}
             <div className="relative">
               <div className="relative">
-              <img src="/golam-faruk.png" alt="Golam Faruk - Senior 3D Machinery Designer" className="relative z-10 max-w-[90%] h-auto rounded-2xl object-cover mx-auto" />
+<img src="/golam-faruk.png" alt="Golam Faruk - Senior 3D Machinery Designer" className="relative z-10 max-w-[90%] h-auto rounded-2xl object-cover mx-auto" />
                 <div className="absolute -bottom-6 -right-6 z-[999] bg-white rounded-2xl p-4 shadow-xl border border-[#e5e7eb]">
                   <div className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
@@ -191,9 +197,7 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
               <p className="text-xs text-[#4b5563]">In Mechanical Design Engineering</p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{
-            animationDelay: '0.1s'
-          }}>
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
                 <FileText className="w-6 h-6 text-[#2563eb]" />
               </div>
@@ -202,9 +206,7 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
               <p className="text-xs text-[#4b5563]">Complex mechanical & engine component designs</p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{
-            animationDelay: '0.2s'
-          }}>
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
                 <Users className="w-6 h-6 text-[#2563eb]" />
               </div>
@@ -213,9 +215,7 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
               <p className="text-xs text-[#4b5563]">With John Deere, Caterpillar & Arctic Cat</p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{
-            animationDelay: '0.3s'
-          }}>
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
                 <Box className="w-6 h-6 text-[#2563eb]" />
               </div>
@@ -238,9 +238,11 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
                   <h4 className="text-lg font-bold text-[#111827]">Design Tools</h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['Creo', 'SolidWorks', 'CATIA V5', 'NX', 'AutoCAD', 'Autodesk Inventor'].map(skill => <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
+                  {['Creo', 'SolidWorks', 'CATIA V5', 'NX', 'AutoCAD', 'Autodesk Inventor'].map((skill) => (
+                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
                       {skill}
-                    </span>)}
+                    </span>
+                  ))}
                 </div>
               </div>
 
@@ -253,9 +255,11 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
                   <h4 className="text-lg font-bold text-[#111827]">Engineering Expertise</h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['GD&T', 'Tolerance Stack-Up', 'FEA Review', 'FMEA', 'DFMEA', 'BOM Creation', 'Design Validation'].map(skill => <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
+                  {['GD&T', 'Tolerance Stack-Up', 'FEA Review', 'FMEA', 'DFMEA', 'BOM Creation', 'Design Validation'].map((skill) => (
+                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
                       {skill}
-                    </span>)}
+                    </span>
+                  ))}
                 </div>
               </div>
 
@@ -268,9 +272,11 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
                   <h4 className="text-lg font-bold text-[#111827]">Data & Systems</h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['SAP', 'Windchill', 'PDM-Link', 'Teamcenter', 'Minitab', 'Excel', 'PowerPoint'].map(skill => <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
+                  {['SAP', 'Windchill', 'PDM-Link', 'Teamcenter', 'Minitab', 'Excel', 'PowerPoint'].map((skill) => (
+                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
                       {skill}
-                    </span>)}
+                    </span>
+                  ))}
                 </div>
               </div>
 
@@ -283,9 +289,11 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
                   <h4 className="text-lg font-bold text-[#111827]">Professional Strengths</h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['Product Optimization', 'Cross-Functional Collaboration', 'Root Cause Analysis', 'Prototype Development'].map(skill => <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
+                  {['Product Optimization', 'Cross-Functional Collaboration', 'Root Cause Analysis', 'Prototype Development'].map((skill) => (
+                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
                       {skill}
-                    </span>)}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -313,25 +321,29 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[{
               period: '2019 – Present',
-              title: 'Design Engineer – John Deere',
-              description: 'Contributing to innovative 3D designs across a range of machinery.',
+              title: 'Design Engineer',
+              company: 'US Tech Solutions (Client: John Deere Power Systems, Iowa, USA)',
+              description: 'Lead design and development of casting, sheet metal, and engine components including tubes, hoses, manifolds, and filters for diesel engines. Conduct design reviews, GD&T validation, and root cause analysis (8D) while collaborating with global teams for cost and complexity improvements.',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025406/rsz_john-deere-logo_1_hq5svg.png'
             }, {
-              period: '2018 – 2019',
-              title: 'Design Engineer – Komatsu America Corp.',
-              description: 'Helped shape design strategies and machinery innovations.',
-              logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_komatsu-logo_1_i6redl.png'
+              period: '2014 – 2019',
+              title: 'Engineer Design',
+              company: 'Arctic Cat (Thief River Falls, MN, USA)',
+              description: 'Designed and developed ATV engine components such as cylinders, pistons, connecting rods, oil pans, and PTO covers. Supported prototype builds, validation testing, and cost optimization.',
+              logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1761054561/articcat.png'
             }, {
               period: '2012 – 2013',
-              title: 'Project Engineer – Caterpillar Inc.',
-              description: 'Led engineering projects, driving technological advancements.',
+              title: 'Project Engineer',
+              company: 'Belcan Engineering Group (Client: Caterpillar, Lafayette, IN)',
+              description: 'Led multiple projects for marine and locomotive engines under the NPI program. Designed fuel and oil system components, performed FEA and DFMEA, and managed supplier validation documentation (APQP, PPAP).',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png'
             }, {
               period: '2008 – 2012',
-              title: 'Design Engineer – Caterpillar Inc.',
-              description: 'Developed robust machinery design solutions.',
+              title: 'Design Engineer',
+              company: 'Geometric Americas Inc. (Client: Caterpillar, Mossville, IL)',
+              description: 'Developed Tier 4 Exhaust Module and Cab components, including SCR and DPF assemblies. Coordinated validation testing and design releases via Teamcenter.',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png'
-            }].map((job, index) => <Card key={index} className="p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300">
+            }].map((job, index) => <Card key={index} className="p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4">
                       <img src={job.logo} alt="Company Logo" className="w-40 h-20 object-contain" />
@@ -340,8 +352,9 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
                       </Badge>
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-[#111827] mb-2">{job.title}</h4>
-                      <p className="text-[#4b5563]">{job.description}</p>
+                      <h4 className="text-lg font-bold text-[#111827] mb-1">{job.title}</h4>
+                      <p className="text-sm font-semibold text-[#2563eb] mb-3">{job.company}</p>
+                      <p className="text-[#4b5563] text-sm leading-relaxed">{job.description}</p>
                     </div>
                   </div>
                 </Card>)}
@@ -357,22 +370,30 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[{
-              period: '2006 – 2009',
-              degree: 'MASc in Mechanical Engineering – University of Windsor',
+              period: '2009',
+              degree: 'Master of Applied Science',
+              field: 'Mechanical Engineering',
+              institution: 'University of Windsor, Canada',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png'
             }, {
-              period: '2003 – 2006',
-              degree: 'BASc in Mechanical Engineering – University of Windsor',
+              period: '2006',
+              degree: 'Bachelor of Applied Science',
+              field: 'Mechanical Engineering',
+              institution: 'University of Windsor, Canada',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png'
-            }].map((edu, index) => <Card key={index} className="p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300">
+            }].map((edu, index) => <Card key={index} className="p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4">
                       <img src={edu.logo} alt="University Logo" className="w-40 h-20 object-contain" />
-                      <Badge className="bg-green-100 text-[#111827] hover:bg-green-200">
+                      <Badge className="bg-[#dcfce7] text-[#166534] hover:bg-[#bbf7d0]">
                         {edu.period}
                       </Badge>
                     </div>
-                    <h4 className="text-lg font-bold text-[#111827]">{edu.degree}</h4>
+                    <div>
+                      <h4 className="text-lg font-bold text-[#111827] mb-1">{edu.degree}</h4>
+                      <p className="text-sm font-semibold text-[#2563eb] mb-1">{edu.field}</p>
+                      <p className="text-sm text-[#4b5563]">{edu.institution}</p>
+                    </div>
                   </div>
                 </Card>)}
             </div>
@@ -430,65 +451,96 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Components Expertise Section */}
       <section id="projects" className="py-20 bg-[#f9fafb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Recent Projects</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A showcase of innovative machinery designs and successful project implementations
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#111827]">Components Expertise</h2>
+            <p className="text-xl text-[#4b5563] max-w-3xl mx-auto">
+              Highlighting Precision-Driven Designs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[{
-            title: "Autonomous Harvester Design",
-            image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop",
-            category: "Agriculture",
-            description: "Next-generation automated harvesting system with AI-powered navigation and crop recognition."
-          }, {
-            title: "Hydraulic Excavator Redesign",
-            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
-            category: "Construction",
-            description: "Enhanced hydraulic system design for improved efficiency and reduced environmental impact."
-          }, {
-            title: "Smart Tractor Cockpit Interface",
-            image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=600&h=400&fit=crop",
-            category: "Agriculture",
-            description: "Ergonomic cockpit design with integrated digital displays and intuitive control systems."
-          }, {
-            title: "Electric Mini Loader Concept",
-            image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
-            category: "Industrial",
-            description: "Compact electric loader design optimized for urban construction and material handling."
-          }, {
-            title: "Forklift Visualization & Animation",
-            image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop",
-            category: "Logistics",
-            description: "Comprehensive 3D visualization and operational animation for warehouse equipment."
-          }, {
-            title: "Heavy Duty Crane 3D Printing Prototype",
-            image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop",
-            category: "Construction",
-            description: "Detailed prototype modeling for large-scale crane components and assembly validation."
-          }].map((project, index) => <Card key={index} className="group hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden bg-white shadow-lg animate-scale-up" style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+              title: "Exhaust Manifold",
+              image: exhaustManifold,
+              description: "Designed complex manifold geometry for diesel engines with optimized gas flow paths and thermal management. Implemented GD&T standards for critical mounting interfaces and validated thermal stress through FEA.",
+              material: "Ductile Iron",
+              process: "Sand Casting"
+            }, {
+              title: "Cylinder & Piston Assembly",
+              image: cylinderPiston,
+              description: "Created detailed models and GD&T-compliant drawings for high-performance engine assemblies. Conducted tolerance stack-up analysis to ensure proper clearances and optimal combustion efficiency.",
+              material: "Aluminum Alloy",
+              process: "Die Casting"
+            }, {
+              title: "Sheet Metal Bracket",
+              image: sheetMetalBracket,
+              description: "Engine mounting and structural support design with cost-optimized bend sequences. Applied DFMEA methodology to minimize manufacturing complexity while maintaining structural integrity.",
+              material: "Steel",
+              process: "Stamping"
+            }, {
+              title: "Tubes & Hoses",
+              image: tubesHoses,
+              description: "Designed and routed engine fluid lines for fuel, oil, and coolant systems. Optimized routing to avoid interference with moving parts and thermal sources while minimizing pressure drops.",
+              material: "Steel & Rubber",
+              process: "Tube Bending"
+            }, {
+              title: "Control Panel Box",
+              image: controlPanelBox,
+              description: "Designed housings for control and sensor components with IP-rated sealing. Integrated mounting provisions for electronic modules with thermal management and EMI shielding considerations.",
+              material: "Aluminum",
+              process: "CNC Machining"
+            }, {
+              title: "Cooling System Components",
+              image: coolingSystem,
+              description: "Modeled and optimized airflow parts using Creo including radiator shrouds and fan assemblies. Performed CFD analysis review to maximize cooling efficiency and minimize noise levels.",
+              material: "Plastic Composite",
+              process: "Injection Molding"
+            }].map((component, index) => (
+              <Card 
+                key={index} 
+                className="group hover:shadow-xl transition-all duration-300 border border-[#e5e7eb] overflow-hidden bg-white shadow-lg animate-fade-in" 
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <div className="relative overflow-hidden">
-                  <img src={project.image} alt={project.title} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-blue-600 hover:bg-blue-700 text-white">
-                      {project.category}
-                    </Badge>
-                  </div>
+                  <img 
+                    src={component.image} 
+                    alt={component.title} 
+                    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors text-gray-900">
-                    {project.title}
+                  <h3 className="text-xl font-bold mb-3 text-[#111827] group-hover:text-[#2563eb] transition-colors">
+                    {component.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{project.description}</p>
+                  <p className="text-[#4b5563] leading-relaxed mb-4 text-sm">
+                    {component.description}
+                  </p>
+                  <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-[#e5e7eb]">
+                    <div className="flex items-center gap-2 text-xs">
+                      <div className="flex items-center justify-center w-8 h-8 bg-[#eff6ff] rounded-lg">
+                        <Package className="w-4 h-4 text-[#2563eb]" />
+                      </div>
+                      <div>
+                        <p className="text-[#6b7280] font-medium">Material</p>
+                        <p className="text-[#111827] font-semibold">{component.material}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs">
+                      <div className="flex items-center justify-center w-8 h-8 bg-[#eff6ff] rounded-lg">
+                        <Cog className="w-4 h-4 text-[#2563eb]" />
+                      </div>
+                      <div>
+                        <p className="text-[#6b7280] font-medium">Process</p>
+                        <p className="text-[#111827] font-semibold">{component.process}</p>
+                      </div>
+                    </div>
+                  </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -575,7 +627,7 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Trusted by Industry Leaders</h2>
           <div className="flex flex-wrap justify-center items-center gap-12">
             <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025406/rsz_john-deere-logo_1_hq5svg.png" alt="John Deere" className="h-12 hover:scale-110 transition-all duration-300" />
-            <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_komatsu-logo_1_i6redl.png" alt="Komatsu America Corp" className="h-12 hover:scale-110 transition-all duration-300" />
+            <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1761054561/articcat.png" alt="Komatsu America Corp" className="h-12 hover:scale-110 transition-all duration-300" />
             <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png" alt="Caterpillar Inc" className="h-12 hover:scale-110 transition-all duration-300" />
           </div>
         </div>
