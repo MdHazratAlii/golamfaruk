@@ -124,7 +124,7 @@ const Portfolio = () => {
                 <div className="inline-block bg-[#eff6ff] px-6 py-3 rounded-full">
                   <span className="text-[#2563eb] font-semibold text-xs">SENIOR 3D MACHINERY DESIGNER</span>
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-[#111827] lg:text-4xl">
+                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-[#111827] lg:text-5xl">
                   Hi, I'm <br />
                   <span className="text-[#2563eb]">Golam Faruk</span>
                 </h1>
