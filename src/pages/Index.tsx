@@ -148,7 +148,7 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
             {/* Hero Image */}
             <div className="relative">
               <div className="relative">
-                <img src="/golam-faruk.png" alt="Golam Faruk - Senior 3D Machinery Designer" className="relative z-10 w-full h-auto rounded-2xl object-cover" />
+<img src="/golam-faruk.png" alt="Golam Faruk - Senior 3D Machinery Designer" className="relative z-10 max-w-[90%] h-auto rounded-2xl object-cover mx-auto" />
                 <div className="absolute -bottom-6 -right-6 z-[999] bg-white rounded-2xl p-4 shadow-xl border border-[#e5e7eb]">
                   <div className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
