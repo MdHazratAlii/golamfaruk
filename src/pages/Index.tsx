@@ -5,8 +5,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin, Linkedin, Facebook, ChevronRight, Menu, X, Play, FileText, Building, Calendar, GraduationCap, Award, CheckCircle, Clock, Users, Box, Wrench, Database, Target, User, Briefcase } from 'lucide-react';
+import { Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin, Linkedin, Facebook, ChevronRight, Menu, X, Play, FileText, Building, Calendar, GraduationCap, Award, CheckCircle, Clock, Users, Box, Wrench, Database, Target, User, Briefcase, Package, Cog } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import exhaustManifold from "@/assets/exhaust-manifold.jpg";
+import cylinderPiston from "@/assets/cylinder-piston.jpg";
+import sheetMetalBracket from "@/assets/sheet-metal-bracket.jpg";
+import tubesHoses from "@/assets/tubes-hoses.jpg";
+import controlPanelBox from "@/assets/control-panel-box.jpg";
+import coolingSystem from "@/assets/cooling-system.jpg";
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -445,65 +451,96 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Components Expertise Section */}
       <section id="projects" className="py-20 bg-[#f9fafb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Recent Projects</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A showcase of innovative machinery designs and successful project implementations
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#111827]">Components Expertise</h2>
+            <p className="text-xl text-[#4b5563] max-w-3xl mx-auto">
+              Highlighting Precision-Driven Designs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[{
-            title: "Autonomous Harvester Design",
-            image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop",
-            category: "Agriculture",
-            description: "Next-generation automated harvesting system with AI-powered navigation and crop recognition."
-          }, {
-            title: "Hydraulic Excavator Redesign",
-            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
-            category: "Construction",
-            description: "Enhanced hydraulic system design for improved efficiency and reduced environmental impact."
-          }, {
-            title: "Smart Tractor Cockpit Interface",
-            image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=600&h=400&fit=crop",
-            category: "Agriculture",
-            description: "Ergonomic cockpit design with integrated digital displays and intuitive control systems."
-          }, {
-            title: "Electric Mini Loader Concept",
-            image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
-            category: "Industrial",
-            description: "Compact electric loader design optimized for urban construction and material handling."
-          }, {
-            title: "Forklift Visualization & Animation",
-            image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop",
-            category: "Logistics",
-            description: "Comprehensive 3D visualization and operational animation for warehouse equipment."
-          }, {
-            title: "Heavy Duty Crane 3D Printing Prototype",
-            image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop",
-            category: "Construction",
-            description: "Detailed prototype modeling for large-scale crane components and assembly validation."
-          }].map((project, index) => <Card key={index} className="group hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden bg-white shadow-lg animate-scale-up" style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+              title: "Exhaust Manifold",
+              image: exhaustManifold,
+              description: "Designed complex manifold geometry for diesel engines with optimized gas flow paths and thermal management. Implemented GD&T standards for critical mounting interfaces and validated thermal stress through FEA.",
+              material: "Ductile Iron",
+              process: "Sand Casting"
+            }, {
+              title: "Cylinder & Piston Assembly",
+              image: cylinderPiston,
+              description: "Created detailed models and GD&T-compliant drawings for high-performance engine assemblies. Conducted tolerance stack-up analysis to ensure proper clearances and optimal combustion efficiency.",
+              material: "Aluminum Alloy",
+              process: "Die Casting"
+            }, {
+              title: "Sheet Metal Bracket",
+              image: sheetMetalBracket,
+              description: "Engine mounting and structural support design with cost-optimized bend sequences. Applied DFMEA methodology to minimize manufacturing complexity while maintaining structural integrity.",
+              material: "Steel",
+              process: "Stamping"
+            }, {
+              title: "Tubes & Hoses",
+              image: tubesHoses,
+              description: "Designed and routed engine fluid lines for fuel, oil, and coolant systems. Optimized routing to avoid interference with moving parts and thermal sources while minimizing pressure drops.",
+              material: "Steel & Rubber",
+              process: "Tube Bending"
+            }, {
+              title: "Control Panel Box",
+              image: controlPanelBox,
+              description: "Designed housings for control and sensor components with IP-rated sealing. Integrated mounting provisions for electronic modules with thermal management and EMI shielding considerations.",
+              material: "Aluminum",
+              process: "CNC Machining"
+            }, {
+              title: "Cooling System Components",
+              image: coolingSystem,
+              description: "Modeled and optimized airflow parts using Creo including radiator shrouds and fan assemblies. Performed CFD analysis review to maximize cooling efficiency and minimize noise levels.",
+              material: "Plastic Composite",
+              process: "Injection Molding"
+            }].map((component, index) => (
+              <Card 
+                key={index} 
+                className="group hover:shadow-xl transition-all duration-300 border border-[#e5e7eb] overflow-hidden bg-white shadow-lg animate-fade-in" 
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <div className="relative overflow-hidden">
-                  <img src={project.image} alt={project.title} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-blue-600 hover:bg-blue-700 text-white">
-                      {project.category}
-                    </Badge>
-                  </div>
+                  <img 
+                    src={component.image} 
+                    alt={component.title} 
+                    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors text-gray-900">
-                    {project.title}
+                  <h3 className="text-xl font-bold mb-3 text-[#111827] group-hover:text-[#2563eb] transition-colors">
+                    {component.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{project.description}</p>
+                  <p className="text-[#4b5563] leading-relaxed mb-4 text-sm">
+                    {component.description}
+                  </p>
+                  <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-[#e5e7eb]">
+                    <div className="flex items-center gap-2 text-xs">
+                      <div className="flex items-center justify-center w-8 h-8 bg-[#eff6ff] rounded-lg">
+                        <Package className="w-4 h-4 text-[#2563eb]" />
+                      </div>
+                      <div>
+                        <p className="text-[#6b7280] font-medium">Material</p>
+                        <p className="text-[#111827] font-semibold">{component.material}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs">
+                      <div className="flex items-center justify-center w-8 h-8 bg-[#eff6ff] rounded-lg">
+                        <Cog className="w-4 h-4 text-[#2563eb]" />
+                      </div>
+                      <div>
+                        <p className="text-[#6b7280] font-medium">Process</p>
+                        <p className="text-[#111827] font-semibold">{component.process}</p>
+                      </div>
+                    </div>
+                  </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
