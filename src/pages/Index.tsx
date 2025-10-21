@@ -315,25 +315,29 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[{
               period: '2019 – Present',
-              title: 'Design Engineer – John Deere',
-              description: 'Contributing to innovative 3D designs across a range of machinery.',
+              title: 'Design Engineer',
+              company: 'US Tech Solutions (Client: John Deere Power Systems, Iowa, USA)',
+              description: 'Lead design and development of casting, sheet metal, and engine components including tubes, hoses, manifolds, and filters for diesel engines. Conduct design reviews, GD&T validation, and root cause analysis (8D) while collaborating with global teams for cost and complexity improvements.',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025406/rsz_john-deere-logo_1_hq5svg.png'
             }, {
-              period: '2018 – 2019',
-              title: 'Design Engineer – Komatsu America Corp.',
-              description: 'Helped shape design strategies and machinery innovations.',
+              period: '2014 – 2019',
+              title: 'Engineer Design',
+              company: 'Arctic Cat (Thief River Falls, MN, USA)',
+              description: 'Designed and developed ATV engine components such as cylinders, pistons, connecting rods, oil pans, and PTO covers. Supported prototype builds, validation testing, and cost optimization.',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_komatsu-logo_1_i6redl.png'
             }, {
               period: '2012 – 2013',
-              title: 'Project Engineer – Caterpillar Inc.',
-              description: 'Led engineering projects, driving technological advancements.',
+              title: 'Project Engineer',
+              company: 'Belcan Engineering Group (Client: Caterpillar, Lafayette, IN)',
+              description: 'Led multiple projects for marine and locomotive engines under the NPI program. Designed fuel and oil system components, performed FEA and DFMEA, and managed supplier validation documentation (APQP, PPAP).',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png'
             }, {
               period: '2008 – 2012',
-              title: 'Design Engineer – Caterpillar Inc.',
-              description: 'Developed robust machinery design solutions.',
+              title: 'Design Engineer',
+              company: 'Geometric Americas Inc. (Client: Caterpillar, Mossville, IL)',
+              description: 'Developed Tier 4 Exhaust Module and Cab components, including SCR and DPF assemblies. Coordinated validation testing and design releases via Teamcenter.',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png'
-            }].map((job, index) => <Card key={index} className="p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300">
+            }].map((job, index) => <Card key={index} className="p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4">
                       <img src={job.logo} alt="Company Logo" className="w-40 h-20 object-contain" />
@@ -342,8 +346,9 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
                       </Badge>
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-[#111827] mb-2">{job.title}</h4>
-                      <p className="text-[#4b5563]">{job.description}</p>
+                      <h4 className="text-lg font-bold text-[#111827] mb-1">{job.title}</h4>
+                      <p className="text-sm font-semibold text-[#2563eb] mb-3">{job.company}</p>
+                      <p className="text-[#4b5563] text-sm leading-relaxed">{job.description}</p>
                     </div>
                   </div>
                 </Card>)}
@@ -359,22 +364,30 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[{
-              period: '2006 – 2009',
-              degree: 'MASc in Mechanical Engineering – University of Windsor',
+              period: '2009',
+              degree: 'Master of Applied Science',
+              field: 'Mechanical Engineering',
+              institution: 'University of Windsor, Canada',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png'
             }, {
-              period: '2003 – 2006',
-              degree: 'BASc in Mechanical Engineering – University of Windsor',
+              period: '2006',
+              degree: 'Bachelor of Applied Science',
+              field: 'Mechanical Engineering',
+              institution: 'University of Windsor, Canada',
               logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png'
-            }].map((edu, index) => <Card key={index} className="p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300">
+            }].map((edu, index) => <Card key={index} className="p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4">
                       <img src={edu.logo} alt="University Logo" className="w-40 h-20 object-contain" />
-                      <Badge className="bg-green-100 text-[#111827] hover:bg-green-200">
+                      <Badge className="bg-[#dcfce7] text-[#166534] hover:bg-[#bbf7d0]">
                         {edu.period}
                       </Badge>
                     </div>
-                    <h4 className="text-lg font-bold text-[#111827]">{edu.degree}</h4>
+                    <div>
+                      <h4 className="text-lg font-bold text-[#111827] mb-1">{edu.degree}</h4>
+                      <p className="text-sm font-semibold text-[#2563eb] mb-1">{edu.field}</p>
+                      <p className="text-sm text-[#4b5563]">{edu.institution}</p>
+                    </div>
                   </div>
                 </Card>)}
             </div>
