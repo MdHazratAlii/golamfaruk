@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin, Linkedin, Facebook, ChevronRight, Menu, X, Play, FileText, Building, Calendar, GraduationCap, Award, CheckCircle } from 'lucide-react';
+import { Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin, Linkedin, Facebook, ChevronRight, Menu, X, Play, FileText, Building, Calendar, GraduationCap, Award, CheckCircle, Clock, Users, Box, Wrench, Database, Target, User, Briefcase } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -164,115 +164,132 @@ Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA
       {/* About Section - 100vh */}
       <section id="about" className="min-h-screen flex items-center bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#111827]">About Me</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#111827]">About Me</h2>
             <p className="text-xl text-[#4b5563] max-w-3xl mx-auto">
-              A seasoned 3D designer with 10+ years of experience, currently working at John Deere, 
-              specializing in precision machinery design and innovative CAD solutions.
+              Experienced Mechanical Design Engineer with Proven Technical Expertise
             </p>
           </div>
-
-          {/* Achievement Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {[{
-            number: '10+',
-            label: 'YEARS OF EXPERIENCE',
-            icon: Calendar
-          }, {
-            number: '5000+',
-            label: 'PROJECTS COMPLETED',
-            icon: CheckCircle
-          }, {
-            number: '100+',
-            label: 'HAPPY CLIENTS',
-            icon: Award
-          }, {
-            number: '300+',
-            label: 'PROTOTYPES BUILT',
-            icon: Settings
-          }].map((stat, index) => <Card key={index} className="text-center p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300">
-                <stat.icon className="w-8 h-8 text-[#2563eb] mx-auto mb-4" />
-                <div className="text-3xl font-bold text-[#2563eb] mb-2">{stat.number}</div>
-                <div className="text-sm font-semibold text-[#4b5563]">{stat.label}</div>
-              </Card>)}
+          
+          {/* About Me Text */}
+          <div className="max-w-5xl mx-auto mb-12">
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#e5e7eb]">
+              <p className="text-lg text-[#111827] leading-relaxed">
+                I'm Golam Faruk, a Mechanical Design Engineer with over a decade of experience in 3D modeling, product development, and engine component design for global brands like John Deere, Arctic Cat, and Caterpillar. My expertise includes Solid Modeling, Sheet Metal, Casting Design, GD&T, BOM, and Tolerance Stack-Up using tools such as Creo, SolidWorks, CATIA V5, and NX. I specialize in designing and detailing components such as brackets, manifolds, hoses, cylinders, pistons, and control systems—transforming engineering concepts into production-ready solutions. Passionate about innovation, precision, and efficiency, I combine analytical design skills with practical manufacturing knowledge to deliver performance-driven engineering outcomes.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Profile Info */}
-            <div className="space-y-8">
-              <Card className="p-8 shadow-lg border border-[#e5e7eb] bg-white">
-                <h3 className="text-2xl font-bold mb-6 text-[#111827]">Quick Profile</h3>
-                <div className="space-y-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="text-[#4b5563]">Age:</div>
-                      <div className="font-semibold text-[#111827]">58 years</div>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <MapPin className="w-5 h-5 text-[#2563eb]" />
-                      <div className="font-semibold text-[#111827]">Waterloo, Iowa, USA</div>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Mail className="w-5 h-5 text-[#2563eb]" />
-                      <div className="font-semibold text-[#111827]">hello@golamfaruk.com</div>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Phone className="w-5 h-5 text-[#2563eb]" />
-                      <div className="font-semibold text-[#111827]">+1 022 444 05 05</div>
-                    </div>
-                  </div>
-                  <div className="pt-4 border-t border-[#e5e7eb]">
-                    <p className="text-[#4b5563] leading-relaxed mb-4">
-                      Passionate about transforming complex engineering concepts into innovative 3D designs. 
-                      Specialized in creating precision machinery models that bridge the gap between concept and reality.
-                    </p>
-                    <p className="text-[#4b5563] leading-relaxed mb-4">
-                      My expertise spans across AutoCAD, SketchUp, Solid Edge, and technical drafting, enabling me to deliver comprehensive design solutions from initial concept through to production-ready models.
-                    </p>
-                    <p className="text-[#4b5563] leading-relaxed">
-                      With a Master's degree in Mechanical Engineering from the University of Windsor and extensive experience at industry leaders like John Deere, Komatsu America Corp., and Caterpillar Inc., I bring both academic rigor and practical expertise to every project.
-                    </p>
-                  </div>
-                </div>
-                <Button onClick={handleResumeClick} className="w-full mt-6 bg-[#2563eb] hover:bg-[#1d4ed8] text-white py-3 font-semibold rounded-lg transition-all duration-300">
-                  <FileText className="w-5 h-5 mr-2" />
-                  See My Resume
-                </Button>
-              </Card>
+          {/* Experience Stats - 4 Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in">
+              <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
+                <Clock className="w-6 h-6 text-[#2563eb]" />
+              </div>
+              <h3 className="text-3xl font-bold text-[#2563eb] mb-2">10+</h3>
+              <p className="text-sm font-semibold text-[#111827] mb-1">Years of Experience</p>
+              <p className="text-xs text-[#4b5563]">In Mechanical Design Engineering</p>
             </div>
 
-            {/* Skills */}
-            <div className="space-y-8">
-              <h3 className="text-3xl font-bold mb-8 text-[#111827]">Explore My Skillset</h3>
-              
-              {[{
-              name: 'AutoCAD',
-              level: 95,
-              description: 'Precision technical drawings and 2D/3D modeling for complex machinery designs with industry-standard accuracy and professional documentation.'
-            }, {
-              name: 'SketchUp',
-              level: 90,
-              description: '3D modeling and architectural visualization with advanced rendering capabilities for conceptual design and client presentations.'
-            }, {
-              name: 'Solid Edge',
-              level: 85,
-              description: 'Advanced CAD design and simulation for engineering solutions, parametric modeling, and assembly management for complex projects.'
-            }, {
-              name: 'Draft',
-              level: 90,
-              description: 'Technical documentation and blueprints with industry-standard precision, including detailed assembly instructions and manufacturing specifications.'
-            }].map((skill, index) => <div key={index} className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <h4 className="font-semibold text-lg text-[#111827]">{skill.name}</h4>
-                    <span className="text-[#2563eb] font-bold text-lg">{skill.level}%</span>
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
+                <FileText className="w-6 h-6 text-[#2563eb]" />
+              </div>
+              <h3 className="text-3xl font-bold text-[#2563eb] mb-2">100+</h3>
+              <p className="text-sm font-semibold text-[#111827] mb-1">Projects Completed</p>
+              <p className="text-xs text-[#4b5563]">Complex mechanical & engine component designs</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
+                <Users className="w-6 h-6 text-[#2563eb]" />
+              </div>
+              <h3 className="text-3xl font-bold text-[#2563eb] mb-2">10+</h3>
+              <p className="text-sm font-semibold text-[#111827] mb-1">Global Collaborations</p>
+              <p className="text-xs text-[#4b5563]">With John Deere, Caterpillar & Arctic Cat</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
+                <Box className="w-6 h-6 text-[#2563eb]" />
+              </div>
+              <h3 className="text-3xl font-bold text-[#2563eb] mb-2">5000+</h3>
+              <p className="text-sm font-semibold text-[#111827] mb-1">CAD Models & Assemblies</p>
+              <p className="text-xs text-[#4b5563]">Detailed 3D parts, prototypes & design releases</p>
+            </div>
+          </div>
+
+          {/* Skills Grid - 4 Categories */}
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-2xl font-bold text-center mb-8 text-[#111827]">Technical Expertise</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Design Tools */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-10 h-10 bg-[#eff6ff] rounded-lg mr-3">
+                    <Settings className="w-5 h-5 text-[#2563eb]" />
                   </div>
-                  <p className="text-sm text-[#4b5563] mb-3">{skill.description}</p>
-                  <div className="w-full bg-[#e5e7eb] rounded-full h-3 overflow-hidden">
-                    <div className="bg-[#2563eb] h-3 rounded-full transition-all duration-1000 ease-out" style={{
-                  width: `${skill.level}%`
-                }}></div>
+                  <h4 className="text-lg font-bold text-[#111827]">Design Tools</h4>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['Creo', 'SolidWorks', 'CATIA V5', 'NX', 'AutoCAD', 'Autodesk Inventor'].map((skill) => (
+                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Engineering Expertise */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-10 h-10 bg-[#eff6ff] rounded-lg mr-3">
+                    <Wrench className="w-5 h-5 text-[#2563eb]" />
                   </div>
-                </div>)}
+                  <h4 className="text-lg font-bold text-[#111827]">Engineering Expertise</h4>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['GD&T', 'Tolerance Stack-Up', 'FEA Review', 'FMEA', 'DFMEA', 'BOM Creation', 'Design Validation'].map((skill) => (
+                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Data & Systems */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-10 h-10 bg-[#eff6ff] rounded-lg mr-3">
+                    <Database className="w-5 h-5 text-[#2563eb]" />
+                  </div>
+                  <h4 className="text-lg font-bold text-[#111827]">Data & Systems</h4>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['SAP', 'Windchill', 'PDM-Link', 'Teamcenter', 'Minitab', 'Excel', 'PowerPoint'].map((skill) => (
+                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Professional Strengths */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-10 h-10 bg-[#eff6ff] rounded-lg mr-3">
+                    <Target className="w-5 h-5 text-[#2563eb]" />
+                  </div>
+                  <h4 className="text-lg font-bold text-[#111827]">Professional Strengths</h4>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['Product Optimization', 'Cross-Functional Collaboration', 'Root Cause Analysis', 'Prototype Development'].map((skill) => (
+                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
