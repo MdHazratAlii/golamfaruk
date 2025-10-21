@@ -124,11 +124,11 @@ const Portfolio = () => {
                 <div className="inline-block bg-[#eff6ff] px-6 py-3 rounded-full">
                   <span className="text-[#2563eb] font-semibold text-sm">SENIOR 3D MACHINERY DESIGNER</span>
                 </div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-[#111827]">
+                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-[#111827] lg:text-5xl">
                   Hi, I'm <br />
                   <span className="text-[#2563eb]">Golam Faruk</span>
                 </h1>
-                <h2 className="text-2xl md:text-3xl font-medium text-[#4b5563]">Mechanical & 3D Design Engineer</h2>
+                <h2 className="text-2xl font-medium text-[#4b5563] md:text-2xl">Mechanical & 3D Design Engineer</h2>
               </div>
               
               <p className="text-lg text-[#4b5563] leading-relaxed max-w-lg font-normal md:text-lg">With over a decade of hands-on experience in Solid Modeling, Sheet Metal, Casting, and Engine Component Design, I specialize in creating precision-driven CAD solutions using Creo, SolidWorks, CATIA V5, and NX.
