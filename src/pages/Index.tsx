@@ -131,7 +131,7 @@ const Portfolio = () => {
                 <h2 className="text-2xl md:text-3xl font-medium text-[#4b5563]">Mechanical & 3D Design Engineer</h2>
               </div>
               
-              <p className="text-lg md:text-xl text-[#4b5563] leading-relaxed max-w-lg">With over a decade of hands-on experience in Solid Modeling, Sheet Metal, Casting, and Engine Component Design, I specialize in creating precision-driven CAD solutions using Creo, SolidWorks, CATIA V5, and NX.
+              <p className="text-lg text-[#4b5563] leading-relaxed max-w-lg font-normal md:text-lg">With over a decade of hands-on experience in Solid Modeling, Sheet Metal, Casting, and Engine Component Design, I specialize in creating precision-driven CAD solutions using Creo, SolidWorks, CATIA V5, and NX.
 Currently contributing to advanced diesel engine and air system designs at John Deere Power Systems (Iowa, USA) — turning complex engineering ideas into reliable mechanical solutions.</p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
