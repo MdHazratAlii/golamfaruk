@@ -88,7 +88,7 @@ const Portfolio = () => {
       <nav className="fixed top-0 w-full bg-white backdrop-blur-lg z-50 border-b border-[#e5e7eb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="font-bold text-xl text-[#111827]">Golam Faruk</div>
+            <div className="font-bold text-xl text-[#111827]">Website Under Development</div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
