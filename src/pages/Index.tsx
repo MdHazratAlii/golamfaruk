@@ -515,27 +515,35 @@ const Portfolio = () => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { title: 'Exhaust Manifold', image: exhaustManifold, desc: 'Designed complex manifold geometry for diesel engines with optimized gas flow paths and thermal management. Validated thermal stress through FEA.', material: 'Ductile Iron', process: 'Sand Casting' },
-              { title: 'Cylinder & Piston Assembly', image: cylinderPiston, desc: 'Detailed models and GD&T‑compliant drawings for high‑performance engine assemblies. Tolerance stack‑up ensures optimal combustion.', material: 'Aluminum Alloy', process: 'Die Casting' },
-              { title: 'Sheet Metal Bracket', image: sheetMetalBracket, desc: 'Engine mounting and structural support design with cost‑optimized bend sequences and DFMEA methodology.', material: 'Steel', process: 'Stamping' },
-              { title: 'Tubes & Hoses', image: tubesHoses, desc: 'Routed engine fluid lines for fuel, oil, and coolant systems — minimising interference and pressure drops.', material: 'Steel & Rubber', process: 'Tube Bending' },
-              { title: 'Control Panel Box', image: controlPanelBox, desc: 'Housings for control and sensor components with IP‑rated sealing, thermal management and EMI shielding.', material: 'Aluminum', process: 'CNC Machining' },
-              { title: 'Cooling System', image: coolingSystem, desc: 'Modeled and optimised airflow parts — radiator shrouds and fan assemblies with CFD analysis review.', material: 'Plastic Composite', process: 'Injection Molding' },
-            ].map((c, i) => (
-              <article key={i} className="bg-background border border-border rounded-[1.75rem] overflow-hidden hover:shadow-soft transition-shadow group">
-                <div className="aspect-[16/11] overflow-hidden bg-mint">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {projects.map((c, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setSelectedProject(i)}
+                className="group text-left bg-background border border-border rounded-[1.75rem] overflow-hidden hover:shadow-soft hover:-translate-y-1 transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+                aria-label={`View details for ${c.title}`}
+              >
+                <div className="relative aspect-[16/11] overflow-hidden bg-mint">
                   <img
                     src={c.image}
                     alt={c.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[900ms] ease-out"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 flex items-end justify-between p-5 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-500">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-background/95 backdrop-blur px-3 py-1.5 text-xs font-semibold text-foreground">
+                      <Eye className="w-3.5 h-3.5" /> View details
+                    </span>
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-accent text-accent-foreground shadow-soft">
+                      <ZoomIn className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-2xl font-semibold mb-2">{c.title}</h3>
-                  <p className="text-foreground/70 text-sm leading-relaxed mb-5">{c.desc}</p>
+                  <h3 className="font-display text-2xl font-semibold mb-2 group-hover:text-accent transition-colors">{c.title}</h3>
+                  <p className="text-foreground/70 text-sm leading-relaxed mb-5 line-clamp-2">{c.desc}</p>
                   <div className="flex gap-2 flex-wrap pt-4 border-t border-border">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-mint px-3 py-1.5 text-xs font-semibold">
                       <Package className="w-3.5 h-3.5" /> {c.material}
@@ -545,9 +553,10 @@ const Portfolio = () => {
                     </span>
                   </div>
                 </div>
-              </article>
+              </button>
             ))}
           </div>
+
         </Reveal>
 
       </section>
