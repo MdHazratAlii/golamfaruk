@@ -202,7 +202,8 @@ const Portfolio = () => {
 
       {/* ABOUT */}
       <section id="about" className="py-24 lg:py-32 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
+        <Reveal variant="fade-up" className="max-w-7xl mx-auto">
+
           <div className="max-w-4xl mb-16">
             <span className="pill mb-6">About me</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
