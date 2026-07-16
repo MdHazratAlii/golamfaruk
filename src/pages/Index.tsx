@@ -20,6 +20,7 @@ import coolingSystem from "@/assets/cooling-system.jpg";
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     fullName: '', company: '', email: '', phone: '', message: ''
   });
