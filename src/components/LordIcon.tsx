@@ -57,9 +57,8 @@ export const LordIcon: React.FC<Props> = ({
       onMouseEnter={play}
       onFocus={play}
     >
-      {/* @ts-expect-error - custom element */}
       <lord-icon
-        ref={ref}
+        ref={ref as React.Ref<HTMLElement>}
         src={src}
         trigger={trigger}
         colors={colors}
