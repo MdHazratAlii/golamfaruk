@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import {
   Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin,
   Linkedin, Facebook, ArrowUpRight, Menu, X, Play, FileText, Clock, Users, Box,
-  Wrench, Database, Target, Package, Cog, GraduationCap, Briefcase
+  Wrench, Database, Target, Package, Cog, GraduationCap, Briefcase, ZoomIn, CheckCircle2
 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { Reveal } from "@/components/Reveal";
@@ -20,6 +20,7 @@ import coolingSystem from "@/assets/cooling-system.jpg";
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     fullName: '', company: '', email: '', phone: '', message: ''
   });
@@ -68,6 +69,95 @@ const Portfolio = () => {
     { id: 'projects', label: 'Components' },
     { id: 'contact', label: 'Contact' },
   ];
+
+  const projects = [
+    {
+      title: 'Exhaust Manifold',
+      image: exhaustManifold,
+      desc: 'Designed complex manifold geometry for diesel engines with optimized gas flow paths and thermal management. Validated thermal stress through FEA.',
+      material: 'Ductile Iron',
+      process: 'Sand Casting',
+      application: 'Off‑Highway Diesel Engines',
+      software: 'Creo, ANSYS, GD&T',
+      highlights: [
+        'Optimized runner geometry for balanced back‑pressure',
+        'Thermal + structural FEA to validate fatigue life',
+        'DFM review with foundry for cast‑ability',
+      ],
+    },
+    {
+      title: 'Cylinder & Piston Assembly',
+      image: cylinderPiston,
+      desc: 'Detailed models and GD&T‑compliant drawings for high‑performance engine assemblies. Tolerance stack‑up ensures optimal combustion.',
+      material: 'Aluminum Alloy',
+      process: 'Die Casting',
+      application: 'High‑Performance Engines',
+      software: 'Creo, NX, Windchill',
+      highlights: [
+        'Full 3D assembly with motion clearance checks',
+        'Tolerance stack‑up per ASME Y14.5',
+        'Production drawings released to global suppliers',
+      ],
+    },
+    {
+      title: 'Sheet Metal Bracket',
+      image: sheetMetalBracket,
+      desc: 'Engine mounting and structural support design with cost‑optimized bend sequences and DFMEA methodology.',
+      material: 'Steel',
+      process: 'Stamping',
+      application: 'Engine Mounting Systems',
+      software: 'Creo Sheet Metal, DFMEA',
+      highlights: [
+        'Flat‑pattern optimization to reduce scrap',
+        'Bend sequence tuned for tooling cost',
+        'DFMEA to eliminate weld distortion risks',
+      ],
+    },
+    {
+      title: 'Tubes & Hoses',
+      image: tubesHoses,
+      desc: 'Routed engine fluid lines for fuel, oil, and coolant systems — minimising interference and pressure drops.',
+      material: 'Steel & Rubber',
+      process: 'Tube Bending',
+      application: 'Fuel, Oil & Coolant Lines',
+      software: 'Creo Piping, Cabling',
+      highlights: [
+        'Full routing with clash detection',
+        'Bend‑radius optimization for flow',
+        'Clip and clamp placement per NVH targets',
+      ],
+    },
+    {
+      title: 'Control Panel Box',
+      image: controlPanelBox,
+      desc: 'Housings for control and sensor components with IP‑rated sealing, thermal management and EMI shielding.',
+      material: 'Aluminum',
+      process: 'CNC Machining',
+      application: 'Engine Control & Sensor Modules',
+      software: 'Creo, SolidWorks',
+      highlights: [
+        'IP67 sealing with gasket design',
+        'Thermal analysis for electronics cooling',
+        'EMI shielding integrated into housing',
+      ],
+    },
+    {
+      title: 'Cooling System',
+      image: coolingSystem,
+      desc: 'Modeled and optimised airflow parts — radiator shrouds and fan assemblies with CFD analysis review.',
+      material: 'Plastic Composite',
+      process: 'Injection Molding',
+      application: 'Radiator & Fan Assemblies',
+      software: 'Creo, CFD Tools',
+      highlights: [
+        'CFD‑guided shroud geometry',
+        'Fan blade profile for peak efficiency',
+        'Mold‑flow analysis for uniform walls',
+      ],
+    },
+  ];
+
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -425,27 +515,35 @@ const Portfolio = () => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { title: 'Exhaust Manifold', image: exhaustManifold, desc: 'Designed complex manifold geometry for diesel engines with optimized gas flow paths and thermal management. Validated thermal stress through FEA.', material: 'Ductile Iron', process: 'Sand Casting' },
-              { title: 'Cylinder & Piston Assembly', image: cylinderPiston, desc: 'Detailed models and GD&T‑compliant drawings for high‑performance engine assemblies. Tolerance stack‑up ensures optimal combustion.', material: 'Aluminum Alloy', process: 'Die Casting' },
-              { title: 'Sheet Metal Bracket', image: sheetMetalBracket, desc: 'Engine mounting and structural support design with cost‑optimized bend sequences and DFMEA methodology.', material: 'Steel', process: 'Stamping' },
-              { title: 'Tubes & Hoses', image: tubesHoses, desc: 'Routed engine fluid lines for fuel, oil, and coolant systems — minimising interference and pressure drops.', material: 'Steel & Rubber', process: 'Tube Bending' },
-              { title: 'Control Panel Box', image: controlPanelBox, desc: 'Housings for control and sensor components with IP‑rated sealing, thermal management and EMI shielding.', material: 'Aluminum', process: 'CNC Machining' },
-              { title: 'Cooling System', image: coolingSystem, desc: 'Modeled and optimised airflow parts — radiator shrouds and fan assemblies with CFD analysis review.', material: 'Plastic Composite', process: 'Injection Molding' },
-            ].map((c, i) => (
-              <article key={i} className="bg-background border border-border rounded-[1.75rem] overflow-hidden hover:shadow-soft transition-shadow group">
-                <div className="aspect-[16/11] overflow-hidden bg-mint">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {projects.map((c, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setSelectedProject(i)}
+                className="group text-left bg-background border border-border rounded-[1.75rem] overflow-hidden hover:shadow-soft hover:-translate-y-1 transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+                aria-label={`View details for ${c.title}`}
+              >
+                <div className="relative aspect-[16/11] overflow-hidden bg-mint">
                   <img
                     src={c.image}
                     alt={c.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[900ms] ease-out"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 flex items-end justify-between p-5 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-500">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-background/95 backdrop-blur px-3 py-1.5 text-xs font-semibold text-foreground">
+                      <Eye className="w-3.5 h-3.5" /> View details
+                    </span>
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-accent text-accent-foreground shadow-soft">
+                      <ZoomIn className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-2xl font-semibold mb-2">{c.title}</h3>
-                  <p className="text-foreground/70 text-sm leading-relaxed mb-5">{c.desc}</p>
+                  <h3 className="font-display text-2xl font-semibold mb-2 group-hover:text-accent transition-colors">{c.title}</h3>
+                  <p className="text-foreground/70 text-sm leading-relaxed mb-5 line-clamp-2">{c.desc}</p>
                   <div className="flex gap-2 flex-wrap pt-4 border-t border-border">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-mint px-3 py-1.5 text-xs font-semibold">
                       <Package className="w-3.5 h-3.5" /> {c.material}
@@ -455,12 +553,92 @@ const Portfolio = () => {
                     </span>
                   </div>
                 </div>
-              </article>
+              </button>
             ))}
           </div>
+
         </Reveal>
 
       </section>
+
+      {/* PROJECT LIGHTBOX */}
+      <Dialog open={selectedProject !== null} onOpenChange={(open) => !open && setSelectedProject(null)}>
+        <DialogContent className="max-w-5xl p-0 overflow-hidden bg-background border-border rounded-[1.75rem]">
+          {selectedProject !== null && (() => {
+            const p = projects[selectedProject];
+            const goPrev = () => setSelectedProject((selectedProject - 1 + projects.length) % projects.length);
+            const goNext = () => setSelectedProject((selectedProject + 1) % projects.length);
+            return (
+              <div className="grid md:grid-cols-2 max-h-[85vh] overflow-y-auto">
+                <div className="relative bg-mint md:sticky md:top-0 md:h-full">
+                  <img src={p.image} alt={p.title} className="w-full h-full object-cover aspect-[4/3] md:aspect-auto md:min-h-[420px]" />
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    <button
+                      type="button"
+                      onClick={goPrev}
+                      aria-label="Previous project"
+                      className="w-9 h-9 rounded-full bg-background/90 backdrop-blur flex items-center justify-center hover:bg-background transition"
+                    >
+                      <ArrowUpRight className="w-4 h-4 -rotate-[135deg]" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={goNext}
+                      aria-label="Next project"
+                      className="w-9 h-9 rounded-full bg-background/90 backdrop-blur flex items-center justify-center hover:bg-background transition"
+                    >
+                      <ArrowUpRight className="w-4 h-4 rotate-45" />
+                    </button>
+                  </div>
+                  <span className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-background/95 backdrop-blur px-3 py-1.5 text-xs font-semibold">
+                    {selectedProject + 1} / {projects.length}
+                  </span>
+                </div>
+                <div className="p-8 lg:p-10 space-y-6">
+                  <div>
+                    <span className="pill mb-4">{p.application}</span>
+                    <DialogTitle className="font-display text-3xl md:text-4xl font-semibold leading-tight">
+                      {p.title}
+                    </DialogTitle>
+                    <DialogDescription className="mt-3 text-foreground/70 leading-relaxed">
+                      {p.desc}
+                    </DialogDescription>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-2xl bg-mint p-4">
+                      <div className="text-xs font-semibold uppercase tracking-widest text-foreground/60 mb-1">Material</div>
+                      <div className="flex items-center gap-2 font-semibold"><Package className="w-4 h-4" /> {p.material}</div>
+                    </div>
+                    <div className="rounded-2xl bg-accent-soft p-4">
+                      <div className="text-xs font-semibold uppercase tracking-widest text-foreground/60 mb-1">Process</div>
+                      <div className="flex items-center gap-2 font-semibold"><Cog className="w-4 h-4" /> {p.process}</div>
+                    </div>
+                    <div className="rounded-2xl border border-border p-4 col-span-2">
+                      <div className="text-xs font-semibold uppercase tracking-widest text-foreground/60 mb-1">Software & Tools</div>
+                      <div className="flex items-center gap-2 font-semibold"><Cpu className="w-4 h-4" /> {p.software}</div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-widest text-foreground/60 mb-3">Highlights</div>
+                    <ul className="space-y-2">
+                      {p.highlights.map((h, hi) => (
+                        <li key={hi} className="flex gap-3 text-sm text-foreground/80">
+                          <CheckCircle2 className="w-4 h-4 mt-0.5 text-accent flex-shrink-0" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+        </DialogContent>
+      </Dialog>
+
+
 
       {/* REVIEWS */}
       <section className="py-24 lg:py-32 px-6 lg:px-10">
