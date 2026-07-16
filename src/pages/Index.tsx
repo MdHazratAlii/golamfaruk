@@ -181,7 +181,7 @@ const Portfolio = () => {
 
             <Button
               onClick={() => scrollToSection('contact')}
-              className="hidden lg:inline-flex bg-foreground text-background hover:bg-foreground/90 rounded-full h-11 px-6 font-semibold"
+              className="btn-shine hidden lg:inline-flex bg-foreground text-background hover:bg-secondary rounded-full h-11 px-6 font-semibold shadow-soft hover:shadow-gold transition-all duration-500"
             >
               Let's talk
               <ArrowUpRight className="ml-1 w-4 h-4" />
@@ -223,7 +223,7 @@ const Portfolio = () => {
               <h1 className="font-display text-[15vw] leading-[0.92] sm:text-7xl lg:text-[6.5rem] xl:text-[7.5rem] font-semibold">
                 The engineer<br />
                 behind precision<br />
-                <span className="italic text-foreground/60">machinery.</span>
+                <span className="italic text-gradient-title">machinery.</span>
               </h1>
 
               <p className="text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed">
@@ -234,15 +234,15 @@ const Portfolio = () => {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button
                   onClick={() => scrollToSection('projects')}
-                  className="bg-foreground text-background hover:bg-foreground/90 rounded-full h-14 px-8 text-base font-semibold"
+                  className="btn-shine bg-foreground text-background hover:bg-secondary rounded-full h-14 px-8 text-base font-semibold shadow-elevated hover:shadow-gold transition-all duration-500"
                 >
                   View my work
-                  <ArrowUpRight className="ml-2 w-5 h-5" />
+                  <ArrowUpRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Button>
                 <Button
                   onClick={() => scrollToSection('contact')}
                   variant="outline"
-                  className="rounded-full h-14 px-8 text-base font-semibold border-foreground/20 hover:bg-mint"
+                  className="rounded-full h-14 px-8 text-base font-semibold border-2 border-foreground/30 bg-transparent hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-300"
                 >
                   Start a project
                 </Button>
@@ -282,8 +282,8 @@ const Portfolio = () => {
                 </div>
                 <p className="text-sm text-muted-foreground">Currently open for new engineering collaborations.</p>
               </div>
-              <div className="absolute -top-6 -right-6 bg-accent rounded-3xl p-5 shadow-soft rotate-3">
-                <Cog className="w-8 h-8 text-foreground" />
+              <div className="absolute -top-6 -right-6 bg-accent rounded-3xl p-5 shadow-gold rotate-3">
+                <Cog className="w-8 h-8 text-foreground animate-spin-slow" />
               </div>
             </div>
           </div>
@@ -297,7 +297,7 @@ const Portfolio = () => {
           <div className="max-w-4xl mb-16">
             <span className="pill mb-6">About me</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
-              Experienced Mechanical Design Engineer with proven technical expertise.
+              Experienced Mechanical Design Engineer with <span className="text-gradient-title">proven technical expertise.</span>
             </h2>
           </div>
 
@@ -342,8 +342,8 @@ const Portfolio = () => {
               { icon: Users, num: '10+', label: 'Global collaborations', hint: 'John Deere, Caterpillar & Arctic Cat' },
               { icon: Box, num: '5000+', label: 'CAD models built', hint: 'Detailed parts, prototypes & releases' },
             ].map((s, i) => (
-              <div key={i} className="bg-background border border-border rounded-[1.75rem] p-6 hover:bg-mint-soft transition-colors">
-                <s.icon className="w-6 h-6 text-foreground/70 mb-6" />
+              <div key={i} className="group bg-card border border-border rounded-[1.75rem] p-6 hover-lift hover:border-accent/50 transition-all duration-500">
+                <s.icon className="w-6 h-6 text-secondary mb-6 group-hover:text-accent transition-colors duration-300" />
                 <div className="font-display text-5xl font-semibold leading-none mb-2">{s.num}</div>
                 <div className="font-semibold text-foreground">{s.label}</div>
                 <div className="text-sm text-muted-foreground mt-1">{s.hint}</div>
@@ -396,7 +396,7 @@ const Portfolio = () => {
           <div className="max-w-3xl mb-16">
             <span className="pill mb-6">My experience</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
-              A decade across industry‑leading engineering teams.
+              A decade across <span className="text-gradient-title">industry‑leading</span> engineering teams.
             </h2>
           </div>
 
@@ -412,7 +412,8 @@ const Portfolio = () => {
                 { period: '2012 – 2013', title: 'Project Engineer', company: 'Belcan Engineering Group · Client: Caterpillar, Lafayette, IN', desc: 'Led multiple projects for marine and locomotive engines under the NPI program. Designed fuel and oil system components, performed FEA and DFMEA, and managed supplier validation documentation (APQP, PPAP).', logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png', bg: 'bg-secondary-soft' },
                 { period: '2008 – 2012', title: 'Design Engineer', company: 'Geometric Americas Inc. · Client: Caterpillar, Mossville, IL', desc: 'Developed Tier 4 Exhaust Module and Cab components, including SCR and DPF assemblies. Coordinated validation testing and design releases via Teamcenter.', logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png', bg: 'bg-accent-soft' },
               ].map((job, i) => (
-                <article key={i} className="bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft transition-shadow">
+                <article key={i} className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/40 transition-all duration-500 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   <div className="flex items-start justify-between gap-4 mb-6">
                     <div className={`${job.bg} rounded-2xl h-20 w-40 flex items-center justify-center p-4`}>
                       <img src={job.logo} alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
@@ -439,7 +440,7 @@ const Portfolio = () => {
                 { period: '2009', degree: 'Master of Applied Science', field: 'Mechanical Engineering', inst: 'University of Windsor, Canada' },
                 { period: '2006', degree: 'Bachelor of Applied Science', field: 'Mechanical Engineering', inst: 'University of Windsor, Canada' },
               ].map((ed, i) => (
-                <article key={i} className="bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft transition-shadow">
+                <article key={i} className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/40 transition-all duration-500">
                   <div className="flex items-start justify-between gap-4 mb-6">
                     <div className="bg-accent-soft rounded-2xl h-20 w-40 flex items-center justify-center p-4">
                       <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png" alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
@@ -467,7 +468,7 @@ const Portfolio = () => {
             <div className="max-w-2xl">
               <span className="pill mb-6">My services</span>
               <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
-                Engineering, from concept to production.
+                Engineering, from <span className="text-gradient-title">concept to production.</span>
               </h2>
             </div>
             <p className="text-lg text-muted-foreground max-w-md">
@@ -487,16 +488,16 @@ const Portfolio = () => {
             ].map((s, i) => (
               <div
                 key={i}
-                className="group bg-background border border-border rounded-[1.75rem] p-8 hover:bg-mint transition-all duration-300"
+                className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/50 hover:bg-secondary hover:text-secondary-foreground transition-all duration-500 relative overflow-hidden"
               >
-                <div className="flex items-center justify-between mb-10">
-                  <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-background flex items-center justify-center transition-colors">
-                    <s.icon className="w-6 h-6 text-foreground" />
+                <div className="flex items-center justify-between mb-10 relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-accent flex items-center justify-center transition-all duration-500 group-hover:rotate-6">
+                    <s.icon className="w-6 h-6 text-foreground group-hover:text-accent-foreground transition-colors" />
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-foreground group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
+                  <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
                 </div>
-                <h3 className="font-display text-2xl font-semibold mb-3">{s.title}</h3>
-                <p className="text-foreground/70 leading-relaxed">{s.desc}</p>
+                <h3 className="font-display text-2xl font-semibold mb-3 relative z-10">{s.title}</h3>
+                <p className="text-foreground/70 group-hover:text-secondary-foreground/80 leading-relaxed relative z-10 transition-colors">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -511,7 +512,7 @@ const Portfolio = () => {
           <div className="max-w-3xl mb-16">
             <span className="pill mb-6">Components expertise</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
-              Highlighting precision‑driven designs.
+              Highlighting <span className="text-gradient-title">precision‑driven</span> designs.
             </h2>
           </div>
 
@@ -726,7 +727,7 @@ const Portfolio = () => {
                   Let's connect
                 </span>
                 <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
-                  Have a project<br />in mind?
+                  Have a project<br />in <span className="text-gradient-gold">mind?</span>
                 </h2>
                 <p className="text-lg text-background/70 max-w-md">
                   Ready to bring your machinery vision to life? Send me a note — I typically respond within 24 hours.

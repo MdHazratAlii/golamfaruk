@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -89,9 +89,21 @@ export default {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' }
         },
+        'slide-in-left': {
+          '0%': { opacity: '0', transform: 'translateX(-32px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' }
+        },
         'float': {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' }
+        },
+        'gradient-shine': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' }
+        },
+        'spin-slow': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
         },
       },
       animation: {
@@ -99,7 +111,10 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-up': 'fade-up 0.8s ease-out both',
         'fade-in': 'fade-in 0.6s ease-out both',
+        'slide-in-left': 'slide-in-left 0.7s ease-out both',
         'float': 'float 6s ease-in-out infinite',
+        'gradient-shine': 'gradient-shine 8s ease-in-out infinite',
+        'spin-slow': 'spin-slow 18s linear infinite',
       },
     }
   },
