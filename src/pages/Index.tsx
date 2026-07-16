@@ -297,8 +297,8 @@ const Portfolio = () => {
 
 
       {/* ABOUT */}
-      <section id="about" className="py-24 lg:py-32 px-6 lg:px-10">
-        <Reveal variant="fade-up" className="max-w-7xl mx-auto">
+      <section id="about" className="min-h-screen flex items-center py-20 lg:py-24 px-6 lg:px-10">
+        <Reveal variant="fade-up" className="max-w-7xl mx-auto w-full">
 
           <div className="max-w-4xl mb-16">
             <span className="pill mb-6">About me</span>
@@ -396,8 +396,8 @@ const Portfolio = () => {
       </section>
 
       {/* EXPERIENCE */}
-      <section id="experience" className="py-24 lg:py-32 px-6 lg:px-10 bg-mint-soft">
-        <Reveal variant="slide-left" className="max-w-7xl mx-auto">
+      <section id="experience" className="min-h-screen flex items-center py-20 lg:py-24 px-6 lg:px-10 bg-mint-soft">
+        <Reveal variant="slide-left" className="max-w-7xl mx-auto w-full">
 
           <div className="max-w-3xl mb-16">
             <span className="pill mb-6">My experience</span>
@@ -467,8 +467,8 @@ const Portfolio = () => {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="py-24 lg:py-32 px-6 lg:px-10">
-        <Reveal variant="fade-up" className="max-w-7xl mx-auto">
+      <section id="services" className="min-h-screen flex items-center py-20 lg:py-24 px-6 lg:px-10">
+        <Reveal variant="fade-up" className="max-w-7xl mx-auto w-full">
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
             <div className="max-w-2xl">
@@ -518,8 +518,8 @@ const Portfolio = () => {
       </section>
 
       {/* COMPONENTS EXPERTISE */}
-      <section id="projects" className="py-24 lg:py-32 px-6 lg:px-10 bg-mint-soft">
-        <Reveal variant="slide-left" className="max-w-7xl mx-auto">
+      <section id="projects" className="min-h-screen flex items-center py-20 lg:py-24 px-6 lg:px-10 bg-mint-soft">
+        <Reveal variant="slide-left" className="max-w-7xl mx-auto w-full">
 
           <div className="max-w-3xl mb-16">
             <span className="pill mb-6">Components expertise</span>
@@ -654,8 +654,8 @@ const Portfolio = () => {
 
 
       {/* REVIEWS */}
-      <section className="py-24 lg:py-32 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
+      <section className="min-h-screen flex items-center py-20 lg:py-24 px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="max-w-3xl mb-16">
             <span className="pill mb-6">Client reviews</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
@@ -715,7 +715,7 @@ const Portfolio = () => {
 
       {/* TRUSTED BY */}
       <section className="py-16 px-6 lg:px-10 border-y border-border">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto w-full">
           <p className="text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-10">
             Trusted by industry leaders
           </p>
@@ -728,8 +728,8 @@ const Portfolio = () => {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-24 lg:py-32 px-6 lg:px-10">
-        <Reveal variant="fade-up" className="max-w-7xl mx-auto">
+      <section id="contact" className="min-h-screen flex items-center py-20 lg:py-24 px-6 lg:px-10">
+        <Reveal variant="fade-up" className="max-w-7xl mx-auto w-full">
 
           <div className="bg-foreground text-background rounded-[2.5rem] p-8 md:p-12 lg:p-16">
             <div className="grid lg:grid-cols-2 gap-12">
