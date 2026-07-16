@@ -282,8 +282,8 @@ const Portfolio = () => {
                 </div>
                 <p className="text-sm text-muted-foreground">Currently open for new engineering collaborations.</p>
               </div>
-              <div className="absolute -top-6 -right-6 bg-accent rounded-3xl p-5 shadow-soft rotate-3">
-                <Cog className="w-8 h-8 text-foreground" />
+              <div className="absolute -top-6 -right-6 bg-accent rounded-3xl p-5 shadow-gold rotate-3">
+                <Cog className="w-8 h-8 text-foreground animate-spin-slow" />
               </div>
             </div>
           </div>
