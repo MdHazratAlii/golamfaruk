@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
