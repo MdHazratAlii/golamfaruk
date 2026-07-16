@@ -105,6 +105,15 @@ export default {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' }
         },
+        'blob-drift': {
+          '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(40px, -30px) scale(1.1)' },
+          '66%': { transform: 'translate(-30px, 30px) scale(0.95)' },
+        },
+        'gradient-pan': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' }
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -115,6 +124,9 @@ export default {
         'float': 'float 6s ease-in-out infinite',
         'gradient-shine': 'gradient-shine 8s ease-in-out infinite',
         'spin-slow': 'spin-slow 18s linear infinite',
+        'blob-drift': 'blob-drift 18s ease-in-out infinite',
+        'blob-drift-slow': 'blob-drift 26s ease-in-out infinite',
+        'gradient-pan': 'gradient-pan 20s ease-in-out infinite',
       },
     }
   },
