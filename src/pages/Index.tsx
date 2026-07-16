@@ -561,6 +561,85 @@ const Portfolio = () => {
 
       </section>
 
+      {/* PROJECT LIGHTBOX */}
+      <Dialog open={selectedProject !== null} onOpenChange={(open) => !open && setSelectedProject(null)}>
+        <DialogContent className="max-w-5xl p-0 overflow-hidden bg-background border-border rounded-[1.75rem]">
+          {selectedProject !== null && (() => {
+            const p = projects[selectedProject];
+            const goPrev = () => setSelectedProject((selectedProject - 1 + projects.length) % projects.length);
+            const goNext = () => setSelectedProject((selectedProject + 1) % projects.length);
+            return (
+              <div className="grid md:grid-cols-2 max-h-[85vh] overflow-y-auto">
+                <div className="relative bg-mint md:sticky md:top-0 md:h-full">
+                  <img src={p.image} alt={p.title} className="w-full h-full object-cover aspect-[4/3] md:aspect-auto md:min-h-[420px]" />
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    <button
+                      type="button"
+                      onClick={goPrev}
+                      aria-label="Previous project"
+                      className="w-9 h-9 rounded-full bg-background/90 backdrop-blur flex items-center justify-center hover:bg-background transition"
+                    >
+                      <ArrowUpRight className="w-4 h-4 -rotate-[135deg]" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={goNext}
+                      aria-label="Next project"
+                      className="w-9 h-9 rounded-full bg-background/90 backdrop-blur flex items-center justify-center hover:bg-background transition"
+                    >
+                      <ArrowUpRight className="w-4 h-4 rotate-45" />
+                    </button>
+                  </div>
+                  <span className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-background/95 backdrop-blur px-3 py-1.5 text-xs font-semibold">
+                    {selectedProject + 1} / {projects.length}
+                  </span>
+                </div>
+                <div className="p-8 lg:p-10 space-y-6">
+                  <div>
+                    <span className="pill mb-4">{p.application}</span>
+                    <DialogTitle className="font-display text-3xl md:text-4xl font-semibold leading-tight">
+                      {p.title}
+                    </DialogTitle>
+                    <DialogDescription className="mt-3 text-foreground/70 leading-relaxed">
+                      {p.desc}
+                    </DialogDescription>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-2xl bg-mint p-4">
+                      <div className="text-xs font-semibold uppercase tracking-widest text-foreground/60 mb-1">Material</div>
+                      <div className="flex items-center gap-2 font-semibold"><Package className="w-4 h-4" /> {p.material}</div>
+                    </div>
+                    <div className="rounded-2xl bg-accent-soft p-4">
+                      <div className="text-xs font-semibold uppercase tracking-widest text-foreground/60 mb-1">Process</div>
+                      <div className="flex items-center gap-2 font-semibold"><Cog className="w-4 h-4" /> {p.process}</div>
+                    </div>
+                    <div className="rounded-2xl border border-border p-4 col-span-2">
+                      <div className="text-xs font-semibold uppercase tracking-widest text-foreground/60 mb-1">Software & Tools</div>
+                      <div className="flex items-center gap-2 font-semibold"><Cpu className="w-4 h-4" /> {p.software}</div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-widest text-foreground/60 mb-3">Highlights</div>
+                    <ul className="space-y-2">
+                      {p.highlights.map((h, hi) => (
+                        <li key={hi} className="flex gap-3 text-sm text-foreground/80">
+                          <CheckCircle2 className="w-4 h-4 mt-0.5 text-accent flex-shrink-0" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+        </DialogContent>
+      </Dialog>
+
+
+
       {/* REVIEWS */}
       <section className="py-24 lg:py-32 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
