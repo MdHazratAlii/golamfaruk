@@ -363,7 +363,8 @@ const Portfolio = () => {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
+
       </section>
 
       {/* SERVICES */}
