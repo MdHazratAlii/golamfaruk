@@ -70,6 +70,95 @@ const Portfolio = () => {
     { id: 'contact', label: 'Contact' },
   ];
 
+  const projects = [
+    {
+      title: 'Exhaust Manifold',
+      image: exhaustManifold,
+      desc: 'Designed complex manifold geometry for diesel engines with optimized gas flow paths and thermal management. Validated thermal stress through FEA.',
+      material: 'Ductile Iron',
+      process: 'Sand Casting',
+      application: 'Off‑Highway Diesel Engines',
+      software: 'Creo, ANSYS, GD&T',
+      highlights: [
+        'Optimized runner geometry for balanced back‑pressure',
+        'Thermal + structural FEA to validate fatigue life',
+        'DFM review with foundry for cast‑ability',
+      ],
+    },
+    {
+      title: 'Cylinder & Piston Assembly',
+      image: cylinderPiston,
+      desc: 'Detailed models and GD&T‑compliant drawings for high‑performance engine assemblies. Tolerance stack‑up ensures optimal combustion.',
+      material: 'Aluminum Alloy',
+      process: 'Die Casting',
+      application: 'High‑Performance Engines',
+      software: 'Creo, NX, Windchill',
+      highlights: [
+        'Full 3D assembly with motion clearance checks',
+        'Tolerance stack‑up per ASME Y14.5',
+        'Production drawings released to global suppliers',
+      ],
+    },
+    {
+      title: 'Sheet Metal Bracket',
+      image: sheetMetalBracket,
+      desc: 'Engine mounting and structural support design with cost‑optimized bend sequences and DFMEA methodology.',
+      material: 'Steel',
+      process: 'Stamping',
+      application: 'Engine Mounting Systems',
+      software: 'Creo Sheet Metal, DFMEA',
+      highlights: [
+        'Flat‑pattern optimization to reduce scrap',
+        'Bend sequence tuned for tooling cost',
+        'DFMEA to eliminate weld distortion risks',
+      ],
+    },
+    {
+      title: 'Tubes & Hoses',
+      image: tubesHoses,
+      desc: 'Routed engine fluid lines for fuel, oil, and coolant systems — minimising interference and pressure drops.',
+      material: 'Steel & Rubber',
+      process: 'Tube Bending',
+      application: 'Fuel, Oil & Coolant Lines',
+      software: 'Creo Piping, Cabling',
+      highlights: [
+        'Full routing with clash detection',
+        'Bend‑radius optimization for flow',
+        'Clip and clamp placement per NVH targets',
+      ],
+    },
+    {
+      title: 'Control Panel Box',
+      image: controlPanelBox,
+      desc: 'Housings for control and sensor components with IP‑rated sealing, thermal management and EMI shielding.',
+      material: 'Aluminum',
+      process: 'CNC Machining',
+      application: 'Engine Control & Sensor Modules',
+      software: 'Creo, SolidWorks',
+      highlights: [
+        'IP67 sealing with gasket design',
+        'Thermal analysis for electronics cooling',
+        'EMI shielding integrated into housing',
+      ],
+    },
+    {
+      title: 'Cooling System',
+      image: coolingSystem,
+      desc: 'Modeled and optimised airflow parts — radiator shrouds and fan assemblies with CFD analysis review.',
+      material: 'Plastic Composite',
+      process: 'Injection Molding',
+      application: 'Radiator & Fan Assemblies',
+      software: 'Creo, CFD Tools',
+      highlights: [
+        'CFD‑guided shroud geometry',
+        'Fan blade profile for peak efficiency',
+        'Mold‑flow analysis for uniform walls',
+      ],
+    },
+  ];
+
+
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAVIGATION */}
