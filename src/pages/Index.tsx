@@ -396,7 +396,7 @@ const Portfolio = () => {
           <div className="max-w-3xl mb-16">
             <span className="pill mb-6">My experience</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
-              A decade across industry‑leading engineering teams.
+              A decade across <span className="text-gradient-title">industry‑leading</span> engineering teams.
             </h2>
           </div>
 
