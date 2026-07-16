@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin, Linkedin, Facebook, ChevronRight, Menu, X, Play, FileText, Building, Calendar, GraduationCap, Award, CheckCircle, Clock, Users, Box, Wrench, Database, Target, User, Briefcase, Package, Cog } from 'lucide-react';
+import {
+  Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin,
+  Linkedin, Facebook, ArrowUpRight, Menu, X, Play, FileText, Clock, Users, Box,
+  Wrench, Database, Target, Package, Cog, GraduationCap, Briefcase
+} from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import exhaustManifold from "@/assets/exhaust-manifold.jpg";
 import cylinderPiston from "@/assets/cylinder-piston.jpg";
@@ -13,721 +15,624 @@ import sheetMetalBracket from "@/assets/sheet-metal-bracket.jpg";
 import tubesHoses from "@/assets/tubes-hoses.jpg";
 import controlPanelBox from "@/assets/control-panel-box.jpg";
 import coolingSystem from "@/assets/cooling-system.jpg";
+
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: '',
-    company: '',
-    email: '',
-    phone: '',
-    message: ''
+    fullName: '', company: '', email: '', phone: '', message: ''
   });
-  const {
-    toast
-  } = useToast();
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({
-      behavior: 'smooth'
-    });
+  const { toast } = useToast();
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
   };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
       const response = await fetch('https://formspree.io/f/mdkddjdb', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           'Full Name': formData.fullName,
           'Company': formData.company,
           'Email': formData.email,
           'Phone': formData.phone,
           'Message': formData.message
-        })
+        }),
       });
       if (response.ok) {
-        toast({
-          title: "Message Sent Successfully!",
-          description: "Thank you for reaching out. I'll get back to you soon."
-        });
-        setFormData({
-          fullName: '',
-          company: '',
-          email: '',
-          phone: '',
-          message: ''
-        });
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive"
-      });
+        toast({ title: "Message sent", description: "Thanks — I'll get back to you soon." });
+        setFormData({ fullName: '', company: '', email: '', phone: '', message: '' });
+      } else throw new Error();
+    } catch {
+      toast({ title: "Error", description: "Failed to send. Try again.", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
   };
-  const handleResumeClick = () => {
-    window.open('/Resume-GolamFaruk.pdf', '_blank');
-  };
-  return <div className="font-poppins bg-[#f9fafb] text-[#111827] overflow-x-hidden">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white backdrop-blur-lg z-50 border-b border-[#e5e7eb]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="font-bold text-xl text-[#111827]">Website Under Development</div>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-8">
-              <button onClick={() => scrollToSection('home')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">Home</button>
-              <button onClick={() => scrollToSection('about')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">About</button>
-              <button onClick={() => scrollToSection('experience')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">Experience</button>
-              <button onClick={() => scrollToSection('services')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">Services</button>
-              <button onClick={() => scrollToSection('projects')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">Projects</button>
-              <button onClick={() => scrollToSection('contact')} className="text-[#4b5563] hover:text-[#2563eb] transition-colors">Contact</button>
+
+  const navLinks = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'services', label: 'Services' },
+    { id: 'projects', label: 'Components' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      {/* NAVIGATION */}
+      <nav className="fixed top-0 inset-x-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="flex items-center justify-between h-20">
+            <div className="font-display text-2xl font-semibold tracking-tight">Golam Faruk</div>
+
+            <div className="hidden lg:flex items-center gap-1 rounded-full border border-border bg-background px-2 py-1.5">
+              {navLinks.map(link => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="px-4 py-1.5 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-mint rounded-full transition-all"
+                >
+                  {link.label}
+                </button>
+              ))}
             </div>
 
-            {/* Mobile menu button */}
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2">
+            <Button
+              onClick={() => scrollToSection('contact')}
+              className="hidden lg:inline-flex bg-foreground text-background hover:bg-foreground/90 rounded-full h-11 px-6 font-semibold"
+            >
+              Let's talk
+              <ArrowUpRight className="ml-1 w-4 h-4" />
+            </Button>
+
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && <div className="md:hidden bg-white border-t border-[#e5e7eb]">
-            <div className="px-4 pt-2 pb-3 space-y-1">
-              <button onClick={() => scrollToSection('home')} className="block px-3 py-2 text-[#4b5563] hover:text-[#2563eb]">Home</button>
-              <button onClick={() => scrollToSection('about')} className="block px-3 py-2 text-[#4b5563] hover:text-[#2563eb]">About</button>
-              <button onClick={() => scrollToSection('experience')} className="block px-3 py-2 text-[#4b5563] hover:text-[#2563eb]">Experience</button>
-              <button onClick={() => scrollToSection('services')} className="block px-3 py-2 text-[#4b5563] hover:text-[#2563eb]">Services</button>
-              <button onClick={() => scrollToSection('projects')} className="block px-3 py-2 text-[#4b5563] hover:text-[#2563eb]">Projects</button>
-              <button onClick={() => scrollToSection('contact')} className="block px-3 py-2 text-[#4b5563] hover:text-[#2563eb]">Contact</button>
+        {isMenuOpen && (
+          <div className="lg:hidden bg-background border-t border-border">
+            <div className="px-6 py-4 space-y-1">
+              {navLinks.map(link => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="block w-full text-left px-4 py-3 text-base font-medium text-foreground/80 hover:bg-mint rounded-2xl"
+                >
+                  {link.label}
+                </button>
+              ))}
             </div>
-          </div>}
+          </div>
+        )}
       </nav>
 
-      {/* Hero Section - 100vh */}
-      <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-[#f9fafb]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <div className="inline-block bg-[#eff6ff] px-6 py-3 rounded-full">
-                  <span className="text-[#2563eb] font-semibold text-xs">SENIOR 3D MACHINERY DESIGNER</span>
-                </div>
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-[#111827] lg:text-5xl">
-                  Hi, I'm <br />
-                  <span className="text-[#2563eb]">Golam Faruk</span>
-                </h1>
-                <h2 className="text-2xl font-medium text-[#4b5563] md:text-xl">Mechanical & 3D Design Engineer</h2>
-              </div>
-              
-              <p className="text-lg text-[#4b5563] leading-relaxed max-w-lg font-normal md:text-base">Over 10 years of experience in 3D Mechanical Design, specializing in Solid Modeling, Sheet Metal, and Engine Components using Creo, SolidWorks, CATIA, and NX.
-Currently designing diesel engine systems at John Deere Power Systems (Iowa, USA).</p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <Button onClick={() => scrollToSection('projects')} className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white px-8 py-6 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300">
-                  View My Work
-                  <ChevronRight className="ml-2 w-5 h-5" />
-                </Button>
-                <Button onClick={() => scrollToSection('contact')} variant="outline" className="border-2 border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white px-8 py-6 text-lg font-semibold rounded-lg transition-all duration-300">
-                  Let's Connect
-                </Button>
-              </div>
-            </div>
-            
-            {/* Hero Image */}
-            <div className="relative">
-              <div className="relative">
-<img src="/golam-faruk.png" alt="Golam Faruk - Senior 3D Machinery Designer" className="relative z-10 max-w-[90%] h-auto rounded-2xl object-cover mx-auto" />
-                <div className="absolute -bottom-6 -right-6 z-[999] bg-white rounded-2xl p-4 shadow-xl border border-[#e5e7eb]">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-semibold text-[#111827]">Available for Projects</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* HERO */}
+      <section id="home" className="pt-32 pb-24 lg:pt-40 lg:pb-32 px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-7 space-y-8 animate-fade-up">
+              <span className="pill">
+                <span className="w-2 h-2 rounded-full bg-accent mr-2" />
+                Senior Mechanical Design Engineer
+              </span>
 
-      {/* About Section - 100vh */}
-      <section id="about" className="min-h-screen flex items-center bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#111827]">About Me</h2>
-            <p className="text-xl text-[#4b5563] max-w-3xl mx-auto">
-              Experienced Mechanical Design Engineer with Proven Technical Expertise
-            </p>
-          </div>
-          
-          {/* About Me Text */}
-          <div className="max-w-5xl mx-auto mb-12">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#e5e7eb]">
-              <p className="text-lg text-[#111827] leading-relaxed">
-                I'm Golam Faruk, a Mechanical Design Engineer with over a decade of experience in 3D modeling, product development, and engine component design for global brands like John Deere, Arctic Cat, and Caterpillar. My expertise includes Solid Modeling, Sheet Metal, Casting Design, GD&T, BOM, and Tolerance Stack-Up using tools such as Creo, SolidWorks, CATIA V5, and NX. I specialize in designing and detailing components such as brackets, manifolds, hoses, cylinders, pistons, and control systems—transforming engineering concepts into production-ready solutions. Passionate about innovation, precision, and efficiency, I combine analytical design skills with practical manufacturing knowledge to deliver performance-driven engineering outcomes.
+              <h1 className="font-display text-[15vw] leading-[0.92] sm:text-7xl lg:text-[6.5rem] xl:text-[7.5rem] font-semibold">
+                The engineer<br />
+                behind precision<br />
+                <span className="italic text-foreground/60">machinery.</span>
+              </h1>
+
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed">
+                Over a decade turning engineering concepts into production‑ready designs
+                for John Deere, Arctic Cat and Caterpillar — using Creo, SolidWorks, CATIA V5 and NX.
               </p>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Button
+                  onClick={() => scrollToSection('projects')}
+                  className="bg-foreground text-background hover:bg-foreground/90 rounded-full h-14 px-8 text-base font-semibold"
+                >
+                  View my work
+                  <ArrowUpRight className="ml-2 w-5 h-5" />
+                </Button>
+                <Button
+                  onClick={() => scrollToSection('contact')}
+                  variant="outline"
+                  className="rounded-full h-14 px-8 text-base font-semibold border-foreground/20 hover:bg-mint"
+                >
+                  Start a project
+                </Button>
+              </div>
+
+              <div className="flex items-center gap-8 pt-6 text-sm text-muted-foreground">
+                <div>
+                  <div className="font-display text-3xl text-foreground">10+</div>
+                  <div>Years experience</div>
+                </div>
+                <div className="w-px h-10 bg-border" />
+                <div>
+                  <div className="font-display text-3xl text-foreground">5000+</div>
+                  <div>CAD models built</div>
+                </div>
+                <div className="w-px h-10 bg-border hidden sm:block" />
+                <div className="hidden sm:block">
+                  <div className="font-display text-3xl text-foreground">10+</div>
+                  <div>Global brands</div>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Experience Stats - 4 Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in">
-              <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
-                <Clock className="w-6 h-6 text-[#2563eb]" />
+            <div className="lg:col-span-5 relative animate-fade-in">
+              <div className="relative rounded-[2.5rem] overflow-hidden bg-mint aspect-[4/5]">
+                <img
+                  src="/golam-faruk.png"
+                  alt="Golam Faruk, Mechanical Design Engineer"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
               </div>
-              <h3 className="text-3xl font-bold text-[#2563eb] mb-2">10+</h3>
-              <p className="text-sm font-semibold text-[#111827] mb-1">Years of Experience</p>
-              <p className="text-xs text-[#4b5563]">In Mechanical Design Engineering</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
-                <FileText className="w-6 h-6 text-[#2563eb]" />
+              <div className="absolute -bottom-6 -left-6 bg-background rounded-3xl p-5 shadow-elevated border border-border max-w-[240px]">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
+                  <span className="text-xs font-semibold uppercase tracking-wider">Available</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Currently open for new engineering collaborations.</p>
               </div>
-              <h3 className="text-3xl font-bold text-[#2563eb] mb-2">100+</h3>
-              <p className="text-sm font-semibold text-[#111827] mb-1">Projects Completed</p>
-              <p className="text-xs text-[#4b5563]">Complex mechanical & engine component designs</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
-                <Users className="w-6 h-6 text-[#2563eb]" />
-              </div>
-              <h3 className="text-3xl font-bold text-[#2563eb] mb-2">10+</h3>
-              <p className="text-sm font-semibold text-[#111827] mb-1">Global Collaborations</p>
-              <p className="text-xs text-[#4b5563]">With John Deere, Caterpillar & Arctic Cat</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="flex items-center justify-center w-12 h-12 bg-[#eff6ff] rounded-lg mb-4">
-                <Box className="w-6 h-6 text-[#2563eb]" />
-              </div>
-              <h3 className="text-3xl font-bold text-[#2563eb] mb-2">5000+</h3>
-              <p className="text-sm font-semibold text-[#111827] mb-1">CAD Models & Assemblies</p>
-              <p className="text-xs text-[#4b5563]">Detailed 3D parts, prototypes & design releases</p>
-            </div>
-          </div>
-
-          {/* Skills Grid - 4 Categories */}
-          <div className="max-w-6xl mx-auto">
-            <h3 className="text-2xl font-bold text-center mb-8 text-[#111827]">Technical Expertise</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Design Tools */}
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-10 h-10 bg-[#eff6ff] rounded-lg mr-3">
-                    <Settings className="w-5 h-5 text-[#2563eb]" />
-                  </div>
-                  <h4 className="text-lg font-bold text-[#111827]">Design Tools</h4>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['Creo', 'SolidWorks', 'CATIA V5', 'NX', 'AutoCAD', 'Autodesk Inventor'].map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Engineering Expertise */}
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-10 h-10 bg-[#eff6ff] rounded-lg mr-3">
-                    <Wrench className="w-5 h-5 text-[#2563eb]" />
-                  </div>
-                  <h4 className="text-lg font-bold text-[#111827]">Engineering Expertise</h4>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['GD&T', 'Tolerance Stack-Up', 'FEA Review', 'FMEA', 'DFMEA', 'BOM Creation', 'Design Validation'].map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Data & Systems */}
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-10 h-10 bg-[#eff6ff] rounded-lg mr-3">
-                    <Database className="w-5 h-5 text-[#2563eb]" />
-                  </div>
-                  <h4 className="text-lg font-bold text-[#111827]">Data & Systems</h4>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['SAP', 'Windchill', 'PDM-Link', 'Teamcenter', 'Minitab', 'Excel', 'PowerPoint'].map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Professional Strengths */}
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#e5e7eb] hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-10 h-10 bg-[#eff6ff] rounded-lg mr-3">
-                    <Target className="w-5 h-5 text-[#2563eb]" />
-                  </div>
-                  <h4 className="text-lg font-bold text-[#111827]">Professional Strengths</h4>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {['Product Optimization', 'Cross-Functional Collaboration', 'Root Cause Analysis', 'Prototype Development'].map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-[#eff6ff] text-[#2563eb] rounded-full text-sm font-medium">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+              <div className="absolute -top-6 -right-6 bg-accent rounded-3xl p-5 shadow-soft rotate-3">
+                <Cog className="w-8 h-8 text-foreground" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Experience Section - 100vh */}
-      <section id="experience" className="min-h-screen flex items-center bg-[#f9fafb]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#111827]">My Experience</h2>
-            <p className="text-xl text-[#4b5563] max-w-3xl mx-auto">
-              A journey through industry-leading companies and cutting-edge projects
-            </p>
+      {/* ABOUT */}
+      <section id="about" className="py-24 lg:py-32 px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-4xl mb-16">
+            <span className="pill mb-6">About me</span>
+            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
+              Experienced Mechanical Design Engineer with proven technical expertise.
+            </h2>
           </div>
 
-          {/* Work History */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-[#111827] flex items-center">
-              <Settings className="w-8 h-8 text-[#2563eb] mr-3" />
-              Work History
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[{
-              period: '2019 – Present',
-              title: 'Design Engineer',
-              company: 'US Tech Solutions (Client: John Deere Power Systems, Iowa, USA)',
-              description: 'Lead design and development of casting, sheet metal, and engine components including tubes, hoses, manifolds, and filters for diesel engines. Conduct design reviews, GD&T validation, and root cause analysis (8D) while collaborating with global teams for cost and complexity improvements.',
-              logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025406/rsz_john-deere-logo_1_hq5svg.png'
-            }, {
-              period: '2014 – 2019',
-              title: 'Engineer Design',
-              company: 'Arctic Cat (Thief River Falls, MN, USA)',
-              description: 'Designed and developed ATV engine components such as cylinders, pistons, connecting rods, oil pans, and PTO covers. Supported prototype builds, validation testing, and cost optimization.',
-              logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1761054561/articcat.png'
-            }, {
-              period: '2012 – 2013',
-              title: 'Project Engineer',
-              company: 'Belcan Engineering Group (Client: Caterpillar, Lafayette, IN)',
-              description: 'Led multiple projects for marine and locomotive engines under the NPI program. Designed fuel and oil system components, performed FEA and DFMEA, and managed supplier validation documentation (APQP, PPAP).',
-              logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png'
-            }, {
-              period: '2008 – 2012',
-              title: 'Design Engineer',
-              company: 'Geometric Americas Inc. (Client: Caterpillar, Mossville, IL)',
-              description: 'Developed Tier 4 Exhaust Module and Cab components, including SCR and DPF assemblies. Coordinated validation testing and design releases via Teamcenter.',
-              logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png'
-            }].map((job, index) => <Card key={index} className="p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-4">
-                      <img src={job.logo} alt="Company Logo" className="w-40 h-20 object-contain" />
-                      <Badge className="bg-[#eff6ff] text-[#2563eb] hover:bg-[#dbeafe]">
-                        {job.period}
-                      </Badge>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-[#111827] mb-1">{job.title}</h4>
-                      <p className="text-sm font-semibold text-[#2563eb] mb-3">{job.company}</p>
-                      <p className="text-[#4b5563] text-sm leading-relaxed">{job.description}</p>
-                    </div>
-                  </div>
-                </Card>)}
+          <div className="grid lg:grid-cols-3 gap-6 mb-6">
+            <div className="lg:col-span-2 bg-mint rounded-[2rem] p-8 lg:p-12">
+              <p className="text-lg lg:text-xl text-foreground/80 leading-relaxed">
+                I'm <strong className="text-foreground">Golam Faruk</strong>, a Mechanical Design Engineer with over a decade of
+                experience in 3D modeling, product development, and engine component design for global brands like
+                John Deere, Arctic Cat, and Caterpillar. My expertise includes Solid Modeling, Sheet Metal,
+                Casting Design, GD&T, BOM, and Tolerance Stack‑Up using Creo, SolidWorks, CATIA V5, and NX.
+              </p>
+              <p className="text-lg lg:text-xl text-foreground/80 leading-relaxed mt-6">
+                I specialise in designing brackets, manifolds, hoses, cylinders, pistons and control systems —
+                transforming engineering concepts into production‑ready solutions with a focus on innovation,
+                precision, and manufacturing efficiency.
+              </p>
+              <Button
+                onClick={() => window.open('/Resume-GolamFaruk.pdf', '_blank')}
+                className="mt-8 bg-foreground text-background hover:bg-foreground/90 rounded-full h-12 px-6 font-semibold"
+              >
+                <FileText className="w-4 h-4 mr-2" />
+                See my resume
+              </Button>
+            </div>
+
+            <div className="bg-accent rounded-[2rem] p-8 lg:p-10 flex flex-col justify-between min-h-[280px]">
+              <Briefcase className="w-10 h-10 text-foreground" />
+              <div>
+                <div className="font-display text-5xl lg:text-6xl font-semibold leading-none">Currently</div>
+                <p className="mt-3 text-foreground/80">
+                  Designing diesel engine systems at <strong>John Deere Power Systems</strong>, Iowa.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Education */}
+          {/* Experience Stats */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { icon: Clock, num: '10+', label: 'Years of experience', hint: 'In mechanical design engineering' },
+              { icon: FileText, num: '100+', label: 'Projects completed', hint: 'Complex mechanical & engine components' },
+              { icon: Users, num: '10+', label: 'Global collaborations', hint: 'John Deere, Caterpillar & Arctic Cat' },
+              { icon: Box, num: '5000+', label: 'CAD models built', hint: 'Detailed parts, prototypes & releases' },
+            ].map((s, i) => (
+              <div key={i} className="bg-background border border-border rounded-[1.75rem] p-6 hover:bg-mint-soft transition-colors">
+                <s.icon className="w-6 h-6 text-foreground/70 mb-6" />
+                <div className="font-display text-5xl font-semibold leading-none mb-2">{s.num}</div>
+                <div className="font-semibold text-foreground">{s.label}</div>
+                <div className="text-sm text-muted-foreground mt-1">{s.hint}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Skills */}
+          <div className="mt-20">
+            <div className="max-w-3xl mb-10">
+              <span className="pill mb-4">Technical expertise</span>
+              <h3 className="font-display text-4xl md:text-5xl font-semibold">
+                Tools, methods and systems I work with every day.
+              </h3>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { icon: Settings, title: 'Design tools', accent: 'bg-accent', skills: ['Creo', 'SolidWorks', 'CATIA V5', 'NX', 'AutoCAD', 'Autodesk Inventor'] },
+                { icon: Wrench, title: 'Engineering expertise', accent: 'bg-secondary-soft', skills: ['GD&T', 'Tolerance Stack‑Up', 'FEA Review', 'FMEA', 'DFMEA', 'BOM Creation', 'Design Validation'] },
+                { icon: Database, title: 'Data & systems', accent: 'bg-mint', skills: ['SAP', 'Windchill', 'PDM‑Link', 'Teamcenter', 'Minitab', 'Excel', 'PowerPoint'] },
+                { icon: Target, title: 'Professional strengths', accent: 'bg-accent-soft', skills: ['Product Optimization', 'Cross‑Functional Collaboration', 'Root Cause Analysis', 'Prototype Development'] },
+              ].map((cat, i) => (
+                <div key={i} className="bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft transition-shadow">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className={`w-12 h-12 rounded-2xl ${cat.accent} flex items-center justify-center`}>
+                      <cat.icon className="w-5 h-5 text-foreground" />
+                    </div>
+                    <h4 className="font-display text-2xl font-semibold">{cat.title}</h4>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {cat.skills.map(s => (
+                      <span key={s} className="px-4 py-2 rounded-full bg-mint-soft border border-border text-sm font-medium">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCE */}
+      <section id="experience" className="py-24 lg:py-32 px-6 lg:px-10 bg-mint-soft">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-16">
+            <span className="pill mb-6">My experience</span>
+            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
+              A decade across industry‑leading engineering teams.
+            </h2>
+          </div>
+
+          <div className="mb-16">
+            <h3 className="font-display text-3xl font-semibold mb-8 flex items-center gap-3">
+              <Settings className="w-7 h-7 text-foreground/70" />
+              Work history
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { period: '2019 – Present', title: 'Design Engineer', company: 'US Tech Solutions · Client: John Deere Power Systems, Iowa, USA', desc: 'Lead design and development of casting, sheet metal, and engine components including tubes, hoses, manifolds, and filters for diesel engines. Conduct design reviews, GD&T validation, and root cause analysis (8D) while collaborating with global teams for cost and complexity improvements.', logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025406/rsz_john-deere-logo_1_hq5svg.png', bg: 'bg-accent' },
+                { period: '2014 – 2019', title: 'Engineer Design', company: 'Arctic Cat · Thief River Falls, MN, USA', desc: 'Designed and developed ATV engine components such as cylinders, pistons, connecting rods, oil pans, and PTO covers. Supported prototype builds, validation testing, and cost optimization.', logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1761054561/articcat.png', bg: 'bg-mint' },
+                { period: '2012 – 2013', title: 'Project Engineer', company: 'Belcan Engineering Group · Client: Caterpillar, Lafayette, IN', desc: 'Led multiple projects for marine and locomotive engines under the NPI program. Designed fuel and oil system components, performed FEA and DFMEA, and managed supplier validation documentation (APQP, PPAP).', logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png', bg: 'bg-secondary-soft' },
+                { period: '2008 – 2012', title: 'Design Engineer', company: 'Geometric Americas Inc. · Client: Caterpillar, Mossville, IL', desc: 'Developed Tier 4 Exhaust Module and Cab components, including SCR and DPF assemblies. Coordinated validation testing and design releases via Teamcenter.', logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png', bg: 'bg-accent-soft' },
+              ].map((job, i) => (
+                <article key={i} className="bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft transition-shadow">
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div className={`${job.bg} rounded-2xl h-20 w-40 flex items-center justify-center p-4`}>
+                      <img src={job.logo} alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
+                    </div>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground bg-mint-soft border border-border rounded-full px-3 py-1.5 whitespace-nowrap">
+                      {job.period}
+                    </span>
+                  </div>
+                  <h4 className="font-display text-2xl font-semibold mb-1">{job.title}</h4>
+                  <p className="text-sm font-medium text-foreground/70 mb-4">{job.company}</p>
+                  <p className="text-foreground/70 leading-relaxed">{job.desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
           <div>
-            <h3 className="text-2xl font-bold mb-8 text-[#111827] flex items-center">
-              <GraduationCap className="w-8 h-8 text-[#2563eb] mr-3" />
+            <h3 className="font-display text-3xl font-semibold mb-8 flex items-center gap-3">
+              <GraduationCap className="w-7 h-7 text-foreground/70" />
               Education
             </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[{
-              period: '2009',
-              degree: 'Master of Applied Science',
-              field: 'Mechanical Engineering',
-              institution: 'University of Windsor, Canada',
-              logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png'
-            }, {
-              period: '2006',
-              degree: 'Bachelor of Applied Science',
-              field: 'Mechanical Engineering',
-              institution: 'University of Windsor, Canada',
-              logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png'
-            }].map((edu, index) => <Card key={index} className="p-6 bg-white border border-[#e5e7eb] shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-4">
-                      <img src={edu.logo} alt="University Logo" className="w-40 h-20 object-contain" />
-                      <Badge className="bg-[#dcfce7] text-[#166534] hover:bg-[#bbf7d0]">
-                        {edu.period}
-                      </Badge>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { period: '2009', degree: 'Master of Applied Science', field: 'Mechanical Engineering', inst: 'University of Windsor, Canada' },
+                { period: '2006', degree: 'Bachelor of Applied Science', field: 'Mechanical Engineering', inst: 'University of Windsor, Canada' },
+              ].map((ed, i) => (
+                <article key={i} className="bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft transition-shadow">
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div className="bg-accent-soft rounded-2xl h-20 w-40 flex items-center justify-center p-4">
+                      <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png" alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
                     </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-[#111827] mb-1">{edu.degree}</h4>
-                      <p className="text-sm font-semibold text-[#2563eb] mb-1">{edu.field}</p>
-                      <p className="text-sm text-[#4b5563]">{edu.institution}</p>
-                    </div>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground bg-mint-soft border border-border rounded-full px-3 py-1.5">
+                      {ed.period}
+                    </span>
                   </div>
-                </Card>)}
+                  <h4 className="font-display text-2xl font-semibold mb-1">{ed.degree}</h4>
+                  <p className="text-sm font-medium text-foreground/70">{ed.field}</p>
+                  <p className="text-foreground/60 mt-2">{ed.inst}</p>
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">My Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive 3D design solutions tailored to bring your machinery concepts to life
+      {/* SERVICES */}
+      <section id="services" className="py-24 lg:py-32 px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+            <div className="max-w-2xl">
+              <span className="pill mb-6">My services</span>
+              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
+                Engineering, from concept to production.
+              </h2>
+            </div>
+            <p className="text-lg text-muted-foreground max-w-md">
+              Comprehensive design solutions tailored to bring complex machinery concepts to life —
+              built with precision, delivered on time.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[{
-            icon: Settings,
-            title: "3D Machinery Design",
-            description: "Complete machinery design from concept to production-ready models with precision engineering."
-          }, {
-            icon: Layers,
-            title: "CAD Drafting",
-            description: "Technical drawings and detailed blueprints for manufacturing and assembly processes."
-          }, {
-            icon: Eye,
-            title: "Machinery Visualization",
-            description: "Photorealistic renderings and animations to showcase your machinery designs."
-          }, {
-            icon: MessageCircle,
-            title: "Design Consultation",
-            description: "Expert advice on design optimization, feasibility studies, and technical solutions."
-          }, {
-            icon: Printer,
-            title: "3D Printing Models",
-            description: "Prototype development and 3D printing preparation for rapid testing and validation."
-          }, {
-            icon: Cpu,
-            title: "Custom Design Projects",
-            description: "Tailored design solutions for unique machinery requirements and specialized applications."
-          }].map((service, index) => <Card key={index} className="group hover:shadow-xl transition-all duration-300 border border-gray-200 bg-white shadow-lg animate-scale-up" style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
-                <CardContent className="p-8 text-center">
-                  <div className="mx-auto w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-gray-900">{service.title}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                </CardContent>
-              </Card>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Components Expertise Section */}
-      <section id="projects" className="py-20 bg-[#f9fafb]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#111827]">Components Expertise</h2>
-            <p className="text-xl text-[#4b5563] max-w-3xl mx-auto">
-              Highlighting Precision-Driven Designs
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[{
-              title: "Exhaust Manifold",
-              image: exhaustManifold,
-              description: "Designed complex manifold geometry for diesel engines with optimized gas flow paths and thermal management. Implemented GD&T standards for critical mounting interfaces and validated thermal stress through FEA.",
-              material: "Ductile Iron",
-              process: "Sand Casting"
-            }, {
-              title: "Cylinder & Piston Assembly",
-              image: cylinderPiston,
-              description: "Created detailed models and GD&T-compliant drawings for high-performance engine assemblies. Conducted tolerance stack-up analysis to ensure proper clearances and optimal combustion efficiency.",
-              material: "Aluminum Alloy",
-              process: "Die Casting"
-            }, {
-              title: "Sheet Metal Bracket",
-              image: sheetMetalBracket,
-              description: "Engine mounting and structural support design with cost-optimized bend sequences. Applied DFMEA methodology to minimize manufacturing complexity while maintaining structural integrity.",
-              material: "Steel",
-              process: "Stamping"
-            }, {
-              title: "Tubes & Hoses",
-              image: tubesHoses,
-              description: "Designed and routed engine fluid lines for fuel, oil, and coolant systems. Optimized routing to avoid interference with moving parts and thermal sources while minimizing pressure drops.",
-              material: "Steel & Rubber",
-              process: "Tube Bending"
-            }, {
-              title: "Control Panel Box",
-              image: controlPanelBox,
-              description: "Designed housings for control and sensor components with IP-rated sealing. Integrated mounting provisions for electronic modules with thermal management and EMI shielding considerations.",
-              material: "Aluminum",
-              process: "CNC Machining"
-            }, {
-              title: "Cooling System Components",
-              image: coolingSystem,
-              description: "Modeled and optimized airflow parts using Creo including radiator shrouds and fan assemblies. Performed CFD analysis review to maximize cooling efficiency and minimize noise levels.",
-              material: "Plastic Composite",
-              process: "Injection Molding"
-            }].map((component, index) => (
-              <Card 
-                key={index} 
-                className="group hover:shadow-xl transition-all duration-300 border border-[#e5e7eb] overflow-hidden bg-white shadow-lg animate-fade-in" 
-                style={{ animationDelay: `${index * 0.1}s` }}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { icon: Settings, title: '3D Machinery Design', desc: 'Complete machinery design from concept to production‑ready models with precision engineering.' },
+              { icon: Layers, title: 'CAD Drafting', desc: 'Technical drawings and detailed blueprints for manufacturing and assembly processes.' },
+              { icon: Eye, title: 'Machinery Visualization', desc: 'Photorealistic renderings and animations to showcase your machinery designs.' },
+              { icon: MessageCircle, title: 'Design Consultation', desc: 'Expert advice on design optimization, feasibility studies, and technical solutions.' },
+              { icon: Printer, title: '3D Printing Models', desc: 'Prototype development and 3D printing preparation for rapid testing and validation.' },
+              { icon: Cpu, title: 'Custom Design Projects', desc: 'Tailored design solutions for unique machinery requirements and specialized applications.' },
+            ].map((s, i) => (
+              <div
+                key={i}
+                className="group bg-background border border-border rounded-[1.75rem] p-8 hover:bg-mint transition-all duration-300"
               >
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={component.image} 
-                    alt={component.title} 
-                    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" 
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-[#111827] group-hover:text-[#2563eb] transition-colors">
-                    {component.title}
-                  </h3>
-                  <p className="text-[#4b5563] leading-relaxed mb-4 text-sm">
-                    {component.description}
-                  </p>
-                  <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-[#e5e7eb]">
-                    <div className="flex items-center gap-2 text-xs">
-                      <div className="flex items-center justify-center w-8 h-8 bg-[#eff6ff] rounded-lg">
-                        <Package className="w-4 h-4 text-[#2563eb]" />
-                      </div>
-                      <div>
-                        <p className="text-[#6b7280] font-medium">Material</p>
-                        <p className="text-[#111827] font-semibold">{component.material}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-xs">
-                      <div className="flex items-center justify-center w-8 h-8 bg-[#eff6ff] rounded-lg">
-                        <Cog className="w-4 h-4 text-[#2563eb]" />
-                      </div>
-                      <div>
-                        <p className="text-[#6b7280] font-medium">Process</p>
-                        <p className="text-[#111827] font-semibold">{component.process}</p>
-                      </div>
-                    </div>
+                <div className="flex items-center justify-between mb-10">
+                  <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-background flex items-center justify-center transition-colors">
+                    <s.icon className="w-6 h-6 text-foreground" />
                   </div>
-                </CardContent>
-              </Card>
+                  <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-foreground group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
+                </div>
+                <h3 className="font-display text-2xl font-semibold mb-3">{s.title}</h3>
+                <p className="text-foreground/70 leading-relaxed">{s.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Client Reviews Section - Redesigned */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Client Reviews</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hear what industry professionals say about working with me
-            </p>
+      {/* COMPONENTS EXPERTISE */}
+      <section id="projects" className="py-24 lg:py-32 px-6 lg:px-10 bg-mint-soft">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-16">
+            <span className="pill mb-6">Components expertise</span>
+            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
+              Highlighting precision‑driven designs.
+            </h2>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[{
-            name: "David McAllister",
-            position: "Senior Product Manager, John Deere",
-            image: "https://iili.io/FgRZ8ut.jpg",
-            // Placeholder image, replace with real client photo if available
-            review: "Working with Golam has been a game-changer for our engineering team. His precision in 3D modeling and deep understanding of machinery functionality helped us accelerate our product development pipeline significantly.",
-            rating: 5,
-            videoThumbnail: "https://iili.io/FgRZ8ut.jpg",
-            // optional
-            videoUrl: "https://youtu.be/dQw4w9WgXcQ"
-          }, {
-            name: "Linda Carver",
-            position: "R&D Lead Engineer, Komatsu America",
-            image: "https://iili.io/FgRmNWX.webp",
-            review: "Golam's design consultation brought fresh insights to our electric loader project. From initial sketches to final CAD drafts, every step reflected his passion and technical mastery.",
-            rating: 5,
-            videoThumbnail: "https://iili.io/FgRmNWX.webp",
-            videoUrl: "https://youtu.be/dQw4w9WgXcQ"
-          }, {
-            name: "Carlos Mendes",
-            position: "Operations Director, BuildTech Machinery",
-            image: "https://iili.io/Fg595Ol.jpg",
-            review: "What sets Golam apart is his ability to turn complex machinery concepts into accurate and functional 3D models. His custom design solutions have made a real impact on our prototyping speed and investor demos.",
-            rating: 5,
-            videoThumbnail: "https://iili.io/Fg595Ol.jpg",
-            videoUrl: "https://youtu.be/dQw4w9WgXcQ"
-          }].map((testimonial, index) => <Card key={index} className="p-6 bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-up" style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
-                <div className="flex items-center gap-4 mb-4">
-                  <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full object-cover border-2 border-blue-200" />
-                  <div>
-                    <div className="font-bold text-lg text-gray-900">{testimonial.name}</div>
-                    <div className="text-blue-600 font-medium text-sm">{testimonial.position}</div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { title: 'Exhaust Manifold', image: exhaustManifold, desc: 'Designed complex manifold geometry for diesel engines with optimized gas flow paths and thermal management. Validated thermal stress through FEA.', material: 'Ductile Iron', process: 'Sand Casting' },
+              { title: 'Cylinder & Piston Assembly', image: cylinderPiston, desc: 'Detailed models and GD&T‑compliant drawings for high‑performance engine assemblies. Tolerance stack‑up ensures optimal combustion.', material: 'Aluminum Alloy', process: 'Die Casting' },
+              { title: 'Sheet Metal Bracket', image: sheetMetalBracket, desc: 'Engine mounting and structural support design with cost‑optimized bend sequences and DFMEA methodology.', material: 'Steel', process: 'Stamping' },
+              { title: 'Tubes & Hoses', image: tubesHoses, desc: 'Routed engine fluid lines for fuel, oil, and coolant systems — minimising interference and pressure drops.', material: 'Steel & Rubber', process: 'Tube Bending' },
+              { title: 'Control Panel Box', image: controlPanelBox, desc: 'Housings for control and sensor components with IP‑rated sealing, thermal management and EMI shielding.', material: 'Aluminum', process: 'CNC Machining' },
+              { title: 'Cooling System', image: coolingSystem, desc: 'Modeled and optimised airflow parts — radiator shrouds and fan assemblies with CFD analysis review.', material: 'Plastic Composite', process: 'Injection Molding' },
+            ].map((c, i) => (
+              <article key={i} className="bg-background border border-border rounded-[1.75rem] overflow-hidden hover:shadow-soft transition-shadow group">
+                <div className="aspect-[16/11] overflow-hidden bg-mint">
+                  <img
+                    src={c.image}
+                    alt={c.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-2xl font-semibold mb-2">{c.title}</h3>
+                  <p className="text-foreground/70 text-sm leading-relaxed mb-5">{c.desc}</p>
+                  <div className="flex gap-2 flex-wrap pt-4 border-t border-border">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-mint px-3 py-1.5 text-xs font-semibold">
+                      <Package className="w-3.5 h-3.5" /> {c.material}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1.5 text-xs font-semibold">
+                      <Cog className="w-3.5 h-3.5" /> {c.process}
+                    </span>
                   </div>
                 </div>
-                
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />)}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* REVIEWS */}
+      <section className="py-24 lg:py-32 px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-16">
+            <span className="pill mb-6">Client reviews</span>
+            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
+              What industry professionals say.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              { name: 'David McAllister', pos: 'Senior Product Manager, John Deere', img: 'https://iili.io/FgRZ8ut.jpg', review: "Working with Golam has been a game‑changer for our engineering team. His precision in 3D modeling helped us accelerate our product development pipeline significantly.", bg: 'bg-accent' },
+              { name: 'Linda Carver', pos: 'R&D Lead Engineer, Komatsu America', img: 'https://iili.io/FgRmNWX.webp', review: "Golam's design consultation brought fresh insights to our electric loader project. Every step reflected his passion and technical mastery.", bg: 'bg-mint' },
+              { name: 'Carlos Mendes', pos: 'Operations Director, BuildTech Machinery', img: 'https://iili.io/Fg595Ol.jpg', review: "What sets Golam apart is his ability to turn complex machinery concepts into accurate, functional 3D models — a real impact on prototyping speed.", bg: 'bg-secondary-soft' },
+            ].map((t, i) => (
+              <article key={i} className={`${t.bg} rounded-[1.75rem] p-8 flex flex-col`}>
+                <div className="flex mb-6">
+                  {[...Array(5)].map((_, k) => <Star key={k} className="w-4 h-4 fill-foreground text-foreground" />)}
                 </div>
-                
-                <blockquote className="text-gray-600 leading-relaxed mb-6 italic">
-                  "{testimonial.review}"
+                <blockquote className="font-display text-xl leading-snug mb-8 flex-1">
+                  "{t.review}"
                 </blockquote>
-                
+
                 <Dialog>
                   <DialogTrigger asChild>
-                    <div className="relative cursor-pointer group">
-                      <img src={testimonial.videoThumbnail} alt="Video thumbnail" className="w-full h-32 object-cover rounded-lg" />
-                      <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg flex items-center justify-center group-hover:bg-opacity-60 transition-all duration-300">
-                        <div className="bg-blue-600 rounded-full p-3 group-hover:scale-110 transition-transform duration-300">
-                          <Play className="w-6 h-6 text-white ml-1" />
+                    <button className="relative rounded-2xl overflow-hidden mb-6 group">
+                      <img src={t.img} alt="" className="w-full h-36 object-cover" loading="lazy" />
+                      <div className="absolute inset-0 bg-foreground/30 flex items-center justify-center group-hover:bg-foreground/40 transition-colors">
+                        <div className="bg-background rounded-full p-4 group-hover:scale-110 transition-transform">
+                          <Play className="w-5 h-5 text-foreground ml-0.5 fill-foreground" />
                         </div>
                       </div>
-                    </div>
+                    </button>
                   </DialogTrigger>
                   <DialogContent className="max-w-4xl">
-                    <iframe width="100%" height="400" src={testimonial.videoUrl.replace('youtu.be/', 'youtube.com/embed/')} title={`${testimonial.name} Review`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <iframe
+                      width="100%" height="500"
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title={`${t.name} review`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   </DialogContent>
                 </Dialog>
-              </Card>)}
+
+                <div className="flex items-center gap-3 pt-6 border-t border-foreground/10">
+                  <img src={t.img} alt={t.name} className="w-12 h-12 rounded-full object-cover" loading="lazy" />
+                  <div>
+                    <div className="font-semibold text-foreground">{t.name}</div>
+                    <div className="text-sm text-foreground/70">{t.pos}</div>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Trusted by Industry Leaders Section */}
-      <section className="py-16 bg-[#f9fafb]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-up">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Trusted by Industry Leaders</h2>
-          <div className="flex flex-wrap justify-center items-center gap-12">
-            <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025406/rsz_john-deere-logo_1_hq5svg.png" alt="John Deere" className="h-12 hover:scale-110 transition-all duration-300" />
-            <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1761054561/articcat.png" alt="Komatsu America Corp" className="h-12 hover:scale-110 transition-all duration-300" />
-            <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png" alt="Caterpillar Inc" className="h-12 hover:scale-110 transition-all duration-300" />
+      {/* TRUSTED BY */}
+      <section className="py-16 px-6 lg:px-10 border-y border-border">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-10">
+            Trusted by industry leaders
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-12 lg:gap-20">
+            <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025406/rsz_john-deere-logo_1_hq5svg.png" alt="John Deere" className="h-10 opacity-70 hover:opacity-100 transition" loading="lazy" />
+            <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1761054561/articcat.png" alt="Arctic Cat" className="h-10 opacity-70 hover:opacity-100 transition" loading="lazy" />
+            <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png" alt="Caterpillar" className="h-10 opacity-70 hover:opacity-100 transition" loading="lazy" />
           </div>
         </div>
       </section>
 
-      {/* Contact Section - 100vh */}
-      <section id="contact" className="min-h-screen flex items-center bg-[#111827] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Connect</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Ready to bring your machinery vision to life? Let's discuss your project and create something amazing together.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <Card className="bg-[#E8EAF6] border border-gray-200 rounded-xl shadow-lg animate-slide-in">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-gray-900">Send a Message</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <Input name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="Full Name *" required className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500" />
-                  <Input name="company" value={formData.company} onChange={handleInputChange} placeholder="Company" className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500" />
-                  <Input name="email" value={formData.email} onChange={handleInputChange} type="email" placeholder="Email Address *" required className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500" />
-                  <Input name="phone" value={formData.phone} onChange={handleInputChange} type="tel" placeholder="Phone Number" className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500" />
-                  <Textarea name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell me about your project..." rows={6} required className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500" />
-                  <Button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 text-lg font-semibold transition-all duration-300">
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-              
+      {/* CONTACT */}
+      <section id="contact" className="py-24 lg:py-32 px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-foreground text-background rounded-[2.5rem] p-8 md:p-12 lg:p-16">
+            <div className="grid lg:grid-cols-2 gap-12">
               <div className="space-y-8">
-                <div className="flex items-start space-x-4">
-                  <Mail className="w-6 h-6 text-blue-400 mt-1" />
-                  <div>
-                    <div className="font-semibold text-lg mb-1">Email</div>
-                    <div className="text-gray-300 text-lg mb-2">hello@golamfaruk.com</div>
-                    <div className="text-sm text-gray-400">Professional inquiries and project discussions. I typically respond within 24 hours.</div>
-                  </div>
+                <span className="inline-flex items-center rounded-full border border-background/20 bg-background/5 px-4 py-2 text-sm font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-accent mr-2" />
+                  Let's connect
+                </span>
+                <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
+                  Have a project<br />in mind?
+                </h2>
+                <p className="text-lg text-background/70 max-w-md">
+                  Ready to bring your machinery vision to life? Send me a note — I typically respond within 24 hours.
+                </p>
+
+                <div className="space-y-6 pt-6">
+                  {[
+                    { icon: Mail, label: 'Email', value: 'hello@golamfaruk.com' },
+                    { icon: Phone, label: 'Phone', value: '+1 022 444 55 55' },
+                    { icon: MapPin, label: 'Address', value: '123 Cinnamon Lane, Waterloo, Iowa' },
+                  ].map((c, i) => (
+                    <div key={i} className="flex items-start gap-4">
+                      <div className="w-11 h-11 rounded-2xl bg-background/10 flex items-center justify-center flex-shrink-0">
+                        <c.icon className="w-5 h-5 text-accent" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold uppercase tracking-wider text-background/60">{c.label}</div>
+                        <div className="text-lg font-medium">{c.value}</div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                
-                <div className="flex items-start space-x-4">
-                  <Phone className="w-6 h-6 text-blue-400 mt-1" />
-                  <div>
-                    <div className="font-semibold text-lg mb-1">Phone</div>
-                    <div className="text-gray-300 text-lg mb-2">+1 022 444 55 55</div>
-                    <div className="text-sm text-gray-400">Available Mon-Fri, 9AM-6PM CST. For urgent project consultations and direct communication.</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <MapPin className="w-6 h-6 text-blue-400 mt-1" />
-                  <div>
-                    <div className="font-semibold text-lg mb-1">Address</div>
-                    <div className="text-gray-300 text-lg mb-2">123 Cinnamon Lane<br />Waterloo, Iowa</div>
-                    <div className="text-sm text-gray-400">Open to remote collaboration worldwide. Local meetings available for major projects.</div>
+
+                <div className="pt-6">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-background/60 mb-3">Follow</div>
+                  <div className="flex gap-3">
+                    <a href="https://www.linkedin.com/in/golam-faruk-2b947519" target="_blank" rel="noopener noreferrer"
+                       className="inline-flex items-center gap-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground px-5 h-11 text-sm font-semibold transition-colors">
+                      <Linkedin className="w-4 h-4" /> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/mdgolam.faruk.773" target="_blank" rel="noopener noreferrer"
+                       className="inline-flex items-center gap-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground px-5 h-11 text-sm font-semibold transition-colors">
+                      <Facebook className="w-4 h-4" /> Facebook
+                    </a>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-8">
-                <h4 className="font-semibold text-lg mb-4">Follow Me</h4>
-                <div className="flex space-x-4">
-                  <Button className="bg-[#0077B5] hover:bg-[#005885] text-white transition-all duration-300" onClick={() => window.open('https://linkedin.com', '_blank')}>
-                    <Linkedin className="w-5 h-5 mr-2" />
-                    LinkedIn
-                  </Button>
-                  <Button className="bg-[#1877F2] hover:bg-[#166FE5] text-white transition-all duration-300" onClick={() => window.open('https://facebook.com', '_blank')}>
-                    <Facebook className="w-5 h-5 mr-2" />
-                    Facebook
-                  </Button>
+              <form onSubmit={handleSubmit} className="bg-background text-foreground rounded-[2rem] p-8 lg:p-10 space-y-4">
+                <h3 className="font-display text-2xl font-semibold mb-6">Send a message</h3>
+                <div>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">Full name *</label>
+                  <Input name="fullName" value={formData.fullName} onChange={handleInputChange} required
+                    className="h-12 rounded-2xl border-border bg-mint-soft focus-visible:ring-accent" />
                 </div>
-              </div>
+                <div>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">Company</label>
+                  <Input name="company" value={formData.company} onChange={handleInputChange}
+                    className="h-12 rounded-2xl border-border bg-mint-soft focus-visible:ring-accent" />
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">Email *</label>
+                    <Input name="email" type="email" value={formData.email} onChange={handleInputChange} required
+                      className="h-12 rounded-2xl border-border bg-mint-soft focus-visible:ring-accent" />
+                  </div>
+                  <div>
+                    <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">Phone</label>
+                    <Input name="phone" type="tel" value={formData.phone} onChange={handleInputChange}
+                      className="h-12 rounded-2xl border-border bg-mint-soft focus-visible:ring-accent" />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">Message *</label>
+                  <Textarea name="message" value={formData.message} onChange={handleInputChange} rows={5} required
+                    className="rounded-2xl border-border bg-mint-soft focus-visible:ring-accent" />
+                </div>
+                <Button type="submit" disabled={isSubmitting}
+                  className="w-full h-13 rounded-2xl bg-foreground text-background hover:bg-foreground/90 font-semibold text-base py-4">
+                  {isSubmitting ? 'Sending…' : (
+                    <>Send message <ArrowUpRight className="ml-2 w-4 h-4" /></>
+                  )}
+                </Button>
+              </form>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 bg-black text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 mb-4 md:mb-0">
-              © 2023 Golam Faruk. All rights reserved.
-            </div>
-            <div className="text-gray-400">
-              Developed by{' '}
-              <a href="https://mdhazrat.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors duration-300">
-                Hazrat Ali
-              </a>
-            </div>
+      {/* FOOTER */}
+      <footer className="py-10 px-6 lg:px-10 border-t border-border">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="font-display text-xl font-semibold">Golam Faruk</div>
+          <div className="text-sm text-muted-foreground">© 2023 Golam Faruk. All rights reserved.</div>
+          <div className="text-sm text-muted-foreground">
+            Developed by{' '}
+            <a href="https://mdhazrat.com" target="_blank" rel="noopener noreferrer" className="text-foreground font-semibold hover:text-accent-foreground hover:underline">
+              Hazrat Ali
+            </a>
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Portfolio;
