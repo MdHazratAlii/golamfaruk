@@ -758,19 +758,21 @@ const Portfolio = () => {
 
                 <div className="space-y-6 pt-6">
                   {[
-                    { icon: Mail, label: 'Email', value: 'hello@golamfaruk.com' },
-                    { icon: Phone, label: 'Phone', value: '+1 022 444 55 55' },
-                    { icon: MapPin, label: 'Address', value: '123 Cinnamon Lane, Waterloo, Iowa' },
+                    { icon: 'https://cdn.lordicon.com/rjzlnunf.json', label: 'Email', value: 'hello@golamfaruk.com' },
+                    { icon: 'https://cdn.lordicon.com/ojnjgkun.json', label: 'Phone', value: '+1 022 444 55 55' },
+                    { icon: 'https://cdn.lordicon.com/abfverha.json', label: 'Address', value: '123 Cinnamon Lane, Waterloo, Iowa' },
                   ].map((c, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <div className="w-11 h-11 rounded-2xl bg-background/10 flex items-center justify-center flex-shrink-0">
-                        <c.icon className="w-5 h-5 text-accent" />
+                    <Reveal key={i} variant="slide-left" delay={i * 120}>
+                      <div className="group flex items-start gap-4">
+                        <div className="w-11 h-11 rounded-2xl bg-background/10 group-hover:bg-accent group-hover:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                          <LordIcon src={c.icon} colors="primary:#18f0bf,secondary:#ffffff" size={22} mode="once" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-semibold uppercase tracking-wider text-background/60">{c.label}</div>
+                          <div className="text-lg font-medium">{c.value}</div>
+                        </div>
                       </div>
-                      <div>
-                        <div className="text-xs font-semibold uppercase tracking-wider text-background/60">{c.label}</div>
-                        <div className="text-lg font-medium">{c.value}</div>
-                      </div>
-                    </div>
+                    </Reveal>
                   ))}
                 </div>
 
@@ -778,16 +780,17 @@ const Portfolio = () => {
                   <div className="text-xs font-semibold uppercase tracking-wider text-background/60 mb-3">Follow</div>
                   <div className="flex gap-3">
                     <a href="https://www.linkedin.com/in/golam-faruk-2b947519" target="_blank" rel="noopener noreferrer"
-                       className="inline-flex items-center gap-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground px-5 h-11 text-sm font-semibold transition-colors">
+                       className="inline-flex items-center gap-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground hover:-translate-y-0.5 px-5 h-11 text-sm font-semibold transition-all duration-300">
                       <Linkedin className="w-4 h-4" /> LinkedIn
                     </a>
                     <a href="https://www.facebook.com/mdgolam.faruk.773" target="_blank" rel="noopener noreferrer"
-                       className="inline-flex items-center gap-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground px-5 h-11 text-sm font-semibold transition-colors">
+                       className="inline-flex items-center gap-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground hover:-translate-y-0.5 px-5 h-11 text-sm font-semibold transition-all duration-300">
                       <Facebook className="w-4 h-4" /> Facebook
                     </a>
                   </div>
                 </div>
               </div>
+
 
               <form onSubmit={handleSubmit} className="bg-background text-foreground rounded-[2rem] p-8 lg:p-10 space-y-4">
                 <h3 className="font-display text-2xl font-semibold mb-6">Send a message</h3>
