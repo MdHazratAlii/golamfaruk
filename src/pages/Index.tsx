@@ -440,7 +440,7 @@ const Portfolio = () => {
                 { period: '2009', degree: 'Master of Applied Science', field: 'Mechanical Engineering', inst: 'University of Windsor, Canada' },
                 { period: '2006', degree: 'Bachelor of Applied Science', field: 'Mechanical Engineering', inst: 'University of Windsor, Canada' },
               ].map((ed, i) => (
-                <article key={i} className="bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft transition-shadow">
+                <article key={i} className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/40 transition-all duration-500">
                   <div className="flex items-start justify-between gap-4 mb-6">
                     <div className="bg-accent-soft rounded-2xl h-20 w-40 flex items-center justify-center p-4">
                       <img src="https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_university-of-windsor-logo_1_xxdeqt.png" alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
