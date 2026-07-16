@@ -495,9 +495,10 @@ const Portfolio = () => {
                   <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-accent flex items-center justify-center transition-all duration-500">
                     <LordIcon
                       src={s.icon}
-                      colors="primary:#064e3b,secondary:#c9a84c"
+                      colors="primary:#181e15,secondary:#18f0bf"
                       size={32}
-                      trigger="hover"
+                      mode="once"
+                      speed={1}
                     />
                   </div>
                   <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />

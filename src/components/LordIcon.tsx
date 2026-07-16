@@ -11,6 +11,7 @@ declare global {
           colors?: string;
           delay?: string | number;
           stroke?: string | number;
+          speed?: string | number;
         },
         HTMLElement
       >;
@@ -22,14 +23,16 @@ type Props = {
   src: string;
   colors?: string;
   size?: number;
-  trigger?: "hover" | "click" | "loop" | "loop-on-hover" | "morph" | "in" | "boomerang";
+  /** "once" replays a single cycle on hover; "loop" cycles until mouseleave. */
+  mode?: "once" | "loop";
+  /** Playback speed multiplier applied uniformly across cards. Default 1. */
+  speed?: number;
   className?: string;
 };
 
 const LORDICON_SRC = "https://cdn.lordicon.com/lordicon.js";
 let scriptPromise: Promise<void> | null = null;
 
-/** Injects the Lordicon CDN script once, on demand. */
 const loadLordiconScript = (): Promise<void> => {
   if (typeof window === "undefined") return Promise.resolve();
   if (customElements.get("lord-icon")) return Promise.resolve();
@@ -55,24 +58,51 @@ const loadLordiconScript = (): Promise<void> => {
   return scriptPromise;
 };
 
+type Player = {
+  playFromBeginning?: () => void;
+  play?: () => void;
+  pause?: () => void;
+  stop?: () => void;
+  loop?: boolean;
+  speed?: number;
+  addEventListener?: (name: string, cb: () => void) => void;
+  removeEventListener?: (name: string, cb: () => void) => void;
+};
+
+/** Wait for the web component's playerInstance to be attached, then hand it back. */
+const whenReady = (
+  el: HTMLElement & { playerInstance?: Player },
+  cb: (player: Player) => void
+) => {
+  if (el.playerInstance) return cb(el.playerInstance);
+  let tries = 0;
+  const tick = () => {
+    if (el.playerInstance) return cb(el.playerInstance);
+    if (tries++ > 40) return; // ~2s cap
+    setTimeout(tick, 50);
+  };
+  tick();
+};
+
 /**
- * Lazy-loaded Lordicon wrapper. The CDN script and the <lord-icon> element
- * are only mounted once the component scrolls into view. Hovering the
- * containing element replays the animation from the beginning.
+ * Lazy-loaded Lordicon wrapper. The CDN script is injected only when the
+ * icon nears the viewport; hover playback is driven manually so every card
+ * animates at the same speed and finishes cleanly before the next hover.
  */
 export const LordIcon: React.FC<Props> = ({
   src,
   colors = "primary:#181e15,secondary:#18f0bf",
   size = 44,
-  trigger = "hover",
+  mode = "once",
+  speed = 1,
   className,
 }) => {
   const hostRef = useRef<HTMLSpanElement>(null);
   const iconRef = useRef<HTMLElement>(null);
+  const playingRef = useRef(false);
   const [inView, setInView] = useState(false);
   const [ready, setReady] = useState(false);
 
-  // Observe visibility — only load once the icon nears the viewport.
   useEffect(() => {
     const el = hostRef.current;
     if (!el) return;
@@ -96,25 +126,61 @@ export const LordIcon: React.FC<Props> = ({
     return () => observer.disconnect();
   }, []);
 
-  // Inject the CDN script only after the icon is in view.
   useEffect(() => {
     if (!inView) return;
     let cancelled = false;
     loadLordiconScript()
       .then(() => { if (!cancelled) setReady(true); })
-      .catch(() => { /* silently skip; placeholder stays */ });
+      .catch(() => { /* skip silently */ });
     return () => { cancelled = true; };
   }, [inView]);
 
-  const play = () => {
-    const el = iconRef.current as
-      | (HTMLElement & { playerInstance?: { playFromBeginning: () => void; play: () => void } })
-      | null;
-    const player = el?.playerInstance;
-    if (player) {
+  // Apply uniform speed as soon as the player is available.
+  useEffect(() => {
+    if (!ready) return;
+    const el = iconRef.current as (HTMLElement & { playerInstance?: Player }) | null;
+    if (!el) return;
+    whenReady(el, (player) => {
+      if (typeof player.speed !== "undefined") player.speed = speed;
+      // Never let the web component's own loop flag linger; we control it.
+      if (typeof player.loop !== "undefined") player.loop = false;
+    });
+  }, [ready, speed]);
+
+  const startPlay = () => {
+    const el = iconRef.current as (HTMLElement & { playerInstance?: Player }) | null;
+    if (!el) return;
+    whenReady(el, (player) => {
+      if (playingRef.current && mode === "once") return; // debounce re-triggers mid-cycle
+      playingRef.current = true;
+      if (typeof player.speed !== "undefined") player.speed = speed;
+
+      if (mode === "loop") {
+        player.loop = true;
+        player.playFromBeginning?.();
+        return;
+      }
+
+      // "once": play a single cycle, then unlock for the next hover.
+      player.loop = false;
+      const onComplete = () => {
+        playingRef.current = false;
+        player.removeEventListener?.("complete", onComplete);
+      };
+      player.addEventListener?.("complete", onComplete);
       player.playFromBeginning?.();
-      player.play?.();
-    }
+    });
+  };
+
+  const stopPlay = () => {
+    if (mode !== "loop") return;
+    const el = iconRef.current as (HTMLElement & { playerInstance?: Player }) | null;
+    if (!el) return;
+    whenReady(el, (player) => {
+      player.loop = false;
+      player.pause?.();
+      playingRef.current = false;
+    });
   };
 
   return (
@@ -122,14 +188,17 @@ export const LordIcon: React.FC<Props> = ({
       ref={hostRef}
       className={className}
       style={{ display: "inline-flex", width: size, height: size }}
-      onMouseEnter={play}
-      onFocus={play}
+      onMouseEnter={startPlay}
+      onMouseLeave={stopPlay}
+      onFocus={startPlay}
+      onBlur={stopPlay}
     >
       {ready ? (
         <lord-icon
           ref={iconRef as React.Ref<HTMLElement>}
           src={src}
-          trigger={trigger}
+          // trigger="in" plays once on mount; we take over from there.
+          trigger="in"
           colors={colors}
           style={{ width: size, height: size }}
         />
