@@ -183,6 +183,27 @@ export const LordIcon: React.FC<Props> = ({
     });
   };
 
+  // Attach hover listeners to the nearest `.group` ancestor (the card),
+  // so hovering anywhere on the card plays the icon — not just the 32px icon box.
+  useEffect(() => {
+    if (!ready) return;
+    const host = hostRef.current;
+    if (!host) return;
+    const card = host.closest(".group") as HTMLElement | null;
+    if (!card) return;
+    card.addEventListener("mouseenter", startPlay);
+    card.addEventListener("mouseleave", stopPlay);
+    card.addEventListener("focusin", startPlay);
+    card.addEventListener("focusout", stopPlay);
+    return () => {
+      card.removeEventListener("mouseenter", startPlay);
+      card.removeEventListener("mouseleave", stopPlay);
+      card.removeEventListener("focusin", startPlay);
+      card.removeEventListener("focusout", stopPlay);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ready, mode, speed]);
+
   return (
     <span
       ref={hostRef}
@@ -197,10 +218,10 @@ export const LordIcon: React.FC<Props> = ({
         <lord-icon
           ref={iconRef as React.Ref<HTMLElement>}
           src={src}
-          // trigger="in" plays once on mount; we take over from there.
+          // trigger="in" plays the intro once so the icon is visible even before hover.
           trigger="in"
           colors={colors}
-          style={{ width: size, height: size }}
+          style={{ width: size, height: size, display: "block" }}
         />
       ) : (
         <span
@@ -213,3 +234,4 @@ export const LordIcon: React.FC<Props> = ({
 };
 
 export default LordIcon;
+
