@@ -297,7 +297,7 @@ const Portfolio = () => {
           <div className="max-w-4xl mb-16">
             <span className="pill mb-6">About me</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
-              Experienced Mechanical Design Engineer with proven technical expertise.
+              Experienced Mechanical Design Engineer with <span className="text-gradient-title">proven technical expertise.</span>
             </h2>
           </div>
 
