@@ -171,12 +171,20 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAVIGATION */}
-      <nav className="fixed top-0 inset-x-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+      <nav
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ease-out ${
+          isScrolled || isMenuOpen
+            ? 'bg-background/70 backdrop-blur-lg border-b border-border shadow-soft'
+            : 'bg-transparent border-b border-transparent shadow-none'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="flex items-center justify-between h-20">
+          <div className={`flex items-center justify-between transition-all duration-300 ease-out ${isScrolled ? 'h-16' : 'h-20'}`}>
             <div className="font-display text-2xl font-semibold tracking-tight">Golam Faruk</div>
 
-            <div className="hidden lg:flex items-center gap-1 rounded-full border border-border bg-background px-2 py-1.5">
+            <div className={`hidden lg:flex items-center gap-1 rounded-full border px-2 py-1.5 transition-all duration-300 ease-out ${
+              isScrolled ? 'border-border bg-background/60 backdrop-blur' : 'border-foreground/10 bg-background/30 backdrop-blur-sm'
+            }`}>
               {navLinks.map(link => (
                 <button
                   key={link.id}
@@ -203,7 +211,7 @@ const Portfolio = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="lg:hidden bg-background border-t border-border">
+          <div className="lg:hidden bg-background/90 backdrop-blur-lg border-t border-border animate-fade-in">
             <div className="px-6 py-4 space-y-1">
               {navLinks.map(link => (
                 <button
@@ -218,12 +226,6 @@ const Portfolio = () => {
           </div>
         )}
       </nav>
-
-      {/* HERO */}
-      <section
-        id="home"
-        className="relative mt-20 scroll-mt-20 min-h-[calc(100svh-5rem)] lg:h-[calc(100svh-5rem)] py-8 lg:py-6 px-6 lg:px-10 flex items-center overflow-hidden"
-      >
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             <div className="lg:col-span-7 space-y-4 sm:space-y-5 animate-fade-up">
