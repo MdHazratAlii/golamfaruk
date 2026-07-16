@@ -181,7 +181,7 @@ const Portfolio = () => {
 
             <Button
               onClick={() => scrollToSection('contact')}
-              className="hidden lg:inline-flex bg-foreground text-background hover:bg-foreground/90 rounded-full h-11 px-6 font-semibold"
+              className="btn-shine hidden lg:inline-flex bg-foreground text-background hover:bg-secondary rounded-full h-11 px-6 font-semibold shadow-soft hover:shadow-gold transition-all duration-500"
             >
               Let's talk
               <ArrowUpRight className="ml-1 w-4 h-4" />
