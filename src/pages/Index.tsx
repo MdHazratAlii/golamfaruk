@@ -373,30 +373,34 @@ const Portfolio = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               {[
-                { icon: Settings, title: 'Design tools', accent: 'bg-accent', skills: ['Creo', 'SolidWorks', 'CATIA V5', 'NX', 'AutoCAD', 'Autodesk Inventor'] },
-                { icon: Wrench, title: 'Engineering expertise', accent: 'bg-secondary-soft', skills: ['GD&T', 'Tolerance Stack‑Up', 'FEA Review', 'FMEA', 'DFMEA', 'BOM Creation', 'Design Validation'] },
-                { icon: Database, title: 'Data & systems', accent: 'bg-mint', skills: ['SAP', 'Windchill', 'PDM‑Link', 'Teamcenter', 'Minitab', 'Excel', 'PowerPoint'] },
-                { icon: Target, title: 'Professional strengths', accent: 'bg-accent-soft', skills: ['Product Optimization', 'Cross‑Functional Collaboration', 'Root Cause Analysis', 'Prototype Development'] },
+                { icon: 'https://cdn.lordicon.com/jkzgajyr.json', title: 'Design tools', accent: 'bg-accent', skills: ['Creo', 'SolidWorks', 'CATIA V5', 'NX', 'AutoCAD', 'Autodesk Inventor'] },
+                { icon: 'https://cdn.lordicon.com/kndkiwmf.json', title: 'Engineering expertise', accent: 'bg-secondary-soft', skills: ['GD&T', 'Tolerance Stack‑Up', 'FEA Review', 'FMEA', 'DFMEA', 'BOM Creation', 'Design Validation'] },
+                { icon: 'https://cdn.lordicon.com/axteoudt.json', title: 'Data & systems', accent: 'bg-mint', skills: ['SAP', 'Windchill', 'PDM‑Link', 'Teamcenter', 'Minitab', 'Excel', 'PowerPoint'] },
+                { icon: 'https://cdn.lordicon.com/qhviklyi.json', title: 'Professional strengths', accent: 'bg-accent-soft', skills: ['Product Optimization', 'Cross‑Functional Collaboration', 'Root Cause Analysis', 'Prototype Development'] },
               ].map((cat, i) => (
-                <div key={i} className="bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft transition-shadow">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-12 h-12 rounded-2xl ${cat.accent} flex items-center justify-center`}>
-                      <cat.icon className="w-5 h-5 text-foreground" />
+                <Reveal key={i} variant={i % 2 === 0 ? 'slide-left' : 'slide-right'} delay={i * 100}>
+                  <div className="group bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft hover:-translate-y-1 hover:border-accent/50 transition-all duration-500 h-full">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className={`w-12 h-12 rounded-2xl ${cat.accent} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <LordIcon src={cat.icon} colors="primary:#181e15,secondary:#18f0bf" size={22} mode="once" />
+                      </div>
+                      <h4 className="font-display text-2xl font-semibold">{cat.title}</h4>
                     </div>
-                    <h4 className="font-display text-2xl font-semibold">{cat.title}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {cat.skills.map(s => (
+                        <span key={s} className="px-4 py-2 rounded-full bg-mint-soft border border-border text-sm font-medium hover:bg-accent hover:border-accent transition-colors duration-200">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {cat.skills.map(s => (
-                      <span key={s} className="px-4 py-2 rounded-full bg-mint-soft border border-border text-sm font-medium">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </Reveal>
+
+
 
       </section>
 
