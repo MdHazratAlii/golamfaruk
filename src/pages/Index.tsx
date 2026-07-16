@@ -727,7 +727,7 @@ const Portfolio = () => {
                   Let's connect
                 </span>
                 <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
-                  Have a project<br />in mind?
+                  Have a project<br />in <span className="text-gradient-gold">mind?</span>
                 </h2>
                 <p className="text-lg text-background/70 max-w-md">
                   Ready to bring your machinery vision to life? Send me a note — I typically respond within 24 hours.
