@@ -368,7 +368,8 @@ const Portfolio = () => {
 
       {/* SERVICES */}
       <section id="services" className="py-24 lg:py-32 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
+        <Reveal variant="fade-up" className="max-w-7xl mx-auto">
+
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
             <div className="max-w-2xl">
               <span className="pill mb-6">My services</span>
