@@ -223,7 +223,7 @@ const Portfolio = () => {
               <h1 className="font-display text-[15vw] leading-[0.92] sm:text-7xl lg:text-[6.5rem] xl:text-[7.5rem] font-semibold">
                 The engineer<br />
                 behind precision<br />
-                <span className="italic text-foreground/60">machinery.</span>
+                <span className="italic text-gradient-title">machinery.</span>
               </h1>
 
               <p className="text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed">
