@@ -412,7 +412,8 @@ const Portfolio = () => {
                 { period: '2012 – 2013', title: 'Project Engineer', company: 'Belcan Engineering Group · Client: Caterpillar, Lafayette, IN', desc: 'Led multiple projects for marine and locomotive engines under the NPI program. Designed fuel and oil system components, performed FEA and DFMEA, and managed supplier validation documentation (APQP, PPAP).', logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png', bg: 'bg-secondary-soft' },
                 { period: '2008 – 2012', title: 'Design Engineer', company: 'Geometric Americas Inc. · Client: Caterpillar, Mossville, IL', desc: 'Developed Tier 4 Exhaust Module and Cab components, including SCR and DPF assemblies. Coordinated validation testing and design releases via Teamcenter.', logo: 'https://res.cloudinary.com/dvo0eiqb1/image/upload/v1754025405/rsz_caterpillar-logo_1_xhw8fl.png', bg: 'bg-accent-soft' },
               ].map((job, i) => (
-                <article key={i} className="bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft transition-shadow">
+                <article key={i} className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/40 transition-all duration-500 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   <div className="flex items-start justify-between gap-4 mb-6">
                     <div className={`${job.bg} rounded-2xl h-20 w-40 flex items-center justify-center p-4`}>
                       <img src={job.logo} alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
