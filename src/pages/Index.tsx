@@ -411,7 +411,8 @@ const Portfolio = () => {
 
       {/* COMPONENTS EXPERTISE */}
       <section id="projects" className="py-24 lg:py-32 px-6 lg:px-10 bg-mint-soft">
-        <div className="max-w-7xl mx-auto">
+        <Reveal variant="slide-left" className="max-w-7xl mx-auto">
+
           <div className="max-w-3xl mb-16">
             <span className="pill mb-6">Components expertise</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
