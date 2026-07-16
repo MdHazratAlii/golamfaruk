@@ -488,16 +488,16 @@ const Portfolio = () => {
             ].map((s, i) => (
               <div
                 key={i}
-                className="group bg-background border border-border rounded-[1.75rem] p-8 hover:bg-mint transition-all duration-300"
+                className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/50 hover:bg-secondary hover:text-secondary-foreground transition-all duration-500 relative overflow-hidden"
               >
-                <div className="flex items-center justify-between mb-10">
-                  <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-background flex items-center justify-center transition-colors">
-                    <s.icon className="w-6 h-6 text-foreground" />
+                <div className="flex items-center justify-between mb-10 relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-accent flex items-center justify-center transition-all duration-500 group-hover:rotate-6">
+                    <s.icon className="w-6 h-6 text-foreground group-hover:text-accent-foreground transition-colors" />
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-foreground group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
+                  <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
                 </div>
-                <h3 className="font-display text-2xl font-semibold mb-3">{s.title}</h3>
-                <p className="text-foreground/70 leading-relaxed">{s.desc}</p>
+                <h3 className="font-display text-2xl font-semibold mb-3 relative z-10">{s.title}</h3>
+                <p className="text-foreground/70 group-hover:text-secondary-foreground/80 leading-relaxed relative z-10 transition-colors">{s.desc}</p>
               </div>
             ))}
           </div>
