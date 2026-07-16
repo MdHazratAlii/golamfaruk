@@ -205,27 +205,64 @@ const Portfolio = () => {
               <ArrowUpRight className="ml-1 w-4 h-4" />
             </Button>
 
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2">
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile menu trigger */}
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                  aria-expanded={isMenuOpen}
+                  aria-controls="mobile-nav-menu"
+                  className="lg:hidden inline-flex items-center justify-center min-h-11 min-w-11 rounded-full text-foreground hover:bg-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors"
+                >
+                  {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+                </button>
+              </SheetTrigger>
+              <SheetContent
+                side="right"
+                id="mobile-nav-menu"
+                className="w-[85vw] sm:w-96 bg-background/95 backdrop-blur-xl border-l border-border p-0 flex flex-col"
+              >
+                <SheetHeader className="px-6 pt-6 pb-2 text-left">
+                  <SheetTitle className="font-display text-xl font-semibold tracking-tight">
+                    Navigation
+                  </SheetTitle>
+                  <SheetDescription className="text-sm text-muted-foreground">
+                    Jump to a section of the site.
+                  </SheetDescription>
+                </SheetHeader>
+
+                <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-4 py-4">
+                  <ul className="space-y-1">
+                    {navLinks.map(link => (
+                      <li key={link.id}>
+                        <button
+                          type="button"
+                          onClick={() => scrollToSection(link.id)}
+                          className="w-full text-left px-4 py-3 min-h-11 text-base font-medium text-foreground/80 hover:text-foreground hover:bg-mint rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
+                        >
+                          {link.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+
+                <div className="border-t border-border p-6">
+                  <SheetClose asChild>
+                    <Button
+                      onClick={() => scrollToSection('contact')}
+                      className="w-full bg-foreground text-background hover:bg-secondary rounded-full h-12 font-semibold shadow-soft"
+                    >
+                      Let's talk
+                      <ArrowUpRight className="ml-1 w-4 h-4" aria-hidden="true" />
+                    </Button>
+                  </SheetClose>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
-
-        {isMenuOpen && (
-          <div className="lg:hidden bg-background/90 backdrop-blur-lg border-t border-border animate-fade-in">
-            <div className="px-6 py-4 space-y-1">
-              {navLinks.map(link => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="block w-full text-left px-4 py-3 text-base font-medium text-foreground/80 hover:bg-mint rounded-2xl"
-                >
-                  {link.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
       </nav>
 
       {/* HERO */}
