@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import {
   Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin,
   Linkedin, Facebook, ArrowUpRight, Menu, X, Play, FileText, Clock, Users, Box,
-  Wrench, Database, Target, Package, Cog, GraduationCap, Briefcase
+  Wrench, Database, Target, Package, Cog, GraduationCap, Briefcase, ZoomIn, CheckCircle2
 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { Reveal } from "@/components/Reveal";
