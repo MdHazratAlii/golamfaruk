@@ -617,7 +617,8 @@ const Portfolio = () => {
               </form>
             </div>
           </div>
-        </div>
+        </Reveal>
+
       </section>
 
       {/* FOOTER */}
