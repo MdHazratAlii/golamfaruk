@@ -501,26 +501,28 @@ const Portfolio = () => {
               { icon: 'https://cdn.lordicon.com/qhgmphtg.json', title: '3D Printing Models', desc: 'Prototype development and 3D printing preparation for rapid testing and validation.' },
               { icon: 'https://cdn.lordicon.com/surcxhka.json', title: 'Custom Design Projects', desc: 'Tailored design solutions for unique machinery requirements and specialized applications.' },
             ].map((s, i) => (
-              <div
-                key={i}
-                className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/50 hover:bg-secondary hover:text-secondary-foreground transition-all duration-500 relative overflow-hidden"
-              >
-                <div className="flex items-center justify-between mb-10 relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-accent flex items-center justify-center transition-all duration-500">
-                    <LordIcon
-                      src={s.icon}
-                      colors="primary:#181e15,secondary:#18f0bf"
-                      size={32}
-                      mode="once"
-                      speed={1}
-                    />
+              <Reveal key={i} variant="fade-up" delay={i * 80}>
+                <div
+                  className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/50 hover:bg-secondary hover:text-secondary-foreground transition-all duration-500 relative overflow-hidden h-full"
+                >
+                  <div className="flex items-center justify-between mb-10 relative z-10">
+                    <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-accent group-hover:scale-110 flex items-center justify-center transition-all duration-500">
+                      <LordIcon
+                        src={s.icon}
+                        colors="primary:#181e15,secondary:#18f0bf"
+                        size={32}
+                        mode="once"
+                        speed={1}
+                      />
+                    </div>
+                    <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
+                  <h3 className="font-display text-2xl font-semibold mb-3 relative z-10">{s.title}</h3>
+                  <p className="text-foreground/70 group-hover:text-secondary-foreground/80 leading-relaxed relative z-10 transition-colors">{s.desc}</p>
                 </div>
-                <h3 className="font-display text-2xl font-semibold mb-3 relative z-10">{s.title}</h3>
-                <p className="text-foreground/70 group-hover:text-secondary-foreground/80 leading-relaxed relative z-10 transition-colors">{s.desc}</p>
-              </div>
+              </Reveal>
             ))}
+
           </div>
         </Reveal>
 
