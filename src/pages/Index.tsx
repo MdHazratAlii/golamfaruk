@@ -341,7 +341,7 @@ const Portfolio = () => {
             </div>
 
             <div className="lg:col-span-5 relative animate-fade-in hidden lg:block">
-              <div className="relative aspect-[4/5] max-h-[calc(100vh-10rem)] mx-auto flex items-end justify-center">
+              <div className="relative aspect-[4/5] max-h-[calc(100vh-6rem)] w-[115%] -ml-[7.5%] mx-auto flex items-end justify-center">
                 {/* Soft glow behind the transparent portrait */}
                 <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
                   <div className="w-[85%] h-[85%] rounded-full bg-gradient-to-br from-accent/40 via-mint to-secondary/20 blur-3xl animate-blob-drift-slow" />
