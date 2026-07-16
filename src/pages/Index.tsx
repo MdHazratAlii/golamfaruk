@@ -531,7 +531,8 @@ const Portfolio = () => {
 
       {/* CONTACT */}
       <section id="contact" className="py-24 lg:py-32 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
+        <Reveal variant="fade-up" className="max-w-7xl mx-auto">
+
           <div className="bg-foreground text-background rounded-[2.5rem] p-8 md:p-12 lg:p-16">
             <div className="grid lg:grid-cols-2 gap-12">
               <div className="space-y-8">
