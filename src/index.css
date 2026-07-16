@@ -2,74 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Golam Faruk — Emerald Prestige design system
-   Space Grotesk (display) × DM Sans (body)
+/* Golam Faruk — Semrush-inspired design system
+   Instrument Sans (display, Lazzer stand-in) × Inter (body)
+   Light theme, aqua accent #18f0bf, lavender secondary #c190ff.
    All colors MUST be HSL. */
 
 @layer base {
   :root {
-    /* Base surfaces — Bone (#f5f0e0) & Emerald Deep (#064e3b) */
-    --background: 46 55% 92%;
-    --foreground: 160 84% 16%;
+    /* Base surfaces */
+    --background: 0 0% 100%;                  /* #ffffff */
+    --foreground: 0 0% 20%;                   /* #333333 */
 
     --card: 0 0% 100%;
-    --card-foreground: 160 84% 16%;
+    --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 160 84% 16%;
+    --popover-foreground: 0 0% 20%;
 
-    /* Primary = emerald deep */
-    --primary: 160 84% 16%;
-    --primary-foreground: 46 55% 92%;
+    /* Primary = off-black (Semrush CTA) */
+    --primary: 96 17% 10%;                    /* #181e15 */
+    --primary-foreground: 0 0% 100%;
 
-    /* Accent = brass gold (#c9a84c) */
-    --accent: 45 55% 54%;
-    --accent-foreground: 160 84% 16%;
-    --accent-soft: 45 65% 88%;
+    /* Accent = aqua */
+    --accent: 167 89% 52%;                    /* #18f0bf */
+    --accent-foreground: 96 17% 10%;
+    --accent-soft: 167 70% 90%;
 
-    /* Secondary = emerald mid (#0d7a5f) */
-    --secondary: 163 80% 26%;
-    --secondary-foreground: 46 55% 92%;
-    --secondary-soft: 163 30% 90%;
+    /* Secondary = lavender */
+    --secondary: 267 100% 78%;                /* #c190ff */
+    --secondary-foreground: 96 17% 10%;
+    --secondary-soft: 267 100% 94%;           /* #eee9ff-ish */
 
-    /* Mint = emerald-tinted surface */
-    --mint: 163 30% 88%;
-    --mint-soft: 46 50% 96%;
+    /* Mint surfaces */
+    --mint: 170 34% 89%;                      /* #dceeeb */
+    --mint-soft: 168 33% 97%;                 /* #f7fbfa */
 
-    --muted: 46 40% 95%;
-    --muted-foreground: 160 20% 32%;
+    --muted: 210 14% 96%;                     /* #f0f1f2 tint */
+    --muted-foreground: 0 0% 40%;             /* #666666 */
 
     --destructive: 358 75% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 160 15% 84%;
-    --input: 160 15% 84%;
-    --ring: 45 55% 54%;
+    --border: 170 34% 89%;                    /* #dceeeb */
+    --input: 170 34% 89%;
+    --ring: 167 89% 52%;
 
-    --radius: 1.5rem;
+    /* Pill-first radius (100px+), scaled down for smaller elements */
+    --radius: 1.75rem;
 
-    --sidebar-background: 46 55% 92%;
-    --sidebar-foreground: 160 84% 16%;
-    --sidebar-primary: 160 84% 16%;
-    --sidebar-primary-foreground: 46 55% 92%;
-    --sidebar-accent: 163 30% 88%;
-    --sidebar-accent-foreground: 160 84% 16%;
-    --sidebar-border: 160 15% 84%;
-    --sidebar-ring: 45 55% 54%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 96 17% 10%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 170 34% 89%;
+    --sidebar-accent-foreground: 96 17% 10%;
+    --sidebar-border: 170 34% 89%;
+    --sidebar-ring: 167 89% 52%;
 
-    /* Shadows — warm emerald undertone */
-    --shadow-soft: 0 8px 28px -12px hsl(160 84% 16% / 0.14);
-    --shadow-elevated: 0 28px 64px -24px hsl(160 84% 16% / 0.28);
-    --shadow-gold: 0 10px 40px -12px hsl(45 55% 54% / 0.35);
+    /* Shadows — tinted glass */
+    --shadow-soft: 0 2px 12px 0 hsl(0 0% 0% / 0.05);
+    --shadow-elevated: 0 12px 40px -12px hsl(96 17% 10% / 0.14);
+    --shadow-gold: 0 10px 40px -12px hsl(167 89% 52% / 0.4);
 
     /* Gradients */
     --gradient-title: linear-gradient(120deg,
-      hsl(160 84% 16%) 0%,
-      hsl(163 80% 26%) 40%,
-      hsl(45 55% 54%) 70%,
-      hsl(160 84% 16%) 100%);
-    --gradient-emerald: linear-gradient(135deg, hsl(160 84% 16%), hsl(163 80% 26%));
-    --gradient-gold: linear-gradient(135deg, hsl(45 55% 54%), hsl(45 70% 68%));
+      hsl(96 17% 10%) 0%,
+      hsl(167 89% 42%) 35%,
+      hsl(267 100% 68%) 65%,
+      hsl(96 17% 10%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(170 34% 89%) 0%, hsl(267 100% 94%) 75%, hsl(0 0% 100%) 100%);
+    --gradient-emerald: linear-gradient(135deg, hsl(96 17% 10%), hsl(96 17% 18%));
+    --gradient-gold: linear-gradient(135deg, hsl(167 89% 52%), hsl(167 89% 62%));
   }
 
   * { @apply border-border; }
@@ -78,33 +81,36 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
     font-size: 17px;
-    line-height: 1.6;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
     font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
     color: hsl(var(--foreground));
   }
 
   h1 { letter-spacing: -0.045em; }
 
-  ::selection { background: hsl(var(--accent) / 0.35); color: hsl(var(--foreground)); }
+  ::selection { background: hsl(var(--accent) / 0.4); color: hsl(var(--foreground)); }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; }
-  .font-body { font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif; }
+  .font-display { font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif; }
+  .font-body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
 
   .shadow-soft { box-shadow: var(--shadow-soft); }
   .shadow-elevated { box-shadow: var(--shadow-elevated); }
   .shadow-gold { box-shadow: var(--shadow-gold); }
+
+  .bg-gradient-hero { background-image: var(--gradient-hero); }
 
   .pill {
     @apply inline-flex items-center rounded-full border border-foreground/15 bg-background/70 backdrop-blur px-4 py-2 text-sm font-semibold text-foreground;
@@ -134,8 +140,8 @@
     box-shadow: 0 0 0 0 hsl(var(--accent) / 0);
   }
   .hover-gold-ring:hover {
-    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.25);
-    border-color: hsl(var(--accent) / 0.6);
+    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.3);
+    border-color: hsl(var(--accent) / 0.7);
   }
 
   /* Button shine sweep */
@@ -158,11 +164,11 @@
       hover:after:scale-x-100 hover:after:origin-bottom-left;
   }
 
-  /* Tick divider (blueprint feel) */
+  /* Tick divider */
   .tick-divider {
     background-image: repeating-linear-gradient(
       to right,
-      hsl(var(--foreground) / 0.25) 0 1px,
+      hsl(var(--foreground) / 0.2) 0 1px,
       transparent 1px 12px
     );
     height: 1px;
