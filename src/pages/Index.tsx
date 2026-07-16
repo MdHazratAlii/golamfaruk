@@ -343,19 +343,24 @@ const Portfolio = () => {
           {/* Experience Stats */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: Clock, num: '10+', label: 'Years of experience', hint: 'In mechanical design engineering' },
-              { icon: FileText, num: '100+', label: 'Projects completed', hint: 'Complex mechanical & engine components' },
-              { icon: Users, num: '10+', label: 'Global collaborations', hint: 'John Deere, Caterpillar & Arctic Cat' },
-              { icon: Box, num: '5000+', label: 'CAD models built', hint: 'Detailed parts, prototypes & releases' },
+              { icon: 'https://cdn.lordicon.com/fdxqrdfe.json', num: '10+', label: 'Years of experience', hint: 'In mechanical design engineering' },
+              { icon: 'https://cdn.lordicon.com/nocovwne.json', num: '100+', label: 'Projects completed', hint: 'Complex mechanical & engine components' },
+              { icon: 'https://cdn.lordicon.com/yxczfiyc.json', num: '10+', label: 'Global collaborations', hint: 'John Deere, Caterpillar & Arctic Cat' },
+              { icon: 'https://cdn.lordicon.com/iltqorsz.json', num: '5000+', label: 'CAD models built', hint: 'Detailed parts, prototypes & releases' },
             ].map((s, i) => (
-              <div key={i} className="group bg-card border border-border rounded-[1.75rem] p-6 hover-lift hover:border-accent/50 transition-all duration-500">
-                <s.icon className="w-6 h-6 text-secondary mb-6 group-hover:text-accent transition-colors duration-300" />
-                <div className="font-display text-5xl font-semibold leading-none mb-2">{s.num}</div>
-                <div className="font-semibold text-foreground">{s.label}</div>
-                <div className="text-sm text-muted-foreground mt-1">{s.hint}</div>
-              </div>
+              <Reveal key={i} variant="fade-up" delay={i * 90}>
+                <div className="group bg-card border border-border rounded-[1.75rem] p-6 hover-lift hover:border-accent/50 hover:-translate-y-1 transition-all duration-500 h-full">
+                  <div className="mb-6">
+                    <LordIcon src={s.icon} colors="primary:#181e15,secondary:#18f0bf" size={32} mode="once" />
+                  </div>
+                  <div className="font-display text-5xl font-semibold leading-none mb-2">{s.num}</div>
+                  <div className="font-semibold text-foreground">{s.label}</div>
+                  <div className="text-sm text-muted-foreground mt-1">{s.hint}</div>
+                </div>
+              </Reveal>
             ))}
           </div>
+
 
           {/* Skills */}
           <div className="mt-20">
@@ -368,30 +373,34 @@ const Portfolio = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               {[
-                { icon: Settings, title: 'Design tools', accent: 'bg-accent', skills: ['Creo', 'SolidWorks', 'CATIA V5', 'NX', 'AutoCAD', 'Autodesk Inventor'] },
-                { icon: Wrench, title: 'Engineering expertise', accent: 'bg-secondary-soft', skills: ['GD&T', 'Tolerance Stack‑Up', 'FEA Review', 'FMEA', 'DFMEA', 'BOM Creation', 'Design Validation'] },
-                { icon: Database, title: 'Data & systems', accent: 'bg-mint', skills: ['SAP', 'Windchill', 'PDM‑Link', 'Teamcenter', 'Minitab', 'Excel', 'PowerPoint'] },
-                { icon: Target, title: 'Professional strengths', accent: 'bg-accent-soft', skills: ['Product Optimization', 'Cross‑Functional Collaboration', 'Root Cause Analysis', 'Prototype Development'] },
+                { icon: 'https://cdn.lordicon.com/jkzgajyr.json', title: 'Design tools', accent: 'bg-accent', skills: ['Creo', 'SolidWorks', 'CATIA V5', 'NX', 'AutoCAD', 'Autodesk Inventor'] },
+                { icon: 'https://cdn.lordicon.com/kndkiwmf.json', title: 'Engineering expertise', accent: 'bg-secondary-soft', skills: ['GD&T', 'Tolerance Stack‑Up', 'FEA Review', 'FMEA', 'DFMEA', 'BOM Creation', 'Design Validation'] },
+                { icon: 'https://cdn.lordicon.com/axteoudt.json', title: 'Data & systems', accent: 'bg-mint', skills: ['SAP', 'Windchill', 'PDM‑Link', 'Teamcenter', 'Minitab', 'Excel', 'PowerPoint'] },
+                { icon: 'https://cdn.lordicon.com/qhviklyi.json', title: 'Professional strengths', accent: 'bg-accent-soft', skills: ['Product Optimization', 'Cross‑Functional Collaboration', 'Root Cause Analysis', 'Prototype Development'] },
               ].map((cat, i) => (
-                <div key={i} className="bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft transition-shadow">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-12 h-12 rounded-2xl ${cat.accent} flex items-center justify-center`}>
-                      <cat.icon className="w-5 h-5 text-foreground" />
+                <Reveal key={i} variant={i % 2 === 0 ? 'slide-left' : 'slide-right'} delay={i * 100}>
+                  <div className="group bg-background border border-border rounded-[1.75rem] p-8 hover:shadow-soft hover:-translate-y-1 hover:border-accent/50 transition-all duration-500 h-full">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className={`w-12 h-12 rounded-2xl ${cat.accent} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <LordIcon src={cat.icon} colors="primary:#181e15,secondary:#18f0bf" size={22} mode="once" />
+                      </div>
+                      <h4 className="font-display text-2xl font-semibold">{cat.title}</h4>
                     </div>
-                    <h4 className="font-display text-2xl font-semibold">{cat.title}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {cat.skills.map(s => (
+                        <span key={s} className="px-4 py-2 rounded-full bg-mint-soft border border-border text-sm font-medium hover:bg-accent hover:border-accent transition-colors duration-200">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {cat.skills.map(s => (
-                      <span key={s} className="px-4 py-2 rounded-full bg-mint-soft border border-border text-sm font-medium">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </Reveal>
+
+
 
       </section>
 
@@ -492,26 +501,28 @@ const Portfolio = () => {
               { icon: 'https://cdn.lordicon.com/qhgmphtg.json', title: '3D Printing Models', desc: 'Prototype development and 3D printing preparation for rapid testing and validation.' },
               { icon: 'https://cdn.lordicon.com/surcxhka.json', title: 'Custom Design Projects', desc: 'Tailored design solutions for unique machinery requirements and specialized applications.' },
             ].map((s, i) => (
-              <div
-                key={i}
-                className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/50 hover:bg-secondary hover:text-secondary-foreground transition-all duration-500 relative overflow-hidden"
-              >
-                <div className="flex items-center justify-between mb-10 relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-accent flex items-center justify-center transition-all duration-500">
-                    <LordIcon
-                      src={s.icon}
-                      colors="primary:#181e15,secondary:#18f0bf"
-                      size={32}
-                      mode="once"
-                      speed={1}
-                    />
+              <Reveal key={i} variant="fade-up" delay={i * 80}>
+                <div
+                  className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/50 hover:bg-secondary hover:text-secondary-foreground transition-all duration-500 relative overflow-hidden h-full"
+                >
+                  <div className="flex items-center justify-between mb-10 relative z-10">
+                    <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-accent group-hover:scale-110 flex items-center justify-center transition-all duration-500">
+                      <LordIcon
+                        src={s.icon}
+                        colors="primary:#181e15,secondary:#18f0bf"
+                        size={32}
+                        mode="once"
+                        speed={1}
+                      />
+                    </div>
+                    <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
+                  <h3 className="font-display text-2xl font-semibold mb-3 relative z-10">{s.title}</h3>
+                  <p className="text-foreground/70 group-hover:text-secondary-foreground/80 leading-relaxed relative z-10 transition-colors">{s.desc}</p>
                 </div>
-                <h3 className="font-display text-2xl font-semibold mb-3 relative z-10">{s.title}</h3>
-                <p className="text-foreground/70 group-hover:text-secondary-foreground/80 leading-relaxed relative z-10 transition-colors">{s.desc}</p>
-              </div>
+              </Reveal>
             ))}
+
           </div>
         </Reveal>
 
@@ -747,19 +758,21 @@ const Portfolio = () => {
 
                 <div className="space-y-6 pt-6">
                   {[
-                    { icon: Mail, label: 'Email', value: 'hello@golamfaruk.com' },
-                    { icon: Phone, label: 'Phone', value: '+1 022 444 55 55' },
-                    { icon: MapPin, label: 'Address', value: '123 Cinnamon Lane, Waterloo, Iowa' },
+                    { icon: 'https://cdn.lordicon.com/rjzlnunf.json', label: 'Email', value: 'hello@golamfaruk.com' },
+                    { icon: 'https://cdn.lordicon.com/ojnjgkun.json', label: 'Phone', value: '+1 022 444 55 55' },
+                    { icon: 'https://cdn.lordicon.com/abfverha.json', label: 'Address', value: '123 Cinnamon Lane, Waterloo, Iowa' },
                   ].map((c, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <div className="w-11 h-11 rounded-2xl bg-background/10 flex items-center justify-center flex-shrink-0">
-                        <c.icon className="w-5 h-5 text-accent" />
+                    <Reveal key={i} variant="slide-left" delay={i * 120}>
+                      <div className="group flex items-start gap-4">
+                        <div className="w-11 h-11 rounded-2xl bg-background/10 group-hover:bg-accent group-hover:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                          <LordIcon src={c.icon} colors="primary:#18f0bf,secondary:#ffffff" size={22} mode="once" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-semibold uppercase tracking-wider text-background/60">{c.label}</div>
+                          <div className="text-lg font-medium">{c.value}</div>
+                        </div>
                       </div>
-                      <div>
-                        <div className="text-xs font-semibold uppercase tracking-wider text-background/60">{c.label}</div>
-                        <div className="text-lg font-medium">{c.value}</div>
-                      </div>
-                    </div>
+                    </Reveal>
                   ))}
                 </div>
 
@@ -767,16 +780,17 @@ const Portfolio = () => {
                   <div className="text-xs font-semibold uppercase tracking-wider text-background/60 mb-3">Follow</div>
                   <div className="flex gap-3">
                     <a href="https://www.linkedin.com/in/golam-faruk-2b947519" target="_blank" rel="noopener noreferrer"
-                       className="inline-flex items-center gap-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground px-5 h-11 text-sm font-semibold transition-colors">
+                       className="inline-flex items-center gap-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground hover:-translate-y-0.5 px-5 h-11 text-sm font-semibold transition-all duration-300">
                       <Linkedin className="w-4 h-4" /> LinkedIn
                     </a>
                     <a href="https://www.facebook.com/mdgolam.faruk.773" target="_blank" rel="noopener noreferrer"
-                       className="inline-flex items-center gap-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground px-5 h-11 text-sm font-semibold transition-colors">
+                       className="inline-flex items-center gap-2 rounded-full bg-background/10 hover:bg-accent hover:text-foreground hover:-translate-y-0.5 px-5 h-11 text-sm font-semibold transition-all duration-300">
                       <Facebook className="w-4 h-4" /> Facebook
                     </a>
                   </div>
                 </div>
               </div>
+
 
               <form onSubmit={handleSubmit} className="bg-background text-foreground rounded-[2rem] p-8 lg:p-10 space-y-4">
                 <h3 className="font-display text-2xl font-semibold mb-6">Send a message</h3>
