@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { Reveal } from "@/components/Reveal";
+import { LordIcon } from "@/components/LordIcon";
 import exhaustManifold from "@/assets/exhaust-manifold.jpg";
 import cylinderPiston from "@/assets/cylinder-piston.jpg";
 import sheetMetalBracket from "@/assets/sheet-metal-bracket.jpg";
@@ -479,20 +480,25 @@ const Portfolio = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { icon: Settings, title: '3D Machinery Design', desc: 'Complete machinery design from concept to production‑ready models with precision engineering.' },
-              { icon: Layers, title: 'CAD Drafting', desc: 'Technical drawings and detailed blueprints for manufacturing and assembly processes.' },
-              { icon: Eye, title: 'Machinery Visualization', desc: 'Photorealistic renderings and animations to showcase your machinery designs.' },
-              { icon: MessageCircle, title: 'Design Consultation', desc: 'Expert advice on design optimization, feasibility studies, and technical solutions.' },
-              { icon: Printer, title: '3D Printing Models', desc: 'Prototype development and 3D printing preparation for rapid testing and validation.' },
-              { icon: Cpu, title: 'Custom Design Projects', desc: 'Tailored design solutions for unique machinery requirements and specialized applications.' },
+              { icon: 'https://cdn.lordicon.com/hwjcdycb.json', title: '3D Machinery Design', desc: 'Complete machinery design from concept to production‑ready models with precision engineering.' },
+              { icon: 'https://cdn.lordicon.com/rmkahxvq.json', title: 'CAD Drafting', desc: 'Technical drawings and detailed blueprints for manufacturing and assembly processes.' },
+              { icon: 'https://cdn.lordicon.com/vihyezvc.json', title: 'Machinery Visualization', desc: 'Photorealistic renderings and animations to showcase your machinery designs.' },
+              { icon: 'https://cdn.lordicon.com/hrjifpbq.json', title: 'Design Consultation', desc: 'Expert advice on design optimization, feasibility studies, and technical solutions.' },
+              { icon: 'https://cdn.lordicon.com/mdyaacko.json', title: '3D Printing Models', desc: 'Prototype development and 3D printing preparation for rapid testing and validation.' },
+              { icon: 'https://cdn.lordicon.com/surcxhka.json', title: 'Custom Design Projects', desc: 'Tailored design solutions for unique machinery requirements and specialized applications.' },
             ].map((s, i) => (
               <div
                 key={i}
                 className="group bg-card border border-border rounded-[1.75rem] p-8 hover-lift hover:border-accent/50 hover:bg-secondary hover:text-secondary-foreground transition-all duration-500 relative overflow-hidden"
               >
                 <div className="flex items-center justify-between mb-10 relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-accent flex items-center justify-center transition-all duration-500 group-hover:rotate-6">
-                    <s.icon className="w-6 h-6 text-foreground group-hover:text-accent-foreground transition-colors" />
+                  <div className="w-14 h-14 rounded-2xl bg-mint group-hover:bg-accent flex items-center justify-center transition-all duration-500">
+                    <LordIcon
+                      src={s.icon}
+                      colors="primary:#064e3b,secondary:#c9a84c"
+                      size={32}
+                      trigger="hover"
+                    />
                   </div>
                   <ArrowUpRight className="w-5 h-5 text-foreground/40 group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
                 </div>
