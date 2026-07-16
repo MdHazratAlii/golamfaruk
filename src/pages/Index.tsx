@@ -212,63 +212,66 @@ const Portfolio = () => {
       </nav>
 
       {/* HERO */}
-      <section id="home" className="pt-32 pb-24 lg:pt-40 lg:pb-32 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-7 space-y-8 animate-fade-up">
+      <section
+        id="home"
+        className="h-screen min-h-[640px] pt-20 px-6 lg:px-10 flex items-center overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7 space-y-5 lg:space-y-6 animate-fade-up">
               <span className="pill">
                 <span className="w-2 h-2 rounded-full bg-accent mr-2" />
                 Senior Mechanical Design Engineer
               </span>
 
-              <h1 className="font-display text-[15vw] leading-[0.92] sm:text-7xl lg:text-[6.5rem] xl:text-[7.5rem] font-semibold">
+              <h1 className="font-display text-[12vw] leading-[0.95] sm:text-6xl lg:text-[4.75rem] xl:text-[5.5rem] font-semibold">
                 The engineer<br />
                 behind precision<br />
                 <span className="italic text-gradient-title">machinery.</span>
               </h1>
 
-              <p className="text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed">
+              <p className="text-base lg:text-lg text-muted-foreground max-w-xl leading-relaxed">
                 Over a decade turning engineering concepts into production‑ready designs
                 for John Deere, Arctic Cat and Caterpillar — using Creo, SolidWorks, CATIA V5 and NX.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-3 pt-1">
                 <Button
                   onClick={() => scrollToSection('projects')}
-                  className="btn-shine bg-foreground text-background hover:bg-secondary rounded-full h-14 px-8 text-base font-semibold shadow-elevated hover:shadow-gold transition-all duration-500"
+                  className="btn-shine bg-foreground text-background hover:bg-secondary rounded-full h-12 px-7 text-sm font-semibold shadow-elevated hover:shadow-gold transition-all duration-500"
                 >
                   View my work
-                  <ArrowUpRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  <ArrowUpRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Button>
                 <Button
                   onClick={() => scrollToSection('contact')}
                   variant="outline"
-                  className="rounded-full h-14 px-8 text-base font-semibold border-2 border-foreground/30 bg-transparent hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-300"
+                  className="rounded-full h-12 px-7 text-sm font-semibold border-2 border-foreground/30 bg-transparent hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-300"
                 >
                   Start a project
                 </Button>
               </div>
 
-              <div className="flex items-center gap-8 pt-6 text-sm text-muted-foreground">
+              <div className="flex items-center gap-6 pt-3 text-xs text-muted-foreground">
                 <div>
-                  <div className="font-display text-3xl text-foreground">10+</div>
+                  <div className="font-display text-2xl text-foreground">10+</div>
                   <div>Years experience</div>
                 </div>
-                <div className="w-px h-10 bg-border" />
+                <div className="w-px h-8 bg-border" />
                 <div>
-                  <div className="font-display text-3xl text-foreground">5000+</div>
+                  <div className="font-display text-2xl text-foreground">5000+</div>
                   <div>CAD models built</div>
                 </div>
-                <div className="w-px h-10 bg-border hidden sm:block" />
+                <div className="w-px h-8 bg-border hidden sm:block" />
                 <div className="hidden sm:block">
-                  <div className="font-display text-3xl text-foreground">10+</div>
+                  <div className="font-display text-2xl text-foreground">10+</div>
                   <div>Global brands</div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-5 relative animate-fade-in">
-              <div className="relative rounded-[2.5rem] overflow-hidden bg-mint aspect-[4/5]">
+            <div className="lg:col-span-5 relative animate-fade-in hidden lg:block">
+              <div className="relative rounded-[2rem] overflow-hidden bg-mint aspect-[4/5] max-h-[70vh] mx-auto">
                 <img
                   src="/golam-faruk.png"
                   alt="Golam Faruk, Mechanical Design Engineer"
@@ -276,20 +279,22 @@ const Portfolio = () => {
                   loading="eager"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-background rounded-3xl p-5 shadow-elevated border border-border max-w-[240px]">
+              <div className="absolute -bottom-4 -left-4 bg-background rounded-2xl p-4 shadow-elevated border border-border max-w-[220px]">
                 <div className="flex items-center gap-2 mb-1">
-                  <div className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
-                  <span className="text-xs font-semibold uppercase tracking-wider">Available</span>
+                  <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                  <span className="text-[11px] font-semibold uppercase tracking-wider">Available</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Currently open for new engineering collaborations.</p>
+                <p className="text-xs text-muted-foreground">Currently open for new engineering collaborations.</p>
               </div>
-              <div className="absolute -top-6 -right-6 bg-accent rounded-3xl p-5 shadow-gold rotate-3">
-                <Cog className="w-8 h-8 text-foreground animate-spin-slow" />
+              <div className="absolute -top-4 -right-4 bg-accent rounded-2xl p-4 shadow-gold rotate-3">
+                <Cog className="w-7 h-7 text-foreground animate-spin-slow" />
               </div>
             </div>
           </div>
         </div>
       </section>
+
+
 
       {/* ABOUT */}
       <section id="about" className="py-24 lg:py-32 px-6 lg:px-10">
