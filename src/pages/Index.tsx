@@ -271,6 +271,21 @@ const Portfolio = () => {
         id="home"
         className="relative scroll-mt-20 min-h-screen pt-28 lg:pt-24 pb-10 px-6 lg:px-10 flex items-center overflow-hidden"
       >
+        {/* Animated soft gradient background */}
+        <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+          <div
+            className="absolute inset-0 opacity-70 animate-gradient-pan"
+            style={{
+              background:
+                'linear-gradient(120deg, hsl(var(--mint)) 0%, hsl(var(--background)) 40%, hsl(var(--accent) / 0.35) 100%)',
+              backgroundSize: '200% 200%',
+            }}
+          />
+          <div className="absolute -top-32 -left-24 w-[520px] h-[520px] rounded-full bg-accent/30 blur-3xl animate-blob-drift" />
+          <div className="absolute top-1/3 -right-32 w-[560px] h-[560px] rounded-full bg-mint blur-3xl animate-blob-drift-slow" />
+          <div className="absolute -bottom-40 left-1/3 w-[460px] h-[460px] rounded-full bg-secondary/20 blur-3xl animate-blob-drift" style={{ animationDelay: '-8s' }} />
+        </div>
+
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             <div className="lg:col-span-7 space-y-4 sm:space-y-5 animate-fade-up">
@@ -326,11 +341,15 @@ const Portfolio = () => {
             </div>
 
             <div className="lg:col-span-5 relative animate-fade-in hidden lg:block">
-              <div className="relative rounded-[2rem] overflow-hidden bg-mint aspect-[4/5] max-h-[calc(100vh-10rem)] mx-auto">
+              <div className="relative aspect-[4/5] max-h-[calc(100vh-10rem)] mx-auto flex items-end justify-center">
+                {/* Soft glow behind the transparent portrait */}
+                <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-[85%] h-[85%] rounded-full bg-gradient-to-br from-accent/40 via-mint to-secondary/20 blur-3xl animate-blob-drift-slow" />
+                </div>
                 <img
-                  src="/golam-faruk.png"
+                  src={golamFarukHero}
                   alt="Golam Faruk, Mechanical Design Engineer"
-                  className="w-full h-full object-cover"
+                  className="relative w-full h-full object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.25)]"
                   loading="eager"
                 />
               </div>
@@ -340,9 +359,6 @@ const Portfolio = () => {
                   <span className="text-[11px] font-semibold uppercase tracking-wider">Available</span>
                 </div>
                 <p className="text-xs text-muted-foreground">Currently open for new engineering collaborations.</p>
-              </div>
-              <div className="absolute top-4 -right-4 bg-accent rounded-2xl p-4 shadow-gold rotate-3">
-                <Cog className="w-7 h-7 text-foreground animate-spin-slow" />
               </div>
             </div>
           </div>
