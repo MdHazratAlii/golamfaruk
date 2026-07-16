@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetHeader, SheetClose } from "@/components/ui/sheet";
 import {
   Settings, Cpu, Layers, Eye, MessageCircle, Printer, Star, Mail, Phone, MapPin,
   Linkedin, Facebook, ArrowUpRight, Menu, X, Play, FileText, Clock, Users, Box,
