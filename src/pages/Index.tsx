@@ -512,7 +512,7 @@ const Portfolio = () => {
           <div className="max-w-3xl mb-16">
             <span className="pill mb-6">Components expertise</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
-              Highlighting precision‑driven designs.
+              Highlighting <span className="text-gradient-title">precision‑driven</span> designs.
             </h2>
           </div>
 
