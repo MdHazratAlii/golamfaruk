@@ -94,8 +94,9 @@
     font-weight: 600;
     letter-spacing: -0.035em;
     line-height: 1.05;
-    color: hsl(var(--foreground));
+    /* No explicit color — headings inherit so dark cards render correctly. */
   }
+
 
   h1 { letter-spacing: -0.045em; }
 

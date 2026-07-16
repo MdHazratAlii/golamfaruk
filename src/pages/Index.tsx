@@ -487,9 +487,9 @@ const Portfolio = () => {
             {[
               { icon: 'https://cdn.lordicon.com/hwjcdycb.json', title: '3D Machinery Design', desc: 'Complete machinery design from concept to production‑ready models with precision engineering.' },
               { icon: 'https://cdn.lordicon.com/rmkahxvq.json', title: 'CAD Drafting', desc: 'Technical drawings and detailed blueprints for manufacturing and assembly processes.' },
-              { icon: 'https://cdn.lordicon.com/vihyezvc.json', title: 'Machinery Visualization', desc: 'Photorealistic renderings and animations to showcase your machinery designs.' },
+              { icon: 'https://cdn.lordicon.com/msoeawqm.json', title: 'Machinery Visualization', desc: 'Photorealistic renderings and animations to showcase your machinery designs.' },
               { icon: 'https://cdn.lordicon.com/hrjifpbq.json', title: 'Design Consultation', desc: 'Expert advice on design optimization, feasibility studies, and technical solutions.' },
-              { icon: 'https://cdn.lordicon.com/mdyaacko.json', title: '3D Printing Models', desc: 'Prototype development and 3D printing preparation for rapid testing and validation.' },
+              { icon: 'https://cdn.lordicon.com/qhgmphtg.json', title: '3D Printing Models', desc: 'Prototype development and 3D printing preparation for rapid testing and validation.' },
               { icon: 'https://cdn.lordicon.com/surcxhka.json', title: 'Custom Design Projects', desc: 'Tailored design solutions for unique machinery requirements and specialized applications.' },
             ].map((s, i) => (
               <div
