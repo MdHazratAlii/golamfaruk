@@ -234,15 +234,15 @@ const Portfolio = () => {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button
                   onClick={() => scrollToSection('projects')}
-                  className="bg-foreground text-background hover:bg-foreground/90 rounded-full h-14 px-8 text-base font-semibold"
+                  className="btn-shine bg-foreground text-background hover:bg-secondary rounded-full h-14 px-8 text-base font-semibold shadow-elevated hover:shadow-gold transition-all duration-500"
                 >
                   View my work
-                  <ArrowUpRight className="ml-2 w-5 h-5" />
+                  <ArrowUpRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Button>
                 <Button
                   onClick={() => scrollToSection('contact')}
                   variant="outline"
-                  className="rounded-full h-14 px-8 text-base font-semibold border-foreground/20 hover:bg-mint"
+                  className="rounded-full h-14 px-8 text-base font-semibold border-2 border-foreground/30 bg-transparent hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-300"
                 >
                   Start a project
                 </Button>
