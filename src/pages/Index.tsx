@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { Reveal } from "@/components/Reveal";
+import { LordIcon } from "@/components/LordIcon";
 import exhaustManifold from "@/assets/exhaust-manifold.jpg";
 import cylinderPiston from "@/assets/cylinder-piston.jpg";
 import sheetMetalBracket from "@/assets/sheet-metal-bracket.jpg";
