@@ -226,6 +226,12 @@ const Portfolio = () => {
           </div>
         )}
       </nav>
+
+      {/* HERO */}
+      <section
+        id="home"
+        className="relative scroll-mt-20 min-h-screen pt-28 lg:pt-24 pb-10 px-6 lg:px-10 flex items-center overflow-hidden"
+      >
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             <div className="lg:col-span-7 space-y-4 sm:space-y-5 animate-fade-up">
