@@ -343,19 +343,24 @@ const Portfolio = () => {
           {/* Experience Stats */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: Clock, num: '10+', label: 'Years of experience', hint: 'In mechanical design engineering' },
-              { icon: FileText, num: '100+', label: 'Projects completed', hint: 'Complex mechanical & engine components' },
-              { icon: Users, num: '10+', label: 'Global collaborations', hint: 'John Deere, Caterpillar & Arctic Cat' },
-              { icon: Box, num: '5000+', label: 'CAD models built', hint: 'Detailed parts, prototypes & releases' },
+              { icon: 'https://cdn.lordicon.com/fdxqrdfe.json', num: '10+', label: 'Years of experience', hint: 'In mechanical design engineering' },
+              { icon: 'https://cdn.lordicon.com/nocovwne.json', num: '100+', label: 'Projects completed', hint: 'Complex mechanical & engine components' },
+              { icon: 'https://cdn.lordicon.com/yxczfiyc.json', num: '10+', label: 'Global collaborations', hint: 'John Deere, Caterpillar & Arctic Cat' },
+              { icon: 'https://cdn.lordicon.com/iltqorsz.json', num: '5000+', label: 'CAD models built', hint: 'Detailed parts, prototypes & releases' },
             ].map((s, i) => (
-              <div key={i} className="group bg-card border border-border rounded-[1.75rem] p-6 hover-lift hover:border-accent/50 transition-all duration-500">
-                <s.icon className="w-6 h-6 text-secondary mb-6 group-hover:text-accent transition-colors duration-300" />
-                <div className="font-display text-5xl font-semibold leading-none mb-2">{s.num}</div>
-                <div className="font-semibold text-foreground">{s.label}</div>
-                <div className="text-sm text-muted-foreground mt-1">{s.hint}</div>
-              </div>
+              <Reveal key={i} variant="fade-up" delay={i * 90}>
+                <div className="group bg-card border border-border rounded-[1.75rem] p-6 hover-lift hover:border-accent/50 hover:-translate-y-1 transition-all duration-500 h-full">
+                  <div className="mb-6">
+                    <LordIcon src={s.icon} colors="primary:#181e15,secondary:#18f0bf" size={32} mode="once" />
+                  </div>
+                  <div className="font-display text-5xl font-semibold leading-none mb-2">{s.num}</div>
+                  <div className="font-semibold text-foreground">{s.label}</div>
+                  <div className="text-sm text-muted-foreground mt-1">{s.hint}</div>
+                </div>
+              </Reveal>
             ))}
           </div>
+
 
           {/* Skills */}
           <div className="mt-20">
