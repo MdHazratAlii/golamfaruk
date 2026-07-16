@@ -342,8 +342,8 @@ const Portfolio = () => {
               { icon: Users, num: '10+', label: 'Global collaborations', hint: 'John Deere, Caterpillar & Arctic Cat' },
               { icon: Box, num: '5000+', label: 'CAD models built', hint: 'Detailed parts, prototypes & releases' },
             ].map((s, i) => (
-              <div key={i} className="bg-background border border-border rounded-[1.75rem] p-6 hover:bg-mint-soft transition-colors">
-                <s.icon className="w-6 h-6 text-foreground/70 mb-6" />
+              <div key={i} className="group bg-card border border-border rounded-[1.75rem] p-6 hover-lift hover:border-accent/50 transition-all duration-500">
+                <s.icon className="w-6 h-6 text-secondary mb-6 group-hover:text-accent transition-colors duration-300" />
                 <div className="font-display text-5xl font-semibold leading-none mb-2">{s.num}</div>
                 <div className="font-semibold text-foreground">{s.label}</div>
                 <div className="text-sm text-muted-foreground mt-1">{s.hint}</div>
