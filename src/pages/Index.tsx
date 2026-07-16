@@ -214,7 +214,7 @@ const Portfolio = () => {
       {/* HERO */}
       <section
         id="home"
-        className="relative min-h-screen lg:h-screen pt-24 lg:pt-20 pb-10 px-6 lg:px-10 flex items-center overflow-hidden"
+        className="relative mt-20 scroll-mt-20 min-h-[calc(100svh-5rem)] lg:h-[calc(100svh-5rem)] py-8 lg:py-6 px-6 lg:px-10 flex items-center overflow-hidden"
       >
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
