@@ -18,6 +18,7 @@ import sheetMetalBracket from "@/assets/sheet-metal-bracket.jpg";
 import tubesHoses from "@/assets/tubes-hoses.jpg";
 import controlPanelBox from "@/assets/control-panel-box.jpg";
 import coolingSystem from "@/assets/cooling-system.jpg";
+import golamFarukHero from "@/assets/golam-faruk-hero.png";
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
