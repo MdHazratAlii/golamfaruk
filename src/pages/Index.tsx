@@ -9,6 +9,7 @@ import {
   Wrench, Database, Target, Package, Cog, GraduationCap, Briefcase
 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import { Reveal } from "@/components/Reveal";
 import exhaustManifold from "@/assets/exhaust-manifold.jpg";
 import cylinderPiston from "@/assets/cylinder-piston.jpg";
 import sheetMetalBracket from "@/assets/sheet-metal-bracket.jpg";
@@ -201,7 +202,8 @@ const Portfolio = () => {
 
       {/* ABOUT */}
       <section id="about" className="py-24 lg:py-32 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
+        <Reveal variant="fade-up" className="max-w-7xl mx-auto">
+
           <div className="max-w-4xl mb-16">
             <span className="pill mb-6">About me</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
@@ -293,12 +295,14 @@ const Portfolio = () => {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
+
       </section>
 
       {/* EXPERIENCE */}
       <section id="experience" className="py-24 lg:py-32 px-6 lg:px-10 bg-mint-soft">
-        <div className="max-w-7xl mx-auto">
+        <Reveal variant="slide-left" className="max-w-7xl mx-auto">
+
           <div className="max-w-3xl mb-16">
             <span className="pill mb-6">My experience</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
@@ -361,12 +365,14 @@ const Portfolio = () => {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
+
       </section>
 
       {/* SERVICES */}
       <section id="services" className="py-24 lg:py-32 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
+        <Reveal variant="fade-up" className="max-w-7xl mx-auto">
+
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
             <div className="max-w-2xl">
               <span className="pill mb-6">My services</span>
@@ -404,12 +410,14 @@ const Portfolio = () => {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
+
       </section>
 
       {/* COMPONENTS EXPERTISE */}
       <section id="projects" className="py-24 lg:py-32 px-6 lg:px-10 bg-mint-soft">
-        <div className="max-w-7xl mx-auto">
+        <Reveal variant="slide-left" className="max-w-7xl mx-auto">
+
           <div className="max-w-3xl mb-16">
             <span className="pill mb-6">Components expertise</span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.95]">
@@ -450,7 +458,8 @@ const Portfolio = () => {
               </article>
             ))}
           </div>
-        </div>
+        </Reveal>
+
       </section>
 
       {/* REVIEWS */}
@@ -529,7 +538,8 @@ const Portfolio = () => {
 
       {/* CONTACT */}
       <section id="contact" className="py-24 lg:py-32 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
+        <Reveal variant="fade-up" className="max-w-7xl mx-auto">
+
           <div className="bg-foreground text-background rounded-[2.5rem] p-8 md:p-12 lg:p-16">
             <div className="grid lg:grid-cols-2 gap-12">
               <div className="space-y-8">
@@ -615,7 +625,8 @@ const Portfolio = () => {
               </form>
             </div>
           </div>
-        </div>
+        </Reveal>
+
       </section>
 
       {/* FOOTER */}
