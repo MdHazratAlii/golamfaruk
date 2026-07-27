@@ -302,7 +302,7 @@ const Portfolio = () => {
 
               <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-xl leading-relaxed">
                 Over a decade turning engineering concepts into production‑ready designs
-                for John Deere, Arctic Cat and Caterpillar — using Creo, SolidWorks, CATIA V5 and NX.
+                for John Deere, Arctic Cat and Caterpillar — using Creo, SolidWorks, CATIA V5, NX and more.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-1">
